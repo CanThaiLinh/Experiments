@@ -14,19 +14,22 @@
 
     float height = self.scrollView.frame.size.height;
 
-    UIView *red = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 260, height)];
-    [red setBackgroundColor:[UIColor redColor]];
+    float scrollViewWidth = self.scrollView.frame.size.width;
+    int spaceWidth = 5;
+    float cardWidth = scrollViewWidth - 2 * spaceWidth;
 
-    UIView *green = [[UIView alloc] initWithFrame:CGRectMake(290, 0, 260, height)];
-    [green setBackgroundColor:[UIColor greenColor]];
+    const int CARD_COUNT = 5;
+    for (int i = 0; i < CARD_COUNT; i++) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(scrollViewWidth * i + spaceWidth, 0, cardWidth, height)];
+        CGFloat hue = (CGFloat) (arc4random() % 256 / 256.0);
+        CGFloat saturation = (CGFloat) ((arc4random() % 128 / 256.0) + 0.5);
+        CGFloat brightness = (CGFloat) ((arc4random() % 128 / 256.0) + 0.5);
+        UIColor *color = [UIColor colorWithHue:hue saturation: saturation brightness:brightness alpha:1];
+        [view setBackgroundColor:color];
+        [self.scrollView addSubview:view];
+    }
 
-    UIView *blue= [[UIView alloc] initWithFrame:CGRectMake(570, 0, 260, height)];
-    [blue setBackgroundColor:[UIColor blueColor]];
-
-    [self.scrollView addSubview:red];
-    [self.scrollView addSubview:green];
-    [self.scrollView addSubview:blue];
-    self.scrollView.contentSize = CGSizeMake(320 * 3, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(320 * CARD_COUNT, self.scrollView.frame.size.height);
 }
 
 @end
