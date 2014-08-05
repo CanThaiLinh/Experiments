@@ -1,13 +1,11 @@
 #import "EXViewController.h"
-
-@interface EXViewController ()
-@property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-@end
+#import "ClipView.h"
 
 @implementation EXViewController
 
 - (void)viewDidLoad {
+    self.clipView.scrollView = self.scrollView;
+
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.clipsToBounds = NO;
@@ -24,7 +22,7 @@
         CGFloat hue = (CGFloat) (arc4random() % 256 / 256.0);
         CGFloat saturation = (CGFloat) ((arc4random() % 128 / 256.0) + 0.5);
         CGFloat brightness = (CGFloat) ((arc4random() % 128 / 256.0) + 0.5);
-        UIColor *color = [UIColor colorWithHue:hue saturation: saturation brightness:brightness alpha:1];
+        UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
         [view setBackgroundColor:color];
         [self.scrollView addSubview:view];
     }

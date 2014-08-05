@@ -1,6 +1,11 @@
-
 #import <UIKit/UIKit.h>
 
-@interface EXViewController : UIViewController
+@class ClipView;
+
+@interface EXViewController : UIViewController {
+}
+
+@property(weak, nonatomic) IBOutlet ClipView *clipView;
+@property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
