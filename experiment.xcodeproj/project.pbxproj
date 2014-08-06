@@ -15,6 +15,7 @@
 		545903CC063520F9E097D1B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
 		545904185BE7DEC0F407C7E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459028C98D7989DCD15FE3E /* Main.storyboard */; };
 		5459041D667D9B8941E44A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459098D06B74EB703C28FC9 /* InfoPlist.strings */; };
+		5459043CDE76191BE0B112DA /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E808D94E1B897382864 /* Colors.m */; };
 		5459047E98041F6915C2A711 /* ClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459063FA73B58F097F62BA2 /* ClipView.m */; };
 		5459056A4B8E872C35B62510 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
 		54590618522D8A9568E48DFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
+		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		5459063FA73B58F097F62BA2 /* ClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipView.m; sourceTree = "<group>"; };
 		5459089862011C24552756B2 /* experimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = experimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -53,6 +55,7 @@
 		54590C323E21D05C3542C049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		54590C810076A0894BF76533 /* experimentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = experimentTests.m; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		54590EE42E452BC50DE38D08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54590F976439DB3831C43B0A /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				54590F976439DB3831C43B0A /* EXViewController.m */,
 				5459063FA73B58F097F62BA2 /* ClipView.m */,
 				54590B4EBBA35E007E754CBD /* ClipView.h */,
+				54590E808D94E1B897382864 /* Colors.m */,
+				5459058B07CD319037FD76AC /* Colors.h */,
 			);
 			path = experiment;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */,
 				5459024FB3C686E017EF4749 /* EXViewController.m in Sources */,
 				5459047E98041F6915C2A711 /* ClipView.m in Sources */,
+				5459043CDE76191BE0B112DA /* Colors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

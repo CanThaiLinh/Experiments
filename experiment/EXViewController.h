@@ -8,4 +8,5 @@
 @property(weak, nonatomic) IBOutlet ClipView *clipView;
 @property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property(nonatomic, strong) NSMutableArray *cardViews;
 @end

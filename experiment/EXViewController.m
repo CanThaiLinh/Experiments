@@ -1,5 +1,6 @@
 #import "EXViewController.h"
 #import "ClipView.h"
+#import "Colors.h"
 
 @implementation EXViewController
 
@@ -7,31 +8,51 @@
     self.clipView.scrollView = self.scrollView;
 
     self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.clipsToBounds = NO;
 
+    [self buildCards];
+    [self adjustCardSizes];
+}
+
+- (void)buildCards {
+    const int CARD_COUNT = 5;
+    self.cardViews = [@[] mutableCopy];
+    for (int i = 0; i < CARD_COUNT; i++) {
+        UIView *view = [UIView new];
+        [view setBackgroundColor:[Colors randomColor]];
+        [self.cardViews addObject:view];
+        [self.scrollView addSubview:view];
+    }
+}
+
+- (void)adjustCardSizes {
     float height = self.scrollView.frame.size.height;
 
     float scrollViewWidth = self.scrollView.frame.size.width;
     int spaceWidth = 5;
     float cardWidth = scrollViewWidth - 2 * spaceWidth;
-
-    const int CARD_COUNT = 5;
-    for (int i = 0; i < CARD_COUNT; i++) {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(scrollViewWidth * i + spaceWidth, 0, cardWidth, height)];
-        [view setBackgroundColor:[self randomColor]];
-        [self.scrollView addSubview:view];
+    int subViewIndex = 0;
+    for (UIView *view in self.cardViews) {
+        view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth, 0, cardWidth, height);
+        subViewIndex++;
     }
 
-    self.scrollView.contentSize = CGSizeMake(320 * CARD_COUNT, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count,
+            self.scrollView.frame.size.height);
 }
 
-- (UIColor *)randomColor {
-    CGFloat hue = (CGFloat) (arc4random() % 256 / 256.0);
-    CGFloat saturation = (CGFloat) ((arc4random() % 128 / 256.0) + 0.5);
-    CGFloat brightness = (CGFloat) ((arc4random() % 128 / 256.0) + 0.5);
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-    return color;
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    [self adjustCardSizes];
+}
+
+- (CGFloat)getScreenWidth {
+    UIView *rootView = [[[UIApplication sharedApplication] keyWindow] rootViewController].view;
+    CGRect originalFrame = [[UIScreen mainScreen] bounds];
+    CGRect adjustedFrame = [rootView convertRect:originalFrame fromView:nil];
+    return adjustedFrame.size.width;
 }
 
 @end
