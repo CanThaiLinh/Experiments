@@ -5,6 +5,7 @@
 @interface EXViewController : UIViewController <UIGestureRecognizerDelegate> {
 }
 
+@property (weak, nonatomic) IBOutlet UIView *testView;
 @property(weak, nonatomic) IBOutlet ClipView *clipView;
 @property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

@@ -33,6 +33,11 @@
                                     <constraint firstAttribute="height" constant="70" id="zvD-sA-zAt"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsD-x6-NjB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,6 +50,7 @@
                     <connections>
                         <outlet property="clipView" destination="adI-BE-NfK" id="m5i-d3-klY"/>
                         <outlet property="scrollView" destination="Xhw-uA-0Rg" id="dOC-eb-95W"/>
+                        <outlet property="testView" destination="MsD-x6-NjB" id="KcA-93-tEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -20,6 +20,12 @@
 
     [self buildCards];
     [self adjustCardSizes];
+
+
+    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swiped:)];
+    [swipeGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionDown];
+    [swipeGestureRecognizer setDelegate:self];
+    [self.testView addGestureRecognizer:swipeGestureRecognizer];
 }
 
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
