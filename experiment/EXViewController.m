@@ -31,11 +31,16 @@
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {self.swiping = NO;}
     CGPoint v = [gesture velocityInView:self.scrollView];
-    if (abs(v.y) >= 50 && !self.swiping && !self.cardRevealed) {
-        NSLog(@"Revealing");
+    const int THRESHOLD = 150;
+    if (v.y <= -THRESHOLD && !self.swiping && !self.cardRevealed) {
         self.swiping = YES;
         [gesture cancelsTouchesInView];
         [self revealCard];
+    }
+    else if (v.y >= THRESHOLD && !self.swiping && self.cardRevealed) {
+        self.swiping = YES;
+        [gesture cancelsTouchesInView];
+        [self hideCard];
     }
 }
 
@@ -45,46 +50,48 @@
 
 - (void)revealCard {
     self.cardRevealed = YES;
+    [self moveCard:-100];
+}
+
+- (void)hideCard {
+    self.cardRevealed = NO;
+    [self moveCard:100];
+}
+
+- (void)moveCard:(int)pixels {
     int page = (int) (self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
     UIView *card = self.cardViews[page];
-    card.center = CGPointMake(card.center.x, card.center.y - 100);
+    [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        card.center = CGPointMake(card.center.x, card.center.y + pixels);
+    }                completion:^(BOOL finished) {
+    }];
 }
 
 - (void)buildCards {
     const int CARD_COUNT = 5;
     self.cardViews = [@[] mutableCopy];
-    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swiped:)];
-    UITapGestureRecognizer *testTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(swiped:)];
-    [swipeGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionDown];
-    [swipeGestureRecognizer setDelegate:self];
     for (int i = 0; i < CARD_COUNT; i++) {
         UIView *view = [UIView new];
-        [view addGestureRecognizer:swipeGestureRecognizer];
-        [view addGestureRecognizer:testTap];
         [view setBackgroundColor:[Colors randomColor]];
         [self.cardViews addObject:view];
         [self.scrollView addSubview:view];
     }
 }
 
-- (void)swiped:(UISwipeGestureRecognizer *)gesture {
-    NSLog(@"SWIPE");
-}
-
 - (void)adjustCardSizes {
-    float height = self.scrollView.frame.size.height;
+    float height = 70;
 
     float scrollViewWidth = self.scrollView.frame.size.width;
     int spaceWidth = 5;
     float cardWidth = scrollViewWidth - 2 * spaceWidth;
     int subViewIndex = 0;
     for (UIView *view in self.cardViews) {
-        view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth, 0, cardWidth, height);
+        view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
+                self.scrollView.frame.size.height - height, cardWidth, height);
         subViewIndex++;
     }
 
-    self.scrollView.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count,
-            self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, height);
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
