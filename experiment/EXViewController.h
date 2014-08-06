@@ -2,7 +2,7 @@
 
 @class ClipView;
 
-@interface EXViewController : UIViewController <UIGestureRecognizerDelegate> {
+@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate> {
 }
 
 @property (weak, nonatomic) IBOutlet UIView *testView;
@@ -12,4 +12,5 @@
 @property(nonatomic, strong) NSMutableArray *cardViews;
 @property(nonatomic) BOOL swiping;
 @property(nonatomic) BOOL cardRevealed;
+@property(nonatomic) BOOL scrolling;
 @end
