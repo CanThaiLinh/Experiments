@@ -49,10 +49,9 @@
 }
 
 - (CGFloat)getScreenWidth {
-    UIView *rootView = [[[UIApplication sharedApplication] keyWindow] rootViewController].view;
-    CGRect originalFrame = [[UIScreen mainScreen] bounds];
-    CGRect adjustedFrame = [rootView convertRect:originalFrame fromView:nil];
-    return adjustedFrame.size.width;
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation) ? CGRectGetWidth(bounds) : CGRectGetHeight(bounds);
 }
 
 @end
