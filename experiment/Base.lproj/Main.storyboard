@@ -16,27 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Some content" translatesAutoresizingMaskIntoConstraints="NO" id="buf-ht-ii1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="375"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adI-BE-NfK" customClass="ClipView">
-                                <rect key="frame" x="0.0" y="487" width="320" height="81"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adI-BE-NfK" customClass="ClipView">
+                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-uA-0Rg">
-                                        <rect key="frame" x="20" y="0.0" width="280" height="81"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-uA-0Rg">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="Xhw-uA-0Rg" secondAttribute="height" id="0fE-Le-P1l"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xhw-uA-0Rg" secondAttribute="trailing" constant="20" id="TzY-5K-kxI"/>
+                                    <constraint firstItem="Xhw-uA-0Rg" firstAttribute="leading" secondItem="adI-BE-NfK" secondAttribute="leading" constant="20" id="X6d-ay-SqA"/>
+                                    <constraint firstAttribute="centerY" secondItem="Xhw-uA-0Rg" secondAttribute="centerY" id="gQN-ul-TCB"/>
+                                    <constraint firstAttribute="height" constant="70" id="zvD-sA-zAt"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="adI-BE-NfK" secondAttribute="bottom" id="0cZ-5m-9fS"/>
+                            <constraint firstItem="adI-BE-NfK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ZTl-6G-fwG"/>
+                            <constraint firstAttribute="centerX" secondItem="adI-BE-NfK" secondAttribute="centerX" id="h3v-Nu-SDN"/>
+                        </constraints>
                     </view>
+                    <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="clipView" destination="adI-BE-NfK" id="m5i-d3-klY"/>
                         <outlet property="scrollView" destination="Xhw-uA-0Rg" id="dOC-eb-95W"/>
@@ -44,6 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-28" y="40"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
