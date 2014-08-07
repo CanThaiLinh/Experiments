@@ -1,5 +1,8 @@
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "EXViewController.h"
 #import "ClipView.h"
+#import "DummyAnnotations.h"
 
 @implementation EXViewController
 
@@ -25,12 +28,43 @@ typedef enum {
     [self buildCards];
     [self adjustCardSizes];
 
+    [self.mapView setDelegate:self];
 
-    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swiped:)];
-    [swipeGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionDown];
-    [swipeGestureRecognizer setDelegate:self];
-    [self.testView addGestureRecognizer:swipeGestureRecognizer];
+    CLLocationCoordinate2D startingLocation;
+    startingLocation.latitude = 4;
+    startingLocation.longitude = 5;
+    [[DummyAnnotations new] addAnnotations: self.mapView around: startingLocation];
 }
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    MKCoordinateRegion region;
+    region.center = mapView.userLocation.coordinate;
+    region.span = MKCoordinateSpanMake(0.1, 0.1);
+
+    region = [mapView regionThatFits:region];
+    [mapView setRegion:region animated:NO];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    if (annotation == self.mapView.userLocation) {
+        return nil;
+    }
+    else {
+        NSString *identifier = @"MyPin";
+        MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (!pin) {
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            pin.pinColor = MKPinAnnotationColorPurple;
+            pin.animatesDrop = YES;
+            pin.canShowCallout = YES;
+        }
+        pin.annotation = annotation;
+
+        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        return pin;
+    }
+}
+
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self hideCard:NO];

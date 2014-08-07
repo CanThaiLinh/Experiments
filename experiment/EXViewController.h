@@ -1,11 +1,12 @@
 #import <UIKit/UIKit.h>
 
 @class ClipView;
+@class MKMapView;
 
-@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate> {
+@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, MKMapViewDelegate> {
 }
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (weak, nonatomic) IBOutlet UIView *testView;
 @property(weak, nonatomic) IBOutlet ClipView *clipView;
 @property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

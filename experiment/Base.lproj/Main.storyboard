@@ -33,11 +33,10 @@
                                     <constraint firstAttribute="height" constant="200" id="zvD-sA-zAt"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsD-x6-NjB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Uy-DP4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -49,8 +48,8 @@
                     <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="clipView" destination="adI-BE-NfK" id="m5i-d3-klY"/>
+                        <outlet property="mapView" destination="5xR-Uy-DP4" id="Yyr-Qu-6mb"/>
                         <outlet property="scrollView" destination="Xhw-uA-0Rg" id="dOC-eb-95W"/>
-                        <outlet property="testView" destination="MsD-x6-NjB" id="KcA-93-tEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

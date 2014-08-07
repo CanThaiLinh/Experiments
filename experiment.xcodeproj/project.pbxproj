@@ -7,23 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5459003972767B89821DC370 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459070AFD3CF7DCB74A7FE6 /* MyAnnotation.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
+		5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */; };
 		545903201999C84210EA2EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		54590346BA45647FD5325154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590EE42E452BC50DE38D08 /* main.m */; };
+		5459037970902082C8AFF090 /* DummyAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590CA1F92099505F649DD7 /* DummyAnnotations.m */; };
 		545903A679A52A1E87C97CB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54590C323E21D05C3542C049 /* Images.xcassets */; };
+		545903AE8E4A9BEB5DD39DD8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		545903CC063520F9E097D1B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
 		545904185BE7DEC0F407C7E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459028C98D7989DCD15FE3E /* Main.storyboard */; };
 		5459041D667D9B8941E44A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459098D06B74EB703C28FC9 /* InfoPlist.strings */; };
 		5459043CDE76191BE0B112DA /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E808D94E1B897382864 /* Colors.m */; };
 		5459047E98041F6915C2A711 /* ClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459063FA73B58F097F62BA2 /* ClipView.m */; };
 		5459056A4B8E872C35B62510 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
+		545905F48D8991418805110B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590618522D8A9568E48DFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		545906AA57F138795FFCD581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459014022FCED21F8A10C73 /* InfoPlist.strings */; };
 		54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */; };
+		545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		545907ED0C59A3E9FB3390DF /* experimentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590C810076A0894BF76533 /* experimentTests.m */; };
+		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
+		54590C1A8EB06540A9A8D52A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
+		54590E8400DFD3D054EC6FCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +50,12 @@
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
+		545904E9F30422BB137B9EC2 /* DummyAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAnnotations.h; sourceTree = "<group>"; };
+		54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotationsTests.m; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
 		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		5459063FA73B58F097F62BA2 /* ClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipView.m; sourceTree = "<group>"; };
+		5459070AFD3CF7DCB74A7FE6 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		5459089862011C24552756B2 /* experimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = experimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5459092383AD4A7ED74D3A75 /* experiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "experiment-Prefix.pch"; sourceTree = "<group>"; };
@@ -51,13 +63,17 @@
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
+		54590ABBD8F27A69CBEB4E65 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		54590B4EBBA35E007E754CBD /* ClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipView.h; sourceTree = "<group>"; };
 		54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		54590C19CC1189618C512C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54590C323E21D05C3542C049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		54590C810076A0894BF76533 /* experimentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = experimentTests.m; sourceTree = "<group>"; };
+		54590CA1F92099505F649DD7 /* DummyAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotations.m; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		54590EDB9ED935FDB962BA31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		54590EE42E452BC50DE38D08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54590F976439DB3831C43B0A /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
@@ -71,6 +87,10 @@
 				545903CC063520F9E097D1B9 /* Foundation.framework in Frameworks */,
 				54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */,
 				54590618522D8A9568E48DFE /* UIKit.framework in Frameworks */,
+				54590C1A8EB06540A9A8D52A /* MapKit.framework in Frameworks */,
+				545905F48D8991418805110B /* CoreLocation.framework in Frameworks */,
+				54590E8400DFD3D054EC6FCB /* MapKit.framework in Frameworks */,
+				54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,8 +99,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */,
+				545903AE8E4A9BEB5DD39DD8 /* MapKit.framework in Frameworks */,
 				5459056A4B8E872C35B62510 /* Foundation.framework in Frameworks */,
 				545903201999C84210EA2EDF /* UIKit.framework in Frameworks */,
+				545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +125,8 @@
 				54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */,
 				545909191FCAEC33C7EF9109 /* UIKit.framework */,
 				54590097F72564CF5883C78E /* XCTest.framework */,
+				54590EDB9ED935FDB962BA31 /* MapKit.framework */,
+				54590E5094F73100D6F8A88B /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,6 +166,7 @@
 			children = (
 				545907147ED854E92644EA88 /* Supporting Files */,
 				54590C810076A0894BF76533 /* experimentTests.m */,
+				54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */,
 			);
 			path = experimentTests;
 			sourceTree = "<group>";
@@ -161,6 +186,10 @@
 				54590E808D94E1B897382864 /* Colors.m */,
 				5459058B07CD319037FD76AC /* Colors.h */,
 				5459096F04E8EF316D8C8B9B /* StockCard.storyboard */,
+				54590CA1F92099505F649DD7 /* DummyAnnotations.m */,
+				545904E9F30422BB137B9EC2 /* DummyAnnotations.h */,
+				5459070AFD3CF7DCB74A7FE6 /* MyAnnotation.m */,
+				54590ABBD8F27A69CBEB4E65 /* MyAnnotation.h */,
 			);
 			path = experiment;
 			sourceTree = "<group>";
@@ -210,6 +239,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = Me;
+				TargetAttributes = {
+					545905AFBE4E66FA6495DF56 = {
+						TestTargetID = 54590A517F34F3EC24D0079C;
+					};
+				};
 			};
 			buildConfigurationList = 545909347723FCC5CB214295 /* Build configuration list for PBXProject "experiment" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -257,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545907ED0C59A3E9FB3390DF /* experimentTests.m in Sources */,
+				5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +304,8 @@
 				5459024FB3C686E017EF4749 /* EXViewController.m in Sources */,
 				5459047E98041F6915C2A711 /* ClipView.m in Sources */,
 				5459043CDE76191BE0B112DA /* Colors.m in Sources */,
+				5459037970902082C8AFF090 /* DummyAnnotations.m in Sources */,
+				5459003972767B89821DC370 /* MyAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,14 +382,17 @@
 		545905A081DA4CC3B0A7E172 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/experiment.app/experiment";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "experiment/experiment-Prefix.pch";
 				INFOPLIST_FILE = "experimentTests/experimentTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -373,14 +413,17 @@
 		5459087A2A5F4C1209C83396 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/experiment.app/experiment";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "experiment/experiment-Prefix.pch";
 				INFOPLIST_FILE = "experimentTests/experimentTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
