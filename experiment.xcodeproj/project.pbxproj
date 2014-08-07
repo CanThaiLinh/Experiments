@@ -22,6 +22,7 @@
 		545906AA57F138795FFCD581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459014022FCED21F8A10C73 /* InfoPlist.strings */; };
 		54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */; };
 		545907ED0C59A3E9FB3390DF /* experimentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590C810076A0894BF76533 /* experimentTests.m */; };
+		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		5459089862011C24552756B2 /* experimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = experimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5459092383AD4A7ED74D3A75 /* experiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "experiment-Prefix.pch"; sourceTree = "<group>"; };
+		5459096F04E8EF316D8C8B9B /* StockCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StockCard.storyboard; sourceTree = "<group>"; };
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				54590B4EBBA35E007E754CBD /* ClipView.h */,
 				54590E808D94E1B897382864 /* Colors.m */,
 				5459058B07CD319037FD76AC /* Colors.h */,
+				5459096F04E8EF316D8C8B9B /* StockCard.storyboard */,
 			);
 			path = experiment;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				545906AA57F138795FFCD581 /* InfoPlist.strings in Resources */,
 				545903A679A52A1E87C97CB5 /* Images.xcassets in Resources */,
 				545904185BE7DEC0F407C7E5 /* Main.storyboard in Resources */,
+				54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

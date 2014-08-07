@@ -1,8 +1,11 @@
 #import "EXViewController.h"
 #import "ClipView.h"
-#import "Colors.h"
 
 @implementation EXViewController
+
+typedef enum {
+    UP, DOWN
+} direction;
 
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
@@ -30,19 +33,10 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self hideCard: NO];
-    self.scrolling = YES;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.scrolling = NO;
+    [self hideCard:NO];
 }
 
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
-    if (self.scrolling) {
-        return;
-    }
-
     if (gesture.state == UIGestureRecognizerStateBegan) {self.swiping = NO;}
     CGPoint v = [gesture velocityInView:self.scrollView];
     const int THRESHOLD = 150;
@@ -54,7 +48,7 @@
     else if (v.y >= THRESHOLD && !self.swiping && self.cardRevealed) {
         self.swiping = YES;
         [gesture cancelsTouchesInView];
-        [self hideCard: YES];
+        [self hideCard:YES];
     }
 }
 
@@ -64,27 +58,28 @@
 
 - (void)revealCard {
     self.cardRevealed = YES;
-    [self moveCard:-100 animate:YES];
+    [self moveCard:UP animate:YES];
 }
 
-- (void)hideCard:(BOOL) animate {
+- (void)hideCard:(BOOL)animate {
     if (self.cardRevealed) {
         self.cardRevealed = NO;
-        [self moveCard:100 animate:animate];
+        [self moveCard:DOWN animate:animate];
     }
 }
 
-- (void)moveCard:(int)pixels animate:(BOOL)animate {
+- (void)moveCard:(direction)direction animate:(BOOL)animate {
     int page = (int) (self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
+    int yTranslation = direction == UP ? -100 : 100;
     UIView *card = self.cardViews[page];
     if (animate) {
         [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            card.center = CGPointMake(card.center.x, card.center.y + pixels);
+            card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
         }                completion:^(BOOL finished) {
         }];
     }
     else {
-        card.center = CGPointMake(card.center.x, card.center.y + pixels);
+        card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
     }
 }
 
@@ -92,15 +87,17 @@
     const int CARD_COUNT = 5;
     self.cardViews = [@[] mutableCopy];
     for (int i = 0; i < CARD_COUNT; i++) {
-        UIView *view = [UIView new];
-        [view setBackgroundColor:[Colors randomColor]];
-        [self.cardViews addObject:view];
-        [self.scrollView addSubview:view];
+        UIStoryboard *cardBoard = [UIStoryboard storyboardWithName:@"StockCard" bundle:nil];
+        UITableViewController *controller = [cardBoard instantiateViewControllerWithIdentifier:@"stockCards"];
+        [self.cardViews addObject:controller.tableView];
+        [self.scrollView addSubview:controller.tableView];
     }
 }
 
 - (void)adjustCardSizes {
-    float height = 70;
+    float rowHeight = [self cardRowHeight];
+    UITableView *exampleView = (self.cardViews)[0];
+    int rows = [[exampleView dataSource] tableView:exampleView numberOfRowsInSection:0];
 
     float scrollViewWidth = self.scrollView.frame.size.width;
     int spaceWidth = 5;
@@ -108,11 +105,16 @@
     int subViewIndex = 0;
     for (UIView *view in self.cardViews) {
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
-                self.scrollView.frame.size.height - height, cardWidth, height);
+                self.scrollView.frame.size.height - rowHeight, cardWidth, rowHeight * rows);
         subViewIndex++;
     }
 
-    self.scrollView.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, height);
+    self.scrollView.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, rowHeight);
+}
+
+- (CGFloat)cardRowHeight {
+    UITableView *exampleView = (self.cardViews)[0];
+    return [[exampleView delegate] tableView:exampleView heightForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
