@@ -65,6 +65,21 @@ typedef enum {
     [mapView setRegion:region animated:NO];
 }
 
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    double MAX_DELTA = 0.02;
+    if(mapView.region.span.latitudeDelta > MAX_DELTA || mapView.region.span.longitudeDelta > MAX_DELTA){
+        MKCoordinateRegion region;
+        region.center = mapView.userLocation.coordinate;
+        region.span = MKCoordinateSpanMake(MAX_DELTA, MAX_DELTA);
+
+        region = [mapView regionThatFits:region];
+        [self.mapView setRegion:region];
+    }
+}
+
+
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == self.mapView.userLocation) {
         return nil;
