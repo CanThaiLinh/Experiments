@@ -2,8 +2,9 @@
 
 @class ClipView;
 @class MKMapView;
+@class CLLocationManager;
 
-@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, MKMapViewDelegate> {
+@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate> {
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -14,4 +15,6 @@
 @property(nonatomic) BOOL swiping;
 @property(nonatomic) BOOL cardRevealed;
 @property(nonatomic) BOOL scrolling;
+@property(nonatomic, strong) CLLocationManager *locationManager;
+@property(nonatomic) BOOL hasFoundInitialLocation;
 @end

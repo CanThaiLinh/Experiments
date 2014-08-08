@@ -1,5 +1,4 @@
 #import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import "EXViewController.h"
 #import "ClipView.h"
 #import "DummyAnnotations.h"
@@ -33,13 +32,34 @@ typedef enum {
     CLLocationCoordinate2D startingLocation;
     startingLocation.latitude = 4;
     startingLocation.longitude = 5;
-    [[DummyAnnotations new] addAnnotations: self.mapView around: startingLocation];
+    [[DummyAnnotations new] addAnnotations:self.mapView around:startingLocation];
+
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation {
+    if (!self.hasFoundInitialLocation) {
+        self.hasFoundInitialLocation = YES;
+        [[DummyAnnotations new] addAnnotations:self.mapView around:newLocation.coordinate];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region;
     region.center = mapView.userLocation.coordinate;
-    region.span = MKCoordinateSpanMake(0.1, 0.1);
+    region.span = MKCoordinateSpanMake(0.001, 0.001);
 
     region = [mapView regionThatFits:region];
     [mapView setRegion:region animated:NO];
