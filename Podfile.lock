@@ -1,0 +1,10 @@
+PODS:
+  - OCMapView (0.1.0)
+
+DEPENDENCIES:
+  - OCMapView (= 0.1.0)
+
+SPEC CHECKSUMS:
+  OCMapView: b6c23a490834c7ac6d4c125cb8431e0ba33abcb9
+
+COCOAPODS: 0.33.1
