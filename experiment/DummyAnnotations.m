@@ -17,19 +17,21 @@
         primaryAnnotation.groupTag = uuid;
         [view addAnnotation:primaryAnnotation];
 
-        for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
-            CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
-            MyAnnotation *annotation = [MyAnnotation annotationWithTitle:@"Individual" coordinate:clusterPoint];
+        if (i < 4) {
+            for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
+                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
+                MyAnnotation *annotation = [MyAnnotation annotationWithTitle:@"Individual" coordinate:clusterPoint];
 
-            annotation.groupTag = uuid;
-            [view addAnnotation:annotation];
+                annotation.groupTag = uuid;
+                [view addAnnotation:annotation];
+            }
         }
     }
 }
 
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center {
     NSMutableArray *coordinates = [@[] mutableCopy];
-    for (int primaryLocation = 0; primaryLocation < 5; primaryLocation++) {
+    for (int primaryLocation = 0; primaryLocation < 7; primaryLocation++) {
         CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0001];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
     }

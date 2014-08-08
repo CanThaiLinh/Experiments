@@ -30,6 +30,7 @@ typedef enum {
     [self.mapView setDelegate:self];
 //    [self.mapView setClusteringEnabled:NO];
     [self.mapView setClusterByGroupTag:YES];
+    [self.mapView setClusterSize:0.001];
 
     CLLocationCoordinate2D startingLocation;
     startingLocation.latitude = 4;
@@ -73,22 +74,22 @@ typedef enum {
     if (mapView.region.span.latitudeDelta > MAX_DELTA || mapView.region.span.longitudeDelta > MAX_DELTA) {
         MKCoordinateRegion region;
         region.center = mapView.userLocation.coordinate;
-        region.span = MKCoordinateSpanMake(MAX_DELTA, MAX_DELTA);
+        region.span = MKCoordinateSpanMake(MAX_DELTA - 0.001, MAX_DELTA - 0.001);
 
         region = [mapView regionThatFits:region];
         [self.mapView setRegion:region];
     }
     else {
-//        NSLog(@"%f", mapView.region.span.latitudeDelta);
-//        if (mapView.region.span.latitudeDelta < 0.001) {
-//            [self.mapView setClusteringEnabled:NO];
-//            [self.mapView doClustering];
-//        }
-//        else {
-//            [self.mapView setClusteringEnabled:YES];
-//            [self.mapView setClusterSize:mapView.region.span.latitudeDelta * 30];
-//            [self.mapView doClustering];
-//        }
+        NSLog(@"%f", mapView.region.span.latitudeDelta);
+        if (mapView.region.span.latitudeDelta > 0.003) {
+            [self.mapView setClusterByGroupTag:NO];
+            [self.mapView doClustering];
+        }
+        else {
+            [self.mapView setClusterByGroupTag:YES];
+            [self.mapView setClusterSize:mapView.region.span.latitudeDelta * 50];
+            [self.mapView doClustering];
+        }
     }
 }
 
