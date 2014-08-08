@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="200" id="zvD-sA-zAt"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Uy-DP4">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Uy-DP4" customClass="OCMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>

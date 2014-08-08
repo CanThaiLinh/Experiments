@@ -28,6 +28,8 @@ typedef enum {
     [self adjustCardSizes];
 
     [self.mapView setDelegate:self];
+//    [self.mapView setClusteringEnabled:NO];
+    [self.mapView setClusterByGroupTag:YES];
 
     CLLocationCoordinate2D startingLocation;
     startingLocation.latitude = 4;
@@ -68,7 +70,7 @@ typedef enum {
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     double MAX_DELTA = 0.02;
-    if(mapView.region.span.latitudeDelta > MAX_DELTA || mapView.region.span.longitudeDelta > MAX_DELTA){
+    if (mapView.region.span.latitudeDelta > MAX_DELTA || mapView.region.span.longitudeDelta > MAX_DELTA) {
         MKCoordinateRegion region;
         region.center = mapView.userLocation.coordinate;
         region.span = MKCoordinateSpanMake(MAX_DELTA, MAX_DELTA);
@@ -76,23 +78,48 @@ typedef enum {
         region = [mapView regionThatFits:region];
         [self.mapView setRegion:region];
     }
+    else {
+//        NSLog(@"%f", mapView.region.span.latitudeDelta);
+//        if (mapView.region.span.latitudeDelta < 0.001) {
+//            [self.mapView setClusteringEnabled:NO];
+//            [self.mapView doClustering];
+//        }
+//        else {
+//            [self.mapView setClusteringEnabled:YES];
+//            [self.mapView setClusterSize:mapView.region.span.latitudeDelta * 30];
+//            [self.mapView doClustering];
+//        }
+    }
 }
-
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     if (annotation == self.mapView.userLocation) {
         return nil;
     }
+    else if ([annotation isKindOfClass:[OCAnnotation class]]) {
+        NSString *identifier = @"GroupPin";
+        MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (!pin) {
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            pin.animatesDrop = YES;
+            pin.canShowCallout = NO;
+            pin.pinColor = MKPinAnnotationColorRed;
+        }
+        pin.annotation = annotation;
+
+        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        return pin;
+    }
     else {
         NSString *identifier = @"MyPin";
         MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         if (!pin) {
             pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            pin.pinColor = MKPinAnnotationColorPurple;
             pin.animatesDrop = YES;
             pin.canShowCallout = YES;
         }
+        pin.pinColor = MKPinAnnotationColorPurple;
         pin.annotation = annotation;
 
         pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];

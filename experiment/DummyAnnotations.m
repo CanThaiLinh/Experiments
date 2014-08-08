@@ -7,9 +7,23 @@
 - (void)addAnnotations:(MKMapView *)view around:(CLLocationCoordinate2D)around {
     NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
     for (int i = 0; i < [dummyCoordinates count]; i++) {
-        CLLocationCoordinate2D value;
-        [dummyCoordinates[i] getValue:&value];
-        [view addAnnotation:[MyAnnotation annotationWithTitle:@"Individual" coordinate:value]];
+        CLLocationCoordinate2D primaryPoint;
+        [dummyCoordinates[i] getValue:&primaryPoint];
+
+        NSUUID *UUID = [NSUUID UUID];
+        NSString *uuid = [UUID UUIDString];
+
+        MyAnnotation *primaryAnnotation = [MyAnnotation annotationWithTitle:@"Individual" coordinate:primaryPoint];
+        primaryAnnotation.groupTag = uuid;
+        [view addAnnotation:primaryAnnotation];
+
+        for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
+            CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
+            MyAnnotation *annotation = [MyAnnotation annotationWithTitle:@"Individual" coordinate:clusterPoint];
+
+            annotation.groupTag = uuid;
+            [view addAnnotation:annotation];
+        }
     }
 }
 
@@ -18,11 +32,6 @@
     for (int primaryLocation = 0; primaryLocation < 5; primaryLocation++) {
         CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0001];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
-
-        for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
-            CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
-            [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
-        }
     }
     return coordinates;
 }
