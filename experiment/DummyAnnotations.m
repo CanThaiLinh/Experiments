@@ -1,19 +1,21 @@
 #import <MapKit/MapKit.h>
 #import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
+#import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "DummyAnnotations.h"
 #import "MyAnnotation.h"
 #import "GMSMarker.h"
+#import "Spot.h"
 
 @implementation DummyAnnotations
 
-- (void)addAnnotations:(GMSMapView *)view around:(CLLocationCoordinate2D)around {
+- (void)addAnnotations:(GClusterManager*)manager around:(CLLocationCoordinate2D)around {
     NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
     for (int i = 0; i < [dummyCoordinates count]; i++) {
         CLLocationCoordinate2D value;
         [dummyCoordinates[i] getValue:&value];
-        GMSMarker * marker = [GMSMarker markerWithPosition:value];
-        marker.title = @"Individual";
-        marker.map = view;
+        Spot *spot = [Spot new];
+        spot.location = value;
+        [manager addItem:spot];
     }
 }
 

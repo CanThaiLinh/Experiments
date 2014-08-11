@@ -12,7 +12,7 @@
 @implementation EXViewController
 
 const int MAX_ZOOM_LEVEL = 18;
-const int MIN_ZOOM_LEVEL = 17;
+const int MIN_ZOOM_LEVEL = 16;
 
 typedef enum {
     UP, DOWN
@@ -61,8 +61,8 @@ typedef enum {
         [self.mapView setCamera:[GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
                                                             longitude:newLocation.coordinate.longitude
                                                                  zoom:MIN_ZOOM_LEVEL]];
-        [[DummyAnnotations new] addAnnotations:self.mapView around:newLocation.coordinate];
-        [self.clusterManager cluster];
+        [[DummyAnnotations new] addAnnotations:self.clusterManager around:newLocation.coordinate];
+        [[self clusterManager] cluster];
     }
 }
 
