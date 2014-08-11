@@ -1,10 +1,17 @@
 PODS:
   - Google-Maps-iOS-SDK (1.8.1)
+  - Google-Maps-iOS-Utils-QuadTree (0.1)
 
 DEPENDENCIES:
   - Google-Maps-iOS-SDK (= 1.8.1)
+  - Google-Maps-iOS-Utils-QuadTree (from `https://github.com/DDRBoxman/google-maps-ios-utils`)
+
+EXTERNAL SOURCES:
+  Google-Maps-iOS-Utils-QuadTree:
+    :git: https://github.com/DDRBoxman/google-maps-ios-utils
 
 SPEC CHECKSUMS:
   Google-Maps-iOS-SDK: 4fe35d952dbd1e4dacfcfa178e9cce2f06d67ecc
+  Google-Maps-iOS-Utils-QuadTree: ebb80b733891f180ecef28a2488d12239721e56b
 
 COCOAPODS: 0.33.1

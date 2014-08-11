@@ -3,6 +3,7 @@
 @class ClipView;
 @class CLLocationManager;
 @class GMSMapView;
+@class GClusterManager;
 
 @interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
 }
@@ -14,6 +15,7 @@
 @property(nonatomic) BOOL cardRevealed;
 @property(nonatomic) BOOL scrolling;
 @property(nonatomic, strong) CLLocationManager *locationManager;
-@property (strong, nonatomic) IBOutlet GMSMapView *mapView;
+@property(strong, nonatomic) IBOutlet GMSMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
+@property(nonatomic, strong) GClusterManager *clusterManager;
 @end

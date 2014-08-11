@@ -1,9 +1,13 @@
 #import <MapKit/MapKit.h>
 #import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
+#import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "EXViewController.h"
 #import "ClipView.h"
 #import "GMSCameraPosition.h"
 #import "DummyAnnotations.h"
+#import "NonHierarchicalDistanceBasedAlgorithm.h"
+#import "GClusterManager.h"
+#import "GDefaultClusterRenderer.h"
 
 @implementation EXViewController
 
@@ -40,6 +44,13 @@ typedef enum {
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
 
     [self.locationManager startUpdatingLocation];
+
+    self.clusterManager = [[GClusterManager alloc] init];
+    [self.clusterManager setMapView:self.mapView];
+    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
+    [self.clusterManager setClusterRenderer:[[GDefaultClusterRenderer alloc] initWithGoogleMap:self.mapView]];
+
+    [self.mapView setDelegate:self.clusterManager];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -51,6 +62,7 @@ typedef enum {
                                                             longitude:newLocation.coordinate.longitude
                                                                  zoom:MIN_ZOOM_LEVEL]];
         [[DummyAnnotations new] addAnnotations:self.mapView around:newLocation.coordinate];
+        [self.clusterManager cluster];
     }
 }
 

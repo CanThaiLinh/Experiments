@@ -12,3 +12,9 @@
 #define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_SDK 8
 #define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_SDK 1
 
+// Google-Maps-iOS-Utils-QuadTree
+#define COCOAPODS_POD_AVAILABLE_Google_Maps_iOS_Utils_QuadTree
+#define COCOAPODS_VERSION_MAJOR_Google_Maps_iOS_Utils_QuadTree 0
+#define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_Utils_QuadTree 1
+#define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_Utils_QuadTree 0
+
