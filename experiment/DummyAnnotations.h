@@ -2,7 +2,7 @@
 
 @interface DummyAnnotations : NSObject
 
-- (void)addAnnotations:(MKMapView *)view around:(CLLocationCoordinate2D)around;
+- (void)addAnnotations:(GMSMapView *)view around:(CLLocationCoordinate2D)around;
 
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center;
 @end

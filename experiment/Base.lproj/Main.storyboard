@@ -33,10 +33,11 @@
                                     <constraint firstAttribute="height" constant="200" id="zvD-sA-zAt"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Uy-DP4">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-Jr-Mev" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -48,7 +49,7 @@
                     <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="clipView" destination="adI-BE-NfK" id="m5i-d3-klY"/>
-                        <outlet property="mapView" destination="5xR-Uy-DP4" id="Yyr-Qu-6mb"/>
+                        <outlet property="mapView" destination="ydd-Jr-Mev" id="ugI-ed-NpU"/>
                         <outlet property="scrollView" destination="Xhw-uA-0Rg" id="dOC-eb-95W"/>
                     </connections>
                 </viewController>

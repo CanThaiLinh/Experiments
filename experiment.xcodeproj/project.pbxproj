@@ -260,8 +260,6 @@
 			mainGroup = 54590C936ADBCADAFF1C54FD;
 			productRefGroup = 5459007FF3EB13C7F0A9012D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				54590A517F34F3EC24D0079C /* experiment */,
@@ -446,6 +444,7 @@
 				GCC_PREFIX_HEADER = "experiment/experiment-Prefix.pch";
 				INFOPLIST_FILE = "experiment/experiment-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -516,6 +515,7 @@
 				GCC_PREFIX_HEADER = "experiment/experiment-Prefix.pch";
 				INFOPLIST_FILE = "experiment/experiment-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

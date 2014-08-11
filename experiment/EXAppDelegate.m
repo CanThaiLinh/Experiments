@@ -7,12 +7,13 @@
 //
 
 #import "EXAppDelegate.h"
+#import "GMSServices.h"
 
 @implementation EXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [GMSServices provideAPIKey:@"AIzaSyCIEcDkzkC-EEM49Q36zEPPXMi1YE_dlPQ"];
     return YES;
 }
 							

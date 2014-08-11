@@ -1,13 +1,11 @@
 #import <UIKit/UIKit.h>
 
 @class ClipView;
-@class MKMapView;
 @class CLLocationManager;
+@class GMSMapView;
 
-@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate> {
+@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
 }
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
 @property(weak, nonatomic) IBOutlet ClipView *clipView;
 @property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -16,5 +14,6 @@
 @property(nonatomic) BOOL cardRevealed;
 @property(nonatomic) BOOL scrolling;
 @property(nonatomic, strong) CLLocationManager *locationManager;
+@property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
 @end

@@ -1,9 +1,14 @@
 #import <MapKit/MapKit.h>
+#import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
 #import "EXViewController.h"
 #import "ClipView.h"
+#import "GMSCameraPosition.h"
 #import "DummyAnnotations.h"
 
 @implementation EXViewController
+
+const int MAX_ZOOM_LEVEL = 18;
+const int MIN_ZOOM_LEVEL = 17;
 
 typedef enum {
     UP, DOWN
@@ -27,13 +32,8 @@ typedef enum {
     [self buildCards];
     [self adjustCardSizes];
 
-    [self.mapView setDelegate:self];
-
-    CLLocationCoordinate2D startingLocation;
-    startingLocation.latitude = 4;
-    startingLocation.longitude = 5;
-    [[DummyAnnotations new] addAnnotations:self.mapView around:startingLocation];
-
+    [self.mapView setMinZoom:MIN_ZOOM_LEVEL maxZoom:MAX_ZOOM_LEVEL];
+    [self.mapView setIndoorEnabled:NO];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -47,6 +47,9 @@ typedef enum {
            fromLocation:(CLLocation *)oldLocation {
     if (!self.hasFoundInitialLocation) {
         self.hasFoundInitialLocation = YES;
+        [self.mapView setCamera:[GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
+                                                            longitude:newLocation.coordinate.longitude
+                                                                 zoom:MIN_ZOOM_LEVEL]];
         [[DummyAnnotations new] addAnnotations:self.mapView around:newLocation.coordinate];
     }
 }
@@ -64,42 +67,6 @@ typedef enum {
     region = [mapView regionThatFits:region];
     [mapView setRegion:region animated:NO];
 }
-
-
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
-    double MAX_DELTA = 0.02;
-    if(mapView.region.span.latitudeDelta > MAX_DELTA || mapView.region.span.longitudeDelta > MAX_DELTA){
-        MKCoordinateRegion region;
-        region.center = mapView.userLocation.coordinate;
-        region.span = MKCoordinateSpanMake(MAX_DELTA, MAX_DELTA);
-
-        region = [mapView regionThatFits:region];
-        [self.mapView setRegion:region];
-    }
-}
-
-
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    if (annotation == self.mapView.userLocation) {
-        return nil;
-    }
-    else {
-        NSString *identifier = @"MyPin";
-        MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-        if (!pin) {
-            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            pin.pinColor = MKPinAnnotationColorPurple;
-            pin.animatesDrop = YES;
-            pin.canShowCallout = YES;
-        }
-        pin.annotation = annotation;
-
-        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        return pin;
-    }
-}
-
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self hideCard:NO];
