@@ -6,7 +6,8 @@
 #import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "GDefaultClusterRenderer.h"
-#import "SingleDotRenderer.h"
+#import "MyClusterRenderer.h"
+#import "MyClusterManager.h"
 
 @implementation EXViewController
 
@@ -35,8 +36,6 @@ typedef enum {
     [self buildCards];
     [self adjustCardSizes];
 
-    [self.mapView setMinZoom:MIN_ZOOM_LEVEL maxZoom:MAX_ZOOM_LEVEL];
-    [self.mapView setIndoorEnabled:NO];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -44,11 +43,13 @@ typedef enum {
 
     [self.locationManager startUpdatingLocation];
 
-    self.clusterManager = [[GClusterManager alloc] init];
+    self.clusterManager = [[MyClusterManager alloc] init];
     [self.clusterManager setMapView:self.mapView];
     [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
-    [self.clusterManager setClusterRenderer:[[SingleDotRenderer alloc] initWithMapView:self.mapView]];
+    [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
+    [self.mapView setMinZoom:MIN_ZOOM_LEVEL maxZoom:MAX_ZOOM_LEVEL];
+    [self.mapView setIndoorEnabled:NO];
     [self.mapView setDelegate:self.clusterManager];
 }
 

@@ -11,7 +11,7 @@
 		54590040634AD8B6D66F3A73 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590DCA6651AEE54F7F5D92 /* Spot.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
-		54590258E96FCAD48D1C0C0C /* SingleDotRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900F740D78CFB1BE73629 /* SingleDotRenderer.m */; };
+		54590258E96FCAD48D1C0C0C /* MyClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900F740D78CFB1BE73629 /* MyClusterRenderer.m */; };
 		5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */; };
 		545903201999C84210EA2EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		54590346BA45647FD5325154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590EE42E452BC50DE38D08 /* main.m */; };
@@ -29,6 +29,8 @@
 		545906AA57F138795FFCD581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459014022FCED21F8A10C73 /* InfoPlist.strings */; };
 		54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */; };
 		545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
+		54590953C7AF8F61FBCAB788 /* MyClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903C940248707AC1827EE /* MyClusterManager.m */; };
+		54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F722DEB94E84E01F5AD /* MyMarker.m */; };
 		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590C1A8EB06540A9A8D52A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
@@ -49,10 +51,11 @@
 
 /* Begin PBXFileReference section */
 		54590097F72564CF5883C78E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		545900F740D78CFB1BE73629 /* SingleDotRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleDotRenderer.m; sourceTree = "<group>"; };
+		545900F740D78CFB1BE73629 /* MyClusterRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClusterRenderer.m; sourceTree = "<group>"; };
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
+		545903C940248707AC1827EE /* MyClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClusterManager.m; sourceTree = "<group>"; };
 		545904E9F30422BB137B9EC2 /* DummyAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAnnotations.h; sourceTree = "<group>"; };
 		54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotationsTests.m; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5459092383AD4A7ED74D3A75 /* experiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "experiment-Prefix.pch"; sourceTree = "<group>"; };
 		5459096F04E8EF316D8C8B9B /* StockCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StockCard.storyboard; sourceTree = "<group>"; };
+		545909BEB0C8EE528B9FC1F1 /* MyClusterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClusterManager.h; sourceTree = "<group>"; };
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
@@ -79,9 +83,11 @@
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		54590EDB9ED935FDB962BA31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		54590EE42E452BC50DE38D08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		54590F5EEE1604BA953D6DA2 /* SingleDotRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleDotRenderer.h; sourceTree = "<group>"; };
+		54590F5EEE1604BA953D6DA2 /* MyClusterRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClusterRenderer.h; sourceTree = "<group>"; };
+		54590F722DEB94E84E01F5AD /* MyMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMarker.m; sourceTree = "<group>"; };
 		54590F976439DB3831C43B0A /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
+		54590FBDECCF115A24D7CA8F /* MyMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMarker.h; sourceTree = "<group>"; };
 		A9EC307A56B4487697FC76FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC463A7B4DC4397A46C0DB9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,8 +207,12 @@
 				54590ABBD8F27A69CBEB4E65 /* MyAnnotation.h */,
 				54590DCA6651AEE54F7F5D92 /* Spot.m */,
 				545906588E6477E91D406817 /* Spot.h */,
-				545900F740D78CFB1BE73629 /* SingleDotRenderer.m */,
-				54590F5EEE1604BA953D6DA2 /* SingleDotRenderer.h */,
+				545900F740D78CFB1BE73629 /* MyClusterRenderer.m */,
+				54590F5EEE1604BA953D6DA2 /* MyClusterRenderer.h */,
+				545903C940248707AC1827EE /* MyClusterManager.m */,
+				545909BEB0C8EE528B9FC1F1 /* MyClusterManager.h */,
+				54590F722DEB94E84E01F5AD /* MyMarker.m */,
+				54590FBDECCF115A24D7CA8F /* MyMarker.h */,
 			);
 			path = experiment;
 			sourceTree = "<group>";
@@ -354,7 +364,9 @@
 				5459037970902082C8AFF090 /* DummyAnnotations.m in Sources */,
 				5459003972767B89821DC370 /* MyAnnotation.m in Sources */,
 				54590040634AD8B6D66F3A73 /* Spot.m in Sources */,
-				54590258E96FCAD48D1C0C0C /* SingleDotRenderer.m in Sources */,
+				54590258E96FCAD48D1C0C0C /* MyClusterRenderer.m in Sources */,
+				54590953C7AF8F61FBCAB788 /* MyClusterManager.m in Sources */,
+				54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
