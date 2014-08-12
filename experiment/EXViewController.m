@@ -3,16 +3,14 @@
 #import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "EXViewController.h"
 #import "ClipView.h"
-#import "GMSCameraPosition.h"
 #import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
-#import "GClusterManager.h"
 #import "GDefaultClusterRenderer.h"
 
 @implementation EXViewController
 
-const int MAX_ZOOM_LEVEL = 18;
-const int MIN_ZOOM_LEVEL = 16;
+const int MAX_ZOOM_LEVEL = 19;
+const int MIN_ZOOM_LEVEL = 17;
 
 typedef enum {
     UP, DOWN

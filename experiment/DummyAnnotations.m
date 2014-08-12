@@ -2,13 +2,11 @@
 #import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
 #import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "DummyAnnotations.h"
-#import "MyAnnotation.h"
-#import "GMSMarker.h"
 #import "Spot.h"
 
 @implementation DummyAnnotations
 
-- (void)addAnnotations:(GClusterManager*)manager around:(CLLocationCoordinate2D)around {
+- (void)addAnnotations:(GClusterManager *)manager around:(CLLocationCoordinate2D)around {
     NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
     for (int i = 0; i < [dummyCoordinates count]; i++) {
         CLLocationCoordinate2D value;
@@ -21,13 +19,15 @@
 
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center {
     NSMutableArray *coordinates = [@[] mutableCopy];
-    for (int primaryLocation = 0; primaryLocation < 5; primaryLocation++) {
+    for (int primaryLocation = 0; primaryLocation < 10; primaryLocation++) {
         CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0001];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
 
-        for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
-            CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
-            [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
+        if (primaryLocation < 5) {
+            for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
+                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
+                [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
+            }
         }
     }
     return coordinates;
