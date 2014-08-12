@@ -49,6 +49,8 @@ typedef enum {
     [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setMinZoom:MIN_ZOOM_LEVEL maxZoom:MAX_ZOOM_LEVEL];
+    [self.mapView setMyLocationEnabled:YES];
+    [self.mapView setBuildingsEnabled:NO];
     [self.mapView setIndoorEnabled:NO];
     [self.mapView setDelegate:self.clusterManager];
 }

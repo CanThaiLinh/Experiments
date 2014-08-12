@@ -29,16 +29,22 @@
 }
 
 - (UIImage *)generateSingleIcon {
-    int height = 25;
-    int width = 40;
-    CGRect rect = CGRectMake(0, 0, width, height);
+    int rectangleHeight = 25;
+    int rectangleWidth = 40;
+    int triangleWidth = 10;
+    int triangleHeight = 12;
+    CGRect rect = CGRectMake(0, 0, rectangleWidth, rectangleHeight + triangleHeight);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
 
-    CGRect roundedRectangleRect = CGRectMake(0, 0, width, height);
-    roundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
+    CGContextSetLineWidth(ctx, 3);
+    [[UIColor whiteColor] setStroke];
 
-    [self drawRoundedRect:roundedRectangleRect];
+    CGRect roundedRectangleRect = CGRectMake(0, 0, rectangleWidth, rectangleHeight);
+    CGRect insetRoundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
+
+    [self drawRoundedRect:insetRoundedRectangleRect];
+    [self drawBottomTriangle:ctx fromRect:roundedRectangleRect withWidth:triangleWidth withHeight:triangleHeight];
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -48,15 +54,32 @@
 
 - (void)drawRoundedRect:(CGRect)roundedRectangleRect {
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:roundedRectangleRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
-    if( [self isSelected]){
+    if ([self isSelected]) {
         [[UIColor blueColor] setFill];
     }
     else {
-        [[UIColor colorWithRed:18.0f / 255.0f green:204.0f / 255.0f blue:64.0f / 255.0f alpha:1.0] setFill];
+        [[self greenColor] setFill];
     }
     [path fill];
-    [[UIColor whiteColor] setStroke];
     [path stroke];
+}
+
+- (void)drawBottomTriangle:(CGContextRef)ctx fromRect:(CGRect)fromRect withWidth:(int)width withHeight:(int)height {
+    UIBezierPath *path = [UIBezierPath bezierPath];
+
+    int leftX = (int) (fromRect.size.width / 2.0 - width / 2.0);
+    int rightX = (int) (fromRect.size.width / 2.0 + width / 2.0);
+    [path moveToPoint:CGPointMake(leftX, fromRect.size.height - 2)];
+    [path addLineToPoint:CGPointMake((leftX + rightX) / 2, fromRect.size.height + height)];
+    [path addLineToPoint:CGPointMake(rightX, fromRect.size.height - 2)];
+    [path stroke];
+    [path closePath];
+    [[self greenColor] setFill];
+    [path fill];
+}
+
+- (UIColor *)greenColor {
+    return [UIColor colorWithRed:18.0f / 255.0f green:204.0f / 255.0f blue:64.0f / 255.0f alpha:1.0];
 }
 
 - (UIImage *)generateClusterIcon {
@@ -82,7 +105,6 @@
 
 - (void)drawStroke:(float)inset ctx:(CGContextRef)ctx circleRect:(CGRect)circleRect {
     [[UIColor whiteColor] setStroke];
-    CGContextSetLineWidth(ctx, inset);
     CGContextSetShadowWithColor(ctx, CGSizeMake(0, 1), 3.0, [UIColor blackColor].CGColor);
     CGContextStrokeEllipseInRect(ctx, circleRect);
 }
