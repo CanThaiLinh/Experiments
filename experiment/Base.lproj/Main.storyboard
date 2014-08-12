@@ -16,34 +16,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adI-BE-NfK" customClass="ClipView">
-                                <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-Jr-Mev" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-uA-0Rg">
-                                        <rect key="frame" x="20" y="0.0" width="280" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    </scrollView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adI-BE-NfK" customClass="ClipView">
+                                        <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-uA-0Rg">
+                                                <rect key="frame" x="20" y="0.0" width="280" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            </scrollView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" secondItem="Xhw-uA-0Rg" secondAttribute="height" id="0fE-Le-P1l"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xhw-uA-0Rg" secondAttribute="trailing" constant="20" id="TzY-5K-kxI"/>
+                                            <constraint firstItem="Xhw-uA-0Rg" firstAttribute="leading" secondItem="adI-BE-NfK" secondAttribute="leading" constant="20" id="X6d-ay-SqA"/>
+                                            <constraint firstAttribute="centerY" secondItem="Xhw-uA-0Rg" secondAttribute="centerY" id="gQN-ul-TCB"/>
+                                            <constraint firstAttribute="height" constant="200" id="zvD-sA-zAt"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" secondItem="Xhw-uA-0Rg" secondAttribute="height" id="0fE-Le-P1l"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xhw-uA-0Rg" secondAttribute="trailing" constant="20" id="TzY-5K-kxI"/>
-                                    <constraint firstItem="Xhw-uA-0Rg" firstAttribute="leading" secondItem="adI-BE-NfK" secondAttribute="leading" constant="20" id="X6d-ay-SqA"/>
-                                    <constraint firstAttribute="centerY" secondItem="Xhw-uA-0Rg" secondAttribute="centerY" id="gQN-ul-TCB"/>
-                                    <constraint firstAttribute="height" constant="200" id="zvD-sA-zAt"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-Jr-Mev" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="adI-BE-NfK" secondAttribute="bottom" id="DNe-Hz-pU7"/>
+                                    <constraint firstAttribute="trailing" secondItem="adI-BE-NfK" secondAttribute="trailing" id="T1X-xz-XFm"/>
+                                    <constraint firstItem="adI-BE-NfK" firstAttribute="leading" secondItem="ydd-Jr-Mev" secondAttribute="leading" id="exB-1J-qUk"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="adI-BE-NfK" secondAttribute="bottom" id="0cZ-5m-9fS"/>
-                            <constraint firstItem="adI-BE-NfK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ZTl-6G-fwG"/>
-                            <constraint firstAttribute="centerX" secondItem="adI-BE-NfK" secondAttribute="centerX" id="h3v-Nu-SDN"/>
+                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Ck0-Yp-omY"/>
+                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qj4-ks-6sB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ydd-Jr-Mev" secondAttribute="bottom" id="wlY-r9-bcb"/>
+                            <constraint firstAttribute="trailing" secondItem="ydd-Jr-Mev" secondAttribute="trailing" id="zX9-cj-tkd"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="320" height="600"/>

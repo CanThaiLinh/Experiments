@@ -52,6 +52,7 @@ typedef enum {
     [self.mapView setBuildingsEnabled:NO];
     [self.mapView setIndoorEnabled:NO];
     [self.mapView setDelegate:self.clusterManager];
+    [self.mapView bringSubviewToFront:self.clipView];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
