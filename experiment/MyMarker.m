@@ -16,11 +16,8 @@
     if (self.isCluster) {
         self.icon = [self generateClusterIcon];
     }
-    else if (self.isSelected) {
-        self.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
-    }
     else {
-        self.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+        self.icon = [self generateSingleIcon];
     }
 }
 
@@ -29,6 +26,37 @@
         _isSelected = selected;
         [self buildIcon];
     }
+}
+
+- (UIImage *)generateSingleIcon {
+    int height = 25;
+    int width = 40;
+    CGRect rect = CGRectMake(0, 0, width, height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+
+    CGRect roundedRectangleRect = CGRectMake(0, 0, width, height);
+    roundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
+
+    [self drawRoundedRect:roundedRectangleRect];
+
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return image;
+}
+
+- (void)drawRoundedRect:(CGRect)roundedRectangleRect {
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:roundedRectangleRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
+    if( [self isSelected]){
+        [[UIColor blueColor] setFill];
+    }
+    else {
+        [[UIColor colorWithRed:18.0f / 255.0f green:204.0f / 255.0f blue:64.0f / 255.0f alpha:1.0] setFill];
+    }
+    [path fill];
+    [[UIColor whiteColor] setStroke];
+    [path stroke];
 }
 
 - (UIImage *)generateClusterIcon {
