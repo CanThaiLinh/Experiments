@@ -5,7 +5,6 @@
 #import "ClipView.h"
 #import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
-#import "GDefaultClusterRenderer.h"
 #import "MyClusterRenderer.h"
 #import "MyClusterManager.h"
 
@@ -68,11 +67,6 @@ typedef enum {
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error {
-
-}
-
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region;
     region.center = mapView.userLocation.coordinate;
@@ -88,8 +82,9 @@ typedef enum {
 
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {self.swiping = NO;}
+
     CGPoint v = [gesture velocityInView:self.scrollView];
-    const int THRESHOLD = 150;
+    const int THRESHOLD = 100;
     if (v.y <= -THRESHOLD && !self.swiping && !self.cardRevealed) {
         self.swiping = YES;
         [gesture cancelsTouchesInView];
@@ -100,6 +95,16 @@ typedef enum {
         [gesture cancelsTouchesInView];
         [self hideCard:YES];
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    CGPoint touchLocation = [touch locationInView:self.scrollView];
+    for (UIView *view in self.cardViews) {
+        if (CGRectContainsPoint(view.frame, touchLocation)) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
