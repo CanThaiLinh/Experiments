@@ -6,6 +6,7 @@
 #import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "GDefaultClusterRenderer.h"
+#import "SingleDotRenderer.h"
 
 @implementation EXViewController
 
@@ -46,7 +47,7 @@ typedef enum {
     self.clusterManager = [[GClusterManager alloc] init];
     [self.clusterManager setMapView:self.mapView];
     [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
-    [self.clusterManager setClusterRenderer:[[GDefaultClusterRenderer alloc] initWithGoogleMap:self.mapView]];
+    [self.clusterManager setClusterRenderer:[[SingleDotRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setDelegate:self.clusterManager];
 }
