@@ -32,10 +32,8 @@
 		54590953C7AF8F61FBCAB788 /* MyClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903C940248707AC1827EE /* MyClusterManager.m */; };
 		54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F722DEB94E84E01F5AD /* MyMarker.m */; };
 		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
-		54590C1A8EB06540A9A8D52A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
-		54590E8400DFD3D054EC6FCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		B10DB3DBCA434CBE87F1EB70 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC307A56B4487697FC76FF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,9 +98,7 @@
 				545903CC063520F9E097D1B9 /* Foundation.framework in Frameworks */,
 				54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */,
 				54590618522D8A9568E48DFE /* UIKit.framework in Frameworks */,
-				54590C1A8EB06540A9A8D52A /* MapKit.framework in Frameworks */,
 				545905F48D8991418805110B /* CoreLocation.framework in Frameworks */,
-				54590E8400DFD3D054EC6FCB /* MapKit.framework in Frameworks */,
 				54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */,
 				B10DB3DBCA434CBE87F1EB70 /* libPods.a in Frameworks */,
 			);
@@ -267,6 +263,9 @@
 				TargetAttributes = {
 					545905AFBE4E66FA6495DF56 = {
 						TestTargetID = 54590A517F34F3EC24D0079C;
+					};
+					54590A517F34F3EC24D0079C = {
+						DevelopmentTeam = 255V99ZU6N;
 					};
 				};
 			};
@@ -464,10 +463,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "experiment/experiment-Prefix.pch";
 				INFOPLIST_FILE = "experiment/experiment-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -535,10 +537,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "experiment/experiment-Prefix.pch";
 				INFOPLIST_FILE = "experiment/experiment-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
