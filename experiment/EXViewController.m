@@ -154,6 +154,7 @@ typedef enum {
         int count = 3 + i * 2;
         [individualController setItems:[self textArrayOfSize:count]];
         [tableView setDataSource:individualController];
+        [tableView setDelegate:individualController];
         [self.cardViews addObject:tableView];
         [self.scrollView addSubview:tableView];
     }
@@ -169,17 +170,14 @@ typedef enum {
 
 - (void)adjustCardSizes {
     float rowHeight = [self cardRowHeight];
-    UITableView *exampleView = (self.cardViews)[0];
-    int rows = [[exampleView dataSource] tableView:exampleView numberOfRowsInSection:0];
-
     float scrollViewWidth = self.scrollView.frame.size.width;
     int spaceWidth = 5;
     float cardWidth = scrollViewWidth - 2 * spaceWidth;
     int subViewIndex = 0;
-    for (UIView *view in self.cardViews) {
+    for (UITableView *view in self.cardViews) {
+        int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
                 self.scrollView.frame.size.height - rowHeight, cardWidth, rowHeight * rows);
-        NSLog(@"Positioned view: %f %f", view.frame.origin.x, view.frame.origin.y);
         subViewIndex++;
     }
 
