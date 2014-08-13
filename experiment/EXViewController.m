@@ -7,6 +7,7 @@
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "MyClusterRenderer.h"
 #import "MyClusterManager.h"
+#import "ShadeTableViewController.h"
 
 @implementation EXViewController
 
@@ -142,12 +143,28 @@ typedef enum {
 - (void)buildCards {
     const int CARD_COUNT = 5;
     self.cardViews = [@[] mutableCopy];
+    UIStoryboard *cardBoard = [UIStoryboard storyboardWithName:@"StockCard" bundle:nil];
+    ShadeTableViewController *controller = [cardBoard instantiateViewControllerWithIdentifier:@"stockCards"];
+    self.viewControllers = [@[] mutableCopy];
     for (int i = 0; i < CARD_COUNT; i++) {
-        UIStoryboard *cardBoard = [UIStoryboard storyboardWithName:@"StockCard" bundle:nil];
-        UITableViewController *controller = [cardBoard instantiateViewControllerWithIdentifier:@"stockCards"];
-        [self.cardViews addObject:controller.tableView];
-        [self.scrollView addSubview:controller.tableView];
+        ShadeTableViewController *individualController = [[ShadeTableViewController alloc] init];
+        [self.viewControllers addObject:individualController];
+
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
+        int count = 3 + i * 2;
+        [individualController setItems:[self textArrayOfSize:count]];
+        [tableView setDataSource:individualController];
+        [self.cardViews addObject:tableView];
+        [self.scrollView addSubview:tableView];
     }
+}
+
+- (NSArray *)textArrayOfSize:(int)size {
+    NSMutableArray *array = [@[] mutableCopy];
+    for (int i = 0; i < size; i++) {
+        [array addObject:[@"data" stringByAppendingString:[NSString stringWithFormat:@"%i", i]]];
+    }
+    return array;
 }
 
 - (void)adjustCardSizes {
@@ -162,6 +179,7 @@ typedef enum {
     for (UIView *view in self.cardViews) {
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
                 self.scrollView.frame.size.height - rowHeight, cardWidth, rowHeight * rows);
+        NSLog(@"Positioned view: %f %f", view.frame.origin.x, view.frame.origin.y);
         subViewIndex++;
     }
 

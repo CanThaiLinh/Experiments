@@ -18,4 +18,8 @@
 @property(strong, nonatomic) IBOutlet GMSMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
 @property(nonatomic, strong) GClusterManager *clusterManager;
+
+@property(nonatomic, strong) NSMutableArray *viewControllers;
+
+- (void)buildCards;
 @end
