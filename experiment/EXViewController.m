@@ -127,8 +127,12 @@ typedef enum {
 
 - (void)moveCard:(direction)direction animate:(BOOL)animate {
     int page = (int) (self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
-    int yTranslation = direction == UP ? -100 : 100;
-    UIView *card = self.cardViews[page];
+    UITableView *card = self.cardViews[page];
+    int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
+    int maxHeight = (int) (self.view.frame.size.height - [self cardRowHeight]);
+    int boundHeightToMove = MIN(maxHeight, heightToMove);
+
+    int yTranslation = direction == UP ? -1 * boundHeightToMove : boundHeightToMove ;
     if (animate) {
         [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
             card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
@@ -151,7 +155,7 @@ typedef enum {
         [self.viewControllers addObject:individualController];
 
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
-        int count = 3 + i * 2;
+        int count = 3 + i * 5;
         [individualController setItems:[self textArrayOfSize:count]];
         [tableView setDataSource:individualController];
         [tableView setDelegate:individualController];
@@ -177,7 +181,7 @@ typedef enum {
     for (UITableView *view in self.cardViews) {
         int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
-                self.scrollView.frame.size.height - rowHeight, cardWidth, rowHeight * rows);
+                self.view.frame.size.height - rowHeight, cardWidth, rowHeight * rows);
         subViewIndex++;
     }
 

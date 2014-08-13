@@ -13,36 +13,37 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-Jr-Mev" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adI-BE-NfK" customClass="ClipView">
-                                        <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-uA-0Rg">
-                                                <rect key="frame" x="20" y="0.0" width="280" height="200"/>
+                                                <rect key="frame" x="20" y="0.0" width="280" height="480"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </scrollView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" secondItem="Xhw-uA-0Rg" secondAttribute="height" id="0fE-Le-P1l"/>
-                                            <constraint firstAttribute="trailing" secondItem="Xhw-uA-0Rg" secondAttribute="trailing" constant="20" id="TzY-5K-kxI"/>
-                                            <constraint firstItem="Xhw-uA-0Rg" firstAttribute="leading" secondItem="adI-BE-NfK" secondAttribute="leading" constant="20" id="X6d-ay-SqA"/>
-                                            <constraint firstAttribute="centerY" secondItem="Xhw-uA-0Rg" secondAttribute="centerY" id="gQN-ul-TCB"/>
-                                            <constraint firstAttribute="height" constant="200" id="zvD-sA-zAt"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xhw-uA-0Rg" secondAttribute="bottom" id="8km-QA-x4q"/>
+                                            <constraint firstItem="Xhw-uA-0Rg" firstAttribute="leading" secondItem="adI-BE-NfK" secondAttribute="leading" constant="20" symbolic="YES" id="K9X-a3-50C"/>
+                                            <constraint firstItem="Xhw-uA-0Rg" firstAttribute="top" secondItem="adI-BE-NfK" secondAttribute="top" id="RiW-NI-uX1"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xhw-uA-0Rg" secondAttribute="trailing" constant="20" symbolic="YES" id="gx0-2I-7sC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="adI-BE-NfK" secondAttribute="bottom" id="DNe-Hz-pU7"/>
-                                    <constraint firstAttribute="trailing" secondItem="adI-BE-NfK" secondAttribute="trailing" id="T1X-xz-XFm"/>
-                                    <constraint firstItem="adI-BE-NfK" firstAttribute="leading" secondItem="ydd-Jr-Mev" secondAttribute="leading" id="exB-1J-qUk"/>
+                                    <constraint firstItem="adI-BE-NfK" firstAttribute="leading" secondItem="ydd-Jr-Mev" secondAttribute="leading" id="90s-N9-Idk"/>
+                                    <constraint firstAttribute="bottom" secondItem="adI-BE-NfK" secondAttribute="bottom" id="ELJ-i7-Hxr"/>
+                                    <constraint firstAttribute="trailing" secondItem="adI-BE-NfK" secondAttribute="trailing" id="H9K-70-t76"/>
+                                    <constraint firstAttribute="centerY" secondItem="adI-BE-NfK" secondAttribute="centerY" id="LAK-A4-mv2"/>
+                                    <constraint firstItem="adI-BE-NfK" firstAttribute="top" secondItem="ydd-Jr-Mev" secondAttribute="top" id="sOW-b9-EAc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -69,6 +70,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
