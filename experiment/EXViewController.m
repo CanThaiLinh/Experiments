@@ -26,6 +26,7 @@ typedef enum {
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.clipsToBounds = NO;
+    self.scrollView.userInteractionEnabled = NO;
     self.scrollView.canCancelContentTouches = NO;
     [self.scrollView setDelegate:self];
 
