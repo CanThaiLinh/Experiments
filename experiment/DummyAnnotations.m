@@ -13,6 +13,7 @@
         [dummyCoordinates[i] getValue:&value];
         Spot *spot = [Spot new];
         spot.location = value;
+        spot.text = [self randomString];
         [manager addItem:spot];
     }
 }
@@ -43,6 +44,16 @@
     value.longitude = nearPoint.longitude + precision * randomValueLongitude * positiveNegativeLongitude;
     value.latitude = nearPoint.latitude + precision * randomValueLatitude * positiveNegativeLatitude;
     return value;
+}
+
+- (NSString *)randomString {
+    NSString *alphabet = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int length = arc4random() % 4 + 1;
+    NSString *random = @"";
+    for (int i = 0; i < length; i++) {
+        random = [random stringByAppendingString:[alphabet substringWithRange:NSMakeRange(arc4random() % [alphabet length], 1)]];
+    }
+    return random;
 }
 
 @end

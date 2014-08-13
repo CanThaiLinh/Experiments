@@ -1,7 +1,8 @@
 #import "GClusterItem.h"
 
-@interface Spot : NSObject<GClusterItem>
+@interface Spot : NSObject <GClusterItem>
 
-@property (nonatomic) CLLocationCoordinate2D location;
+@property(nonatomic) CLLocationCoordinate2D location;
+@property(nonatomic) NSString *text;
 
 @end

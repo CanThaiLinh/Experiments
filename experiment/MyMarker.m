@@ -1,4 +1,5 @@
 #import "MyMarker.h"
+#import "TextDrawer.h"
 
 @implementation MyMarker
 
@@ -7,6 +8,16 @@
     if (self) {
         self.isCluster = isCluster;
         [self buildIcon];
+    }
+
+    return self;
+}
+
+- (instancetype)initWithIsCluster:(BOOL)isCluster text:(NSString *)text {
+    self = [super init];
+    if (self) {
+        self.isCluster = isCluster;
+        self.text = text;
     }
 
     return self;
@@ -29,42 +40,39 @@
 }
 
 - (UIImage *)generateSingleIcon {
+    const int FONT_SIZE = 14;
+
     int rectangleHeight = 25;
     int rectangleWidth = 40;
     int triangleWidth = 10;
     int triangleHeight = 12;
+
     CGRect rect = CGRectMake(0, 0, rectangleWidth, rectangleHeight + triangleHeight);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
 
-    CGContextSetLineWidth(ctx, 3);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 3);
     [[UIColor whiteColor] setStroke];
 
     CGRect roundedRectangleRect = CGRectMake(0, 0, rectangleWidth, rectangleHeight);
-    CGRect insetRoundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
+    [self drawRoundedRect:roundedRectangleRect];
+    [self drawBottomTriangle:roundedRectangleRect withWidth:triangleWidth withHeight:triangleHeight];
 
-    [self drawRoundedRect:insetRoundedRectangleRect];
-    [self drawBottomTriangle:ctx fromRect:roundedRectangleRect withWidth:triangleWidth withHeight:triangleHeight];
+    [TextDrawer writeText:self.text fontSize:FONT_SIZE inRect:roundedRectangleRect];
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
     return image;
 }
 
 - (void)drawRoundedRect:(CGRect)roundedRectangleRect {
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:roundedRectangleRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
-    if ([self isSelected]) {
-        [[UIColor blueColor] setFill];
-    }
-    else {
-        [[self greenColor] setFill];
-    }
+    CGRect insetRoundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:insetRoundedRectangleRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
+    [[self currentColor] setFill];
     [path fill];
     [path stroke];
 }
 
-- (void)drawBottomTriangle:(CGContextRef)ctx fromRect:(CGRect)fromRect withWidth:(int)width withHeight:(int)height {
+- (void)drawBottomTriangle:(CGRect)fromRect withWidth:(int)width withHeight:(int)height {
     UIBezierPath *path = [UIBezierPath bezierPath];
 
     int leftX = (int) (fromRect.size.width / 2.0 - width / 2.0);
@@ -74,12 +82,17 @@
     [path addLineToPoint:CGPointMake(rightX, fromRect.size.height - 2)];
     [path stroke];
     [path closePath];
-    [[self greenColor] setFill];
+    [[self currentColor] setFill];
     [path fill];
 }
 
-- (UIColor *)greenColor {
-    return [UIColor colorWithRed:18.0f / 255.0f green:204.0f / 255.0f blue:64.0f / 255.0f alpha:1.0];
+- (UIColor *)currentColor {
+    if ([self isSelected]) {
+        return [UIColor blueColor];
+    }
+    else {
+        return [UIColor colorWithRed:18.0f / 255.0f green:204.0f / 255.0f blue:64.0f / 255.0f alpha:1.0];
+    }
 }
 
 - (UIImage *)generateClusterIcon {
