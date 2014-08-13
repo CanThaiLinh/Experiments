@@ -35,7 +35,9 @@
 		54590B4ECE8FBEFFCCEF7A2F /* TextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
+		54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590D9E2826CA1887044250 /* TextDrawerTests.m */; };
 		B10DB3DBCA434CBE87F1EB70 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC307A56B4487697FC76FF /* libPods.a */; };
+		D9BA501384FC473BAD275C77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC307A56B4487697FC76FF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,7 @@
 		54590C323E21D05C3542C049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		54590CA1F92099505F649DD7 /* DummyAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotations.m; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
 		54590DCA6651AEE54F7F5D92 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 				5459056A4B8E872C35B62510 /* Foundation.framework in Frameworks */,
 				545903201999C84210EA2EDF /* UIKit.framework in Frameworks */,
 				545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */,
+				D9BA501384FC473BAD275C77 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +185,7 @@
 			children = (
 				545907147ED854E92644EA88 /* Supporting Files */,
 				54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */,
+				54590D9E2826CA1887044250 /* TextDrawerTests.m */,
 			);
 			path = experimentTests;
 			sourceTree = "<group>";
@@ -225,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54590345A041A8E3B9FDB53F /* Build configuration list for PBXNativeTarget "experimentTests" */;
 			buildPhases = (
+				183E7295355D45FF8F908E1E /* Check Pods Manifest.lock */,
 				545900BF47CAC130A0E7F093 /* Sources */,
 				5459091F0112B1EA0322C2BF /* Frameworks */,
 				54590A3FC93BD5DAC12243D9 /* Resources */,
+				A51D15FC52534E23914A9687 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,6 +291,8 @@
 			mainGroup = 54590C936ADBCADAFF1C54FD;
 			productRefGroup = 5459007FF3EB13C7F0A9012D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+			);
 			projectRoot = "";
 			targets = (
 				54590A517F34F3EC24D0079C /* experiment */,
@@ -330,6 +339,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		183E7295355D45FF8F908E1E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		7252CC8720A041C1960FE99C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +369,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		A51D15FC52534E23914A9687 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -353,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */,
+				54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +487,7 @@
 		};
 		545905A081DA4CC3B0A7E172 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEC463A7B4DC4397A46C0DB9 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/experiment.app/experiment";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -483,6 +524,7 @@
 		};
 		5459087A2A5F4C1209C83396 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEC463A7B4DC4397A46C0DB9 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/experiment.app/experiment";
 				FRAMEWORK_SEARCH_PATHS = (

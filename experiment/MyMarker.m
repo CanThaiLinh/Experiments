@@ -3,16 +3,6 @@
 
 @implementation MyMarker
 
-- (instancetype)initWithIsCluster:(BOOL)isCluster {
-    self = [super init];
-    if (self) {
-        self.isCluster = isCluster;
-        [self buildIcon];
-    }
-
-    return self;
-}
-
 - (instancetype)initWithIsCluster:(BOOL)isCluster text:(NSString *)text {
     self = [super init];
     if (self) {
@@ -42,8 +32,10 @@
 - (UIImage *)generateSingleIcon {
     const int FONT_SIZE = 14;
 
-    int rectangleHeight = 25;
-    int rectangleWidth = 40;
+    CGSize textFrame = [self getSizeOfText:FONT_SIZE];
+
+    int rectangleHeight = (int) (textFrame.height * 2);
+    int rectangleWidth = (int) (textFrame.width + 12);
     int triangleWidth = 10;
     int triangleHeight = 12;
 
@@ -62,6 +54,15 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (CGSize)getSizeOfText:(int const)FONT_SIZE {
+    NSString *sizeTestString = self.text;
+    if(self.text.length == 1){
+        sizeTestString = [sizeTestString stringByAppendingString:@"Q"];
+    }
+    CGSize textFrame = [TextDrawer sizeOfText:self.text fontSize:FONT_SIZE];
+    return textFrame;
 }
 
 - (void)drawRoundedRect:(CGRect)roundedRectangleRect {

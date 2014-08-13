@@ -1,4 +1,5 @@
 #import <MapKit/MapKit.h>
+#import "GClusterManager.h"
 
 @interface DummyAnnotations : NSObject
 

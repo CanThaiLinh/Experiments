@@ -23,12 +23,12 @@
     for (id <GCluster> cluster in clusters) {
         MyMarker *marker;
         if ([cluster count] > 1) {
-            marker = [[MyMarker alloc] initWithIsCluster:YES];
+            marker = [[MyMarker alloc] initWithIsCluster:YES text:nil];
         }
         else {
-            id unknownItem =  [[cluster getItems] allObjects][0];
+            id unknownItem = [[cluster getItems] allObjects][0];
             Spot *spot;
-            if([unknownItem isKindOfClass:Spot.class]){
+            if ([unknownItem isKindOfClass:Spot.class]) {
                 spot = unknownItem;
             }
             else {
