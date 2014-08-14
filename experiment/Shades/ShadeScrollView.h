@@ -1,6 +1,6 @@
 @class ShadeTableViewController;
 
-@interface ShadeScrollView : UIScrollView <UIGestureRecognizerDelegate>
+@interface ShadeScrollView : UIScrollView <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 @property(nonatomic) BOOL swiping;
 @property(nonatomic) BOOL cardRevealed;
 

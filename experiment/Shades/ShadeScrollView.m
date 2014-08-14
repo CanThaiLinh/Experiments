@@ -14,6 +14,7 @@ typedef enum {
         self.showsHorizontalScrollIndicator = NO;
         self.pagingEnabled = YES;
         self.clipsToBounds = NO;
+        [self setDelegate:self];
 
         UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardPanned:)];
         [recognizer setDelegate:self];
@@ -24,9 +25,11 @@ typedef enum {
 }
 
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
-    if (gesture.state == UIGestureRecognizerStateBegan) {self.swiping = NO;}
-
     CGPoint v = [gesture velocityInView:self];
+    if(fabs(v.x) > 40){
+        return;
+    }
+
     const int THRESHOLD = 100;
     if (v.y <= -THRESHOLD && !self.swiping && !self.cardRevealed) {
         self.swiping = YES;
@@ -95,15 +98,17 @@ typedef enum {
         }                completion:^(BOOL finished) {
             self.cardRevealed = !self.cardRevealed;
 
-            if(!self.cardRevealed) {
+            if (!self.cardRevealed) {
                 [self showOtherCards];
             }
+            self.swiping = NO;
         }];
     }
     else {
         card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
     }
 }
+
 
 - (int)currentPage {
     int page = (int) (self.contentOffset.x / self.frame.size.width);
