@@ -85,7 +85,7 @@ typedef enum {
     int page = [self currentPage];
     UITableView *card = self.cardViews[page];
     int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
-    int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight]);
+    int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight] - 25);
     int boundHeightToMove = MIN(maxHeight, heightToMove);
 
     int yTranslation = direction == UP ? -1 * boundHeightToMove : boundHeightToMove;
@@ -94,6 +94,7 @@ typedef enum {
             self.superview.center = CGPointMake(self.superview.center.x, self.superview.center.y + yTranslation);
         }                completion:^(BOOL finished) {
             self.cardRevealed = !self.cardRevealed;
+
             if(!self.cardRevealed) {
                 [self showOtherCards];
             }
@@ -167,14 +168,8 @@ typedef enum {
     return UIInterfaceOrientationIsPortrait(interfaceOrientation) ? CGRectGetWidth(bounds) : CGRectGetHeight(bounds);
 }
 
-- (CGFloat)getScreenHeight {
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    return CGRectGetHeight(bounds);
-}
-
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
-
 
 @end
