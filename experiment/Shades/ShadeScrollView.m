@@ -30,12 +30,10 @@ typedef enum {
     const int THRESHOLD = 100;
     if (v.y <= -THRESHOLD && !self.swiping && !self.cardRevealed) {
         self.swiping = YES;
-        [gesture cancelsTouchesInView];
         [self revealCard];
     }
     else if (v.y >= THRESHOLD && !self.swiping && self.cardRevealed) {
         self.swiping = YES;
-        [gesture cancelsTouchesInView];
         [self hideCard:YES];
     }
 }
@@ -125,7 +123,7 @@ typedef enum {
     for (UITableView *view in self.cardViews) {
         int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
-                [self getScrenHeight] - rowHeight, cardWidth, rowHeight * rows);
+                [self getScreenHeight] - rowHeight, cardWidth, rowHeight * rows);
         subViewIndex++;
     }
 
@@ -138,7 +136,7 @@ typedef enum {
     return UIInterfaceOrientationIsPortrait(interfaceOrientation) ? CGRectGetWidth(bounds) : CGRectGetHeight(bounds);
 }
 
-- (CGFloat)getScrenHeight {
+- (CGFloat)getScreenHeight {
     CGRect bounds = [UIScreen mainScreen].bounds;
     return CGRectGetHeight(bounds);
 }

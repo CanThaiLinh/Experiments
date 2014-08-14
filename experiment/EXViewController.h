@@ -1,7 +1,6 @@
 #import <UIKit/UIKit.h>
-
+#import <CoreLocation/CLLocationManagerDelegate.h>
 @class ClipView;
-@class CLLocationManager;
 @class GMSMapView;
 @class GClusterManager;
 @class ShadeScrollView;
