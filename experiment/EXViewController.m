@@ -25,6 +25,7 @@ const int MIN_ZOOM_LEVEL = 17;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
 
+    [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
     self.clusterManager = [[MyClusterManager alloc] init];
