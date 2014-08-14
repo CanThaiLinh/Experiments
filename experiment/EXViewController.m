@@ -17,7 +17,6 @@ const int MIN_ZOOM_LEVEL = 17;
 
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
-    self.cardRevealed = NO;
 
     [self.scrollView buildCards];
 
@@ -52,15 +51,6 @@ const int MIN_ZOOM_LEVEL = 17;
         [[DummyAnnotations new] addAnnotations:self.clusterManager around:newLocation.coordinate];
         [[self clusterManager] cluster];
     }
-}
-
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    MKCoordinateRegion region;
-    region.center = mapView.userLocation.coordinate;
-    region.span = MKCoordinateSpanMake(0.001, 0.001);
-
-    region = [mapView regionThatFits:region];
-    [mapView setRegion:region animated:NO];
 }
 
 @end

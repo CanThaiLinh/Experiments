@@ -12,9 +12,6 @@
 @property(weak, nonatomic) IBOutlet ShadeScrollView *scrollView;
 
 @property(nonatomic, strong) NSMutableArray *cardViews;
-@property(nonatomic) BOOL swiping;
-@property(nonatomic) BOOL cardRevealed;
-@property(nonatomic) BOOL scrolling;
 @property(nonatomic, strong) CLLocationManager *locationManager;
 @property(strong, nonatomic) IBOutlet GMSMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
