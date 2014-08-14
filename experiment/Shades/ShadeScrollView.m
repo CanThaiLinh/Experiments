@@ -49,34 +49,64 @@ typedef enum {
 }
 
 - (void)revealCard {
-    self.cardRevealed = YES;
-    [self moveCard:UP animate:YES];
+    if (!self.cardRevealed) {
+        [self hideOtherCards];
+        [self moveCard:UP animate:YES];
+    }
+}
+
+- (void)hideOtherCards {
+    int page = [self currentPage];
+    if (page > 0) {
+        [self.cardViews[page - 1] setHidden:YES];
+    }
+    if (page < [self.cardViews count] - 1) {
+        [self.cardViews[page + 1] setHidden:YES];
+    }
 }
 
 - (void)hideCard:(BOOL)animate {
     if (self.cardRevealed) {
-        self.cardRevealed = NO;
         [self moveCard:DOWN animate:animate];
     }
 }
 
+- (void)showOtherCards {
+    int page = [self currentPage];
+    if (page > 0) {
+        [self.cardViews[page - 1] setHidden:NO];
+    }
+    if (page < [self.cardViews count] - 1) {
+        [self.cardViews[page + 1] setHidden:NO];
+    }
+}
+
 - (void)moveCard:(direction)direction animate:(BOOL)animate {
-    int page = (int) (self.contentOffset.x / self.frame.size.width);
+    int page = [self currentPage];
     UITableView *card = self.cardViews[page];
     int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
-    int maxHeight = (int) (self.frame.size.height - [self cardRowHeight]);
+    int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight]);
     int boundHeightToMove = MIN(maxHeight, heightToMove);
 
     int yTranslation = direction == UP ? -1 * boundHeightToMove : boundHeightToMove;
     if (animate) {
         [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
+            self.superview.center = CGPointMake(self.superview.center.x, self.superview.center.y + yTranslation);
         }                completion:^(BOOL finished) {
+            self.cardRevealed = !self.cardRevealed;
+            if(!self.cardRevealed) {
+                [self showOtherCards];
+            }
         }];
     }
     else {
         card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
     }
+}
+
+- (int)currentPage {
+    int page = (int) (self.contentOffset.x / self.frame.size.width);
+    return page;
 }
 
 - (CGFloat)cardRowHeight {
@@ -97,6 +127,7 @@ typedef enum {
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
         int count = 3 + i * 5;
         [individualController setItems:[self textArrayOfSize:count]];
+        tableView.scrollEnabled = NO;
         [tableView setDataSource:individualController];
         [tableView setDelegate:individualController];
         [self.cardViews addObject:tableView];
@@ -123,7 +154,7 @@ typedef enum {
     for (UITableView *view in self.cardViews) {
         int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
-                [self getScreenHeight] - rowHeight, cardWidth, rowHeight * rows);
+                0, cardWidth, rowHeight * rows);
         subViewIndex++;
     }
 

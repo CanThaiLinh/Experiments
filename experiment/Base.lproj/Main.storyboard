@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
@@ -20,43 +19,44 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-Jr-Mev" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adI-BE-NfK" customClass="ClipView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JA-b9-vMI" customClass="ClipView">
+                                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-uA-0Rg" customClass="ShadeScrollView">
-                                                <rect key="frame" x="20" y="0.0" width="280" height="480"/>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMR-CN-wkr" customClass="ShadeScrollView">
+                                                <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                                             </scrollView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Xhw-uA-0Rg" secondAttribute="bottom" id="8km-QA-x4q"/>
-                                            <constraint firstItem="Xhw-uA-0Rg" firstAttribute="leading" secondItem="adI-BE-NfK" secondAttribute="leading" constant="20" symbolic="YES" id="K9X-a3-50C"/>
-                                            <constraint firstItem="Xhw-uA-0Rg" firstAttribute="top" secondItem="adI-BE-NfK" secondAttribute="top" id="RiW-NI-uX1"/>
-                                            <constraint firstAttribute="trailing" secondItem="Xhw-uA-0Rg" secondAttribute="trailing" constant="20" symbolic="YES" id="gx0-2I-7sC"/>
+                                            <constraint firstAttribute="centerY" secondItem="IMR-CN-wkr" secondAttribute="centerY" id="N1N-cq-iyd"/>
+                                            <constraint firstItem="IMR-CN-wkr" firstAttribute="leading" secondItem="9JA-b9-vMI" secondAttribute="leading" constant="10" id="cTx-k8-TPa"/>
+                                            <constraint firstAttribute="height" constant="44" id="cfK-3v-svX"/>
+                                            <constraint firstItem="IMR-CN-wkr" firstAttribute="top" secondItem="9JA-b9-vMI" secondAttribute="top" id="gCQ-4v-q6S"/>
+                                            <constraint firstAttribute="centerX" secondItem="IMR-CN-wkr" secondAttribute="centerX" id="gjq-gg-x4B"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="adI-BE-NfK" firstAttribute="leading" secondItem="ydd-Jr-Mev" secondAttribute="leading" id="90s-N9-Idk"/>
-                                    <constraint firstAttribute="bottom" secondItem="adI-BE-NfK" secondAttribute="bottom" id="ELJ-i7-Hxr"/>
-                                    <constraint firstAttribute="trailing" secondItem="adI-BE-NfK" secondAttribute="trailing" id="H9K-70-t76"/>
-                                    <constraint firstAttribute="centerY" secondItem="adI-BE-NfK" secondAttribute="centerY" id="LAK-A4-mv2"/>
-                                    <constraint firstItem="adI-BE-NfK" firstAttribute="top" secondItem="ydd-Jr-Mev" secondAttribute="top" id="sOW-b9-EAc"/>
+                                    <constraint firstAttribute="bottom" secondItem="9JA-b9-vMI" secondAttribute="bottom" id="Cq5-ym-oak"/>
+                                    <constraint firstAttribute="centerX" secondItem="9JA-b9-vMI" secondAttribute="centerX" id="RPx-FY-zLz"/>
+                                    <constraint firstItem="9JA-b9-vMI" firstAttribute="width" secondItem="ydd-Jr-Mev" secondAttribute="width" id="acg-ej-oAm"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Ck0-Yp-omY"/>
-                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qj4-ks-6sB"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ydd-Jr-Mev" secondAttribute="bottom" id="wlY-r9-bcb"/>
-                            <constraint firstAttribute="trailing" secondItem="ydd-Jr-Mev" secondAttribute="trailing" id="zX9-cj-tkd"/>
+                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="3sB-mQ-ciY"/>
+                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Ted-ld-ian"/>
+                            <constraint firstAttribute="centerX" secondItem="ydd-Jr-Mev" secondAttribute="centerX" id="XfC-KT-jQ5"/>
+                            <constraint firstAttribute="centerY" secondItem="ydd-Jr-Mev" secondAttribute="centerY" id="k7r-Y5-PTi"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <connections>
-                        <outlet property="clipView" destination="adI-BE-NfK" id="m5i-d3-klY"/>
+                        <outlet property="clipView" destination="9JA-b9-vMI" id="H4A-fx-MbR"/>
                         <outlet property="mapView" destination="ydd-Jr-Mev" id="ugI-ed-NpU"/>
-                        <outlet property="scrollView" destination="Xhw-uA-0Rg" id="dOC-eb-95W"/>
+                        <outlet property="scrollView" destination="IMR-CN-wkr" id="Gzy-Ga-43j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

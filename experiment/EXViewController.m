@@ -39,7 +39,6 @@ const int MIN_ZOOM_LEVEL = 17;
     [self.mapView setIndoorEnabled:NO];
     [self.mapView setDelegate:self.clusterManager];
     [self.mapView bringSubviewToFront:self.clipView];
-    self.mapView.settings.consumesGesturesInView = NO;
 }
 
 - (void)locationManager:(CLLocationManager *)manager
