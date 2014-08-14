@@ -10,6 +10,7 @@
 		5459003972767B89821DC370 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459070AFD3CF7DCB74A7FE6 /* MyAnnotation.m */; };
 		54590040634AD8B6D66F3A73 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590DCA6651AEE54F7F5D92 /* Spot.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
+		545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
 		54590258E96FCAD48D1C0C0C /* MyClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900F740D78CFB1BE73629 /* MyClusterRenderer.m */; };
 		5459025E817F1AA140D1D40F /* EXViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459034CD093A7440B851947 /* EXViewControllerTests.m */; };
@@ -73,6 +74,7 @@
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5459092383AD4A7ED74D3A75 /* experiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "experiment-Prefix.pch"; sourceTree = "<group>"; };
 		5459096F04E8EF316D8C8B9B /* StockCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StockCard.storyboard; sourceTree = "<group>"; };
+		5459098B6080F4488BABF3B1 /* ShadeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeScrollView.h; sourceTree = "<group>"; };
 		545909BEB0C8EE528B9FC1F1 /* MyClusterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClusterManager.h; sourceTree = "<group>"; };
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
 		54590DCA6651AEE54F7F5D92 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeScrollView.m; sourceTree = "<group>"; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		54590EDB9ED935FDB962BA31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		54590EE42E452BC50DE38D08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 			children = (
 				54590B84C497979972AFB2C3 /* ShadeTableViewController.m */,
 				54590CB8E58CA8E2CB71B022 /* ShadeTableViewController.h */,
+				54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */,
+				5459098B6080F4488BABF3B1 /* ShadeScrollView.h */,
 			);
 			path = Shades;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */,
 				54590B4ECE8FBEFFCCEF7A2F /* TextDrawer.m in Sources */,
 				545903E29F95FB6DD0D0C873 /* ShadeTableViewController.m in Sources */,
+				545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
