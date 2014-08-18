@@ -4,6 +4,7 @@
 @class ClipView;
 @class GClusterManager;
 @class ShadeScrollView;
+@class MKClusterManager;
 
 @interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
 }
@@ -14,7 +15,7 @@
 @property(nonatomic, strong) CLLocationManager *locationManager;
 @property(strong, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
-@property(nonatomic, strong) GClusterManager *clusterManager;
+@property(nonatomic, strong) MKClusterManager *clusterManager;
 
 @property(nonatomic, strong) NSMutableArray *viewControllers;
 @end

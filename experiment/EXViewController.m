@@ -11,6 +11,7 @@
 #import "ShadeScrollView.h"
 
 #include "MKMapView+ZoomLevel.h"
+#import "MKClusterManager.h"
 
 @implementation EXViewController
 
