@@ -16,9 +16,7 @@
 }
 
 - (void)clustersChanged:(NSSet *)clusters {
-    for (GMSMarker *marker in self.markerCache) {
-        marker.map = nil;
-    }
+    [self.mapView removeAnnotations:self.markerCache];
     [self.markerCache removeAllObjects];
 
     for (id <GCluster> cluster in clusters) {
@@ -40,18 +38,10 @@
             marker = [[MyMarker alloc] initWithIsCluster:NO text:spot.text];
         }
 
+        [marker setCoordinate:cluster.position];
         [self.markerCache addObject:marker];
-        marker.position = cluster.position;
-        [self addMarkerToMap: marker];
+        [self.mapView addAnnotation:marker];
     }
-
-    for (MyMarker *marker in self.markerCache) {
-        [marker buildIcon];
-    }
-}
-
-- (void)addMarkerToMap:(MyMarker *)marker {
-
 }
 
 - (void)unselectAll {

@@ -1,7 +1,11 @@
 #import <MapKit/MapKit.h>
+#import <MKMapView-ZoomLevel/MKMapView+ZoomLevel.h>
 #import "MKClusterManager.h"
+#import "MyMarker.h"
 
-@implementation MKClusterManager
+@implementation MKClusterManager {
+    NSUInteger previousZoom;
+}
 
 - (void)setMapView:(MKMapView *)mapView {
     map = mapView;
@@ -15,24 +19,38 @@
     renderer = clusterRenderer;
 }
 
-- (void)addItem:(id <GClusterItem>) item {
+- (void)addItem:(id <GClusterItem>)item {
     [algorithm addItem:item];
 }
 
 - (void)cluster {
-    float zoom = 17;
-    NSSet *clusters = [algorithm getClusters:zoom];
+    NSSet *clusters = [algorithm getClusters:[map zoomLevel]];
     [renderer clustersChanged:clusters];
 }
 
-//- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)cameraPosition {
-//    // Don't re-compute clusters if the map has just been panned/tilted/rotated.
-//    GMSCameraPosition *position = [mapView camera];
-//    if (previousCameraPosition != nil && previousCameraPosition.zoom == position.zoom) {
-//        return;
-//    }
-//    previousCameraPosition = [mapView camera];
-//    [self cluster];
-//}
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    if (![annotation isKindOfClass:MyMarker.class]) {
+        return nil;
+    }
+
+    MKPinAnnotationView *pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    MyMarker *marker = annotation;
+    if (marker.isCluster) {
+        pav.pinColor = MKPinAnnotationColorRed;
+    }
+    else {
+        pav.pinColor = MKPinAnnotationColorGreen;
+    }
+    return pav;
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if (previousCameraPosition && previousZoom == [mapView zoomLevel]) {
+        return;
+    }
+    previousCameraPosition = YES;
+    previousZoom = [mapView zoomLevel];
+    [self cluster];
+}
 
 @end

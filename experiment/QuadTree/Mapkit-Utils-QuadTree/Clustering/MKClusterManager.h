@@ -10,7 +10,7 @@
     MKMapView *map;
     id <GClusterAlgorithm> algorithm;
     id <GClusterRenderer> renderer;
-    GMSCameraPosition *previousCameraPosition;
+    BOOL previousCameraPosition;
 }
 
 - (void)setMapView:(MKMapView*)mapView;

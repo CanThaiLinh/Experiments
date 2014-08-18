@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,11 +22,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="81H-MJ-hY0" secondAttribute="centerX" id="9m7-6c-KBc"/>
-                            <constraint firstAttribute="centerY" secondItem="81H-MJ-hY0" secondAttribute="centerY" id="IGQ-6o-ez9"/>
-                            <constraint firstItem="81H-MJ-hY0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="ITR-4f-n3f"/>
-                            <constraint firstItem="81H-MJ-hY0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="fsV-iH-M4X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="81H-MJ-hY0" secondAttribute="trailing" constant="-16" id="srk-cT-u0Y"/>
+                            <constraint firstAttribute="centerX" secondItem="81H-MJ-hY0" secondAttribute="centerX" id="595-xP-oii"/>
+                            <constraint firstAttribute="centerY" secondItem="81H-MJ-hY0" secondAttribute="centerY" id="hgx-nA-Bzo"/>
+                            <constraint firstItem="81H-MJ-hY0" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="jaw-ri-avN"/>
+                            <constraint firstItem="81H-MJ-hY0" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="lPo-LQ-JZE"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

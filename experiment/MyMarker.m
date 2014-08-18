@@ -15,10 +15,10 @@
 
 - (void)buildIcon {
     if (self.isCluster) {
-        self.icon = [self generateClusterIcon];
+//        icon = [self generateClusterIcon];
     }
     else {
-        self.icon = [self generateSingleIcon];
+//        icon = [self generateSingleIcon];
     }
 }
 
