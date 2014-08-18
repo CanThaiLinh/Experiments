@@ -1,13 +1,14 @@
 #import "GClusterRenderer.h"
 
 @class GMSMapView;
+@class MKMapView;
 
 @interface MyClusterRenderer : NSObject <GClusterRenderer>
-@property(nonatomic, strong) GMSMapView *mapView;
+@property(nonatomic, strong) MKMapView *mapView;
 
 @property(nonatomic, strong) NSMutableArray *markerCache;
 
-- (instancetype)initWithMapView:(GMSMapView *)mapView;
+- (instancetype)initWithMapView:(MKMapView *)mapView;
 
 - (void)unselectAll;
 @end

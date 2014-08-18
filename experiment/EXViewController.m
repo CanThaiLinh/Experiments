@@ -30,12 +30,12 @@ const int MIN_ZOOM_LEVEL = 17;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
-//    self.clusterManager = [[MyClusterManager alloc] init];
-//    [self.clusterManager setMapView:self.mapView];
-//    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
-//    [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
+    self.clusterManager = [[MyClusterManager alloc] init];
+    [self.clusterManager setMapView:self.mapView];
+    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
+    [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
-//    [self.mapView setDelegate:self.clusterManager];
+    [self.mapView setDelegate:self.clusterManager];
 //    [self.mapView bringSubviewToFront:self.clipView];
     [self.mapView setShowsUserLocation:YES];
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
