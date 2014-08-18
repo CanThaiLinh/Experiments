@@ -1,10 +1,12 @@
 PODS:
   - Google-Maps-iOS-SDK (1.8.1)
   - Google-Maps-iOS-Utils-QuadTree (0.1)
+  - MKMapView-ZoomLevel (1.1.0)
 
 DEPENDENCIES:
   - Google-Maps-iOS-SDK (= 1.8.1)
   - Google-Maps-iOS-Utils-QuadTree (from `https://github.com/DDRBoxman/google-maps-ios-utils`)
+  - MKMapView-ZoomLevel (= 1.1.0)
 
 EXTERNAL SOURCES:
   Google-Maps-iOS-Utils-QuadTree:
@@ -13,5 +15,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Google-Maps-iOS-SDK: 4fe35d952dbd1e4dacfcfa178e9cce2f06d67ecc
   Google-Maps-iOS-Utils-QuadTree: ebb80b733891f180ecef28a2488d12239721e56b
+  MKMapView-ZoomLevel: 16d7a0269bbb08b62c3e62c5b6f617b2ce469d8a
 
 COCOAPODS: 0.33.1

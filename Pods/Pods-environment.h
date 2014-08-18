@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_Utils_QuadTree 1
 #define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_Utils_QuadTree 0
 
+// MKMapView-ZoomLevel
+#define COCOAPODS_POD_AVAILABLE_MKMapView_ZoomLevel
+#define COCOAPODS_VERSION_MAJOR_MKMapView_ZoomLevel 1
+#define COCOAPODS_VERSION_MINOR_MKMapView_ZoomLevel 1
+#define COCOAPODS_VERSION_PATCH_MKMapView_ZoomLevel 0
+
