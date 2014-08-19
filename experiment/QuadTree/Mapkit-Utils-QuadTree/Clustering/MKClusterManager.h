@@ -13,6 +13,8 @@
     BOOL previousCameraPosition;
 }
 
+@property(nonatomic, weak) NSTimer *clusterTimer;
+
 - (void)setMapView:(MKMapView*)mapView;
 
 - (void)setClusterAlgorithm:(id <GClusterAlgorithm>)clusterAlgorithm;

@@ -46,6 +46,7 @@ const int MIN_ZOOM_LEVEL = 17;
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
     if (!self.hasFoundInitialLocation) {
+        NSLog(@"Update location");
         self.hasFoundInitialLocation = YES;
         [self.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:MAX_ZOOM_LEVEL animated:NO];
         [[DummyAnnotations new] addAnnotations:self.clusterManager around:newLocation.coordinate];

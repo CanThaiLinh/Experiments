@@ -44,12 +44,27 @@
     return pav;
 }
 
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    self.clusterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                         target:self
+                                                       selector:@selector(regionChanged)
+                                                       userInfo:nil
+                                                        repeats:YES];
+}
+
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    if (previousCameraPosition && previousZoom == [mapView zoomLevel]) {
+    [self.clusterTimer invalidate];
+    self.clusterTimer = nil;
+    [self regionChanged];
+}
+
+- (void)regionChanged {
+    if (previousCameraPosition && previousZoom == [map zoomLevel]) {
         return;
     }
     previousCameraPosition = YES;
-    previousZoom = [mapView zoomLevel];
+    previousZoom = [map zoomLevel];
     [self cluster];
 }
 
