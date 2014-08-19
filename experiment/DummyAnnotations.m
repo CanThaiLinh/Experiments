@@ -3,10 +3,11 @@
 #import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "DummyAnnotations.h"
 #import "Spot.h"
+#import "MKClusterManager.h"
 
 @implementation DummyAnnotations
 
-- (void)addAnnotations:(GClusterManager *)manager around:(CLLocationCoordinate2D)around {
+- (void)addAnnotations:(MKClusterManager *)manager around:(CLLocationCoordinate2D)around {
     NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
     for (int i = 0; i < [dummyCoordinates count]; i++) {
         CLLocationCoordinate2D value;

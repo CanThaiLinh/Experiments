@@ -1,4 +1,4 @@
-#import "GClusterManager.h"
+#import "MKClusterManager.h"
 
-@interface MyClusterManager : GClusterManager
+@interface MyClusterManager : MKClusterManager
 @end

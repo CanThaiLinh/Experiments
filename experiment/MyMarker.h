@@ -1,8 +1,10 @@
+#import <MapKit/MapKit.h>
 #import "GMSMarker.h"
 
-@interface MyMarker : GMSMarker
+@interface MyMarker : NSObject<MKAnnotation>
 @property (nonatomic) BOOL isCluster;
 @property (nonatomic) BOOL isSelected;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @property(nonatomic, copy) NSString *text;
 

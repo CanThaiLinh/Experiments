@@ -1,9 +1,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
+
 @class ClipView;
-@class GMSMapView;
 @class GClusterManager;
 @class ShadeScrollView;
+@class MKClusterManager;
 
 @interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
 }
@@ -12,9 +13,9 @@
 
 @property(nonatomic, strong) NSMutableArray *cardViews;
 @property(nonatomic, strong) CLLocationManager *locationManager;
-@property(strong, nonatomic) IBOutlet GMSMapView *mapView;
+@property(strong, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
-@property(nonatomic, strong) GClusterManager *clusterManager;
+@property(nonatomic, strong) MKClusterManager *clusterManager;
 
 @property(nonatomic, strong) NSMutableArray *viewControllers;
 @end

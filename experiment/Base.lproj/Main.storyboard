@@ -16,47 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-Jr-Mev" customClass="GMSMapView">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81H-MJ-hY0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JA-b9-vMI" customClass="ClipView">
-                                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                                        <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMR-CN-wkr" customClass="ShadeScrollView">
-                                                <rect key="frame" x="10" y="0.0" width="300" height="44"/>
-                                            </scrollView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="IMR-CN-wkr" secondAttribute="centerY" id="N1N-cq-iyd"/>
-                                            <constraint firstItem="IMR-CN-wkr" firstAttribute="leading" secondItem="9JA-b9-vMI" secondAttribute="leading" constant="10" id="cTx-k8-TPa"/>
-                                            <constraint firstAttribute="height" constant="44" id="cfK-3v-svX"/>
-                                            <constraint firstItem="IMR-CN-wkr" firstAttribute="top" secondItem="9JA-b9-vMI" secondAttribute="top" id="gCQ-4v-q6S"/>
-                                            <constraint firstAttribute="centerX" secondItem="IMR-CN-wkr" secondAttribute="centerX" id="gjq-gg-x4B"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="9JA-b9-vMI" secondAttribute="bottom" id="Cq5-ym-oak"/>
-                                    <constraint firstAttribute="centerX" secondItem="9JA-b9-vMI" secondAttribute="centerX" id="RPx-FY-zLz"/>
-                                    <constraint firstItem="9JA-b9-vMI" firstAttribute="width" secondItem="ydd-Jr-Mev" secondAttribute="width" id="acg-ej-oAm"/>
-                                </constraints>
-                            </view>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="3sB-mQ-ciY"/>
-                            <constraint firstItem="ydd-Jr-Mev" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Ted-ld-ian"/>
-                            <constraint firstAttribute="centerX" secondItem="ydd-Jr-Mev" secondAttribute="centerX" id="XfC-KT-jQ5"/>
-                            <constraint firstAttribute="centerY" secondItem="ydd-Jr-Mev" secondAttribute="centerY" id="k7r-Y5-PTi"/>
+                            <constraint firstAttribute="centerX" secondItem="81H-MJ-hY0" secondAttribute="centerX" id="595-xP-oii"/>
+                            <constraint firstAttribute="centerY" secondItem="81H-MJ-hY0" secondAttribute="centerY" id="hgx-nA-Bzo"/>
+                            <constraint firstItem="81H-MJ-hY0" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="jaw-ri-avN"/>
+                            <constraint firstItem="81H-MJ-hY0" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="lPo-LQ-JZE"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
-                        <outlet property="clipView" destination="9JA-b9-vMI" id="H4A-fx-MbR"/>
-                        <outlet property="mapView" destination="ydd-Jr-Mev" id="ugI-ed-NpU"/>
-                        <outlet property="scrollView" destination="IMR-CN-wkr" id="Gzy-Ga-43j"/>
+                        <outlet property="mapView" destination="81H-MJ-hY0" id="Q9N-l7-WcX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

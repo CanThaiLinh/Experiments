@@ -9,6 +9,9 @@
 #import "MyClusterManager.h"
 #import "ShadeScrollView.h"
 
+#include "MKMapView+ZoomLevel.h"
+#import "MKClusterManager.h"
+
 @implementation EXViewController
 
 const int MAX_ZOOM_LEVEL = 21;
@@ -29,25 +32,22 @@ const int MIN_ZOOM_LEVEL = 17;
 
     self.clusterManager = [[MyClusterManager alloc] init];
     [self.clusterManager setMapView:self.mapView];
-    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] init]];
+    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:3000]];
     [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
-    [self.mapView setMinZoom:MIN_ZOOM_LEVEL maxZoom:MAX_ZOOM_LEVEL];
-    [self.mapView setMyLocationEnabled:YES];
-    [self.mapView setBuildingsEnabled:NO];
-    [self.mapView setIndoorEnabled:NO];
     [self.mapView setDelegate:self.clusterManager];
-    [self.mapView bringSubviewToFront:self.clipView];
+//    [self.mapView bringSubviewToFront:self.clipView];
+    [self.mapView setShowsUserLocation:YES];
+    self.mapView.userTrackingMode = MKUserTrackingModeFollow;
 }
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
     if (!self.hasFoundInitialLocation) {
+        NSLog(@"Update location");
         self.hasFoundInitialLocation = YES;
-        [self.mapView setCamera:[GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
-                                                            longitude:newLocation.coordinate.longitude
-                                                                 zoom:MIN_ZOOM_LEVEL]];
+        [self.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:MAX_ZOOM_LEVEL animated:NO];
         [[DummyAnnotations new] addAnnotations:self.clusterManager around:newLocation.coordinate];
         [[self clusterManager] cluster];
     }

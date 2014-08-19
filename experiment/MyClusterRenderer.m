@@ -1,10 +1,11 @@
+#import <MapKit/MapKit.h>
 #import "MyClusterRenderer.h"
 #import "MyMarker.h"
 #import "Spot.h"
 
 @implementation MyClusterRenderer
 
-- (instancetype)initWithMapView:(GMSMapView *)mapView {
+- (instancetype)initWithMapView:(MKMapView *)mapView {
     self = [super init];
     if (self) {
         self.mapView = mapView;
@@ -15,9 +16,7 @@
 }
 
 - (void)clustersChanged:(NSSet *)clusters {
-    for (GMSMarker *marker in self.markerCache) {
-        marker.map = nil;
-    }
+    [self.mapView removeAnnotations:self.markerCache];
     [self.markerCache removeAllObjects];
 
     for (id <GCluster> cluster in clusters) {
@@ -39,13 +38,9 @@
             marker = [[MyMarker alloc] initWithIsCluster:NO text:spot.text];
         }
 
+        [marker setCoordinate:cluster.position];
         [self.markerCache addObject:marker];
-        marker.position = cluster.position;
-        marker.map = self.mapView;
-    }
-
-    for (MyMarker *marker in self.markerCache) {
-        [marker buildIcon];
+        [self.mapView addAnnotation:marker];
     }
 }
 
