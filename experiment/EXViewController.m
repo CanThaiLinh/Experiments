@@ -7,12 +7,11 @@
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "MyClusterRenderer.h"
 #import "MyClusterManager.h"
-#import "ShadeTableViewController.h"
 #import "ShadeScrollView.h"
 
 @implementation EXViewController
 
-const int MAX_ZOOM_LEVEL = 19;
+const int MAX_ZOOM_LEVEL = 21;
 const int MIN_ZOOM_LEVEL = 17;
 
 - (void)viewDidLoad {
