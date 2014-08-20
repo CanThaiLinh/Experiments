@@ -30,7 +30,7 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    if (![annotation isKindOfClass:MyMarker.class]) {
+    if (![annotation conformsToProtocol:@protocol(MKAnnotation)]) {
         return nil;
     }
 
@@ -42,9 +42,9 @@
     else {
         pav.pinColor = MKPinAnnotationColorRed;
     }
+
     return pav;
 }
-
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     self.clusterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5

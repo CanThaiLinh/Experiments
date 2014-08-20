@@ -66,9 +66,9 @@
     [self.mapView addAnnotation:marker];
 }
 
-- (void)unselectAll {
-    for (MyMarker *marker in self.markerCache) {
-//        [marker setIsSelected:NO];
-    }
+- (void)removeMarker:(NSObject <MKAnnotation> *)annotation {
+    [self.mapView removeAnnotation:annotation];
+    [self.markerCache removeObject:annotation];
 }
+
 @end

@@ -9,6 +9,4 @@
 @property(nonatomic, strong) NSMutableArray *markerCache;
 
 - (instancetype)initWithMapView:(MKMapView *)mapView;
-
-- (void)unselectAll;
 @end

@@ -8,6 +8,8 @@
 
 @property(nonatomic) BOOL isBubble;
 
+@property(nonatomic) BOOL isSelected;
+
 - (instancetype)initWithIsBubble:(BOOL)isBubble text:(NSString *)text;
 
 @end
