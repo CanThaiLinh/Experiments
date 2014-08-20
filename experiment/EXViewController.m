@@ -15,7 +15,6 @@
 @implementation EXViewController
 
 const int MAX_ZOOM_LEVEL = 21;
-const int MIN_ZOOM_LEVEL = 17;
 
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
@@ -33,7 +32,7 @@ const int MIN_ZOOM_LEVEL = 17;
 
     self.clusterManager = [[MyClusterManager alloc] init];
     [self.clusterManager setMapView:self.mapView];
-    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]];
+    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:6000]];
     [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setDelegate:self.clusterManager];

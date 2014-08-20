@@ -5,7 +5,7 @@
 #import "MKClusterRenderer.h"
 
 @implementation MKClusterManager {
-    NSUInteger previousZoom;
+    float previousZoom;
 }
 
 - (void)setMapView:(MKMapView *)mapView {
@@ -26,7 +26,7 @@
 
 - (void)cluster {
     NSSet *clusters = [algorithm getClusters:[map zoomLevel]];
-    [renderer clustersChanged:clusters atMaxZoom: [map zoomLevel] == 17];
+    [renderer clustersChanged:clusters atMaxZoom: [map zoomLevel] > 17.5];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {

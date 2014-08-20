@@ -168,7 +168,7 @@
 	return region;
 }
 
-- (NSUInteger)zoomLevel {
+- (double)zoomLevel {
   MKCoordinateRegion region = self.region;
   
   double centerPixelX  = [MKMapView originXForLongitude:region.center.longitude];
