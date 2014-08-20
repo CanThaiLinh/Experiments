@@ -1,9 +1,9 @@
-#import "GClusterRenderer.h"
+#import "MKClusterRenderer.h"
 
 @class GMSMapView;
 @class MKMapView;
 
-@interface MyClusterRenderer : NSObject <GClusterRenderer>
+@interface MyClusterRenderer : NSObject <MKClusterRenderer>
 @property(nonatomic, strong) MKMapView *mapView;
 
 @property(nonatomic, strong) NSMutableArray *markerCache;

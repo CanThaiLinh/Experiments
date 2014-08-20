@@ -1,4 +1,5 @@
 #import <MapKit/MapKit.h>
+#import <Google-Maps-iOS-Utils-QuadTree/GQuadItem.h>
 #import "MyClusterRenderer.h"
 #import "MyMarker.h"
 #import "Spot.h"
@@ -15,15 +16,22 @@
     return self;
 }
 
-- (void)clustersChanged:(NSSet *)clusters {
-    NSLog(@"Reclustering");
+- (void)clustersChanged:(NSSet *)clusters atMaxZoom:(BOOL)atMaxZoom {
     [self.mapView removeAnnotations:self.markerCache];
     [self.markerCache removeAllObjects];
 
     for (id <GCluster> cluster in clusters) {
         if ([cluster count] > 1) {
-            for (id unknown in [cluster getItems]) {
-                [self addItem:unknown isBubble: NO];
+            id maxPriorityItem = [[[cluster getItems] objectEnumerator] allObjects][0];
+            for (id item in [cluster getItems]) {
+                Spot *spot = [self spotFromUnknown:item];
+                if (spot.priority > [self spotFromUnknown:maxPriorityItem].priority) {
+                    maxPriorityItem = item;
+                }
+            }
+
+            for (id item in [cluster getItems]) {
+                [self addItem:item isBubble:maxPriorityItem == item || atMaxZoom];
             }
         }
         else {
@@ -34,6 +42,13 @@
 }
 
 - (void)addItem:(id)item isBubble:(BOOL)bubble {
+    Spot *spot = [self spotFromUnknown:item];
+
+    MyMarker *marker = [[MyMarker alloc] initWithIsBubble:bubble text:spot.text];
+    [self addMarker:marker atPosition:spot.position];
+}
+
+- (Spot *)spotFromUnknown:(id)item {
     Spot *spot;
     if ([item isKindOfClass:Spot.class]) {
         spot = item;
@@ -42,9 +57,7 @@
         GQuadItem *quadItem = item;
         spot = [quadItem.getItems allObjects][0];
     }
-
-    MyMarker *marker = [[MyMarker alloc] initWithIsBubble:bubble text:spot.text];
-    [self addMarker:marker atPosition:spot.position];
+    return spot;
 }
 
 - (void)addMarker:(MyMarker *)marker atPosition:(CLLocationCoordinate2D)position {

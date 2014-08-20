@@ -5,23 +5,24 @@
 #import <MapKit/MKMapView.h>
 
 @class MKMapView;
+@protocol MKClusterRenderer;
 
 @interface MKClusterManager : NSObject <MKMapViewDelegate> {
     MKMapView *map;
     id <GClusterAlgorithm> algorithm;
-    id <GClusterRenderer> renderer;
+    id <MKClusterRenderer> renderer;
     BOOL previousCameraPosition;
 }
 
 @property(nonatomic, weak) NSTimer *clusterTimer;
 
-- (void)setMapView:(MKMapView*)mapView;
+- (void)setMapView:(MKMapView *)mapView;
 
 - (void)setClusterAlgorithm:(id <GClusterAlgorithm>)clusterAlgorithm;
 
-- (void)setClusterRenderer:(id <GClusterRenderer>)clusterRenderer;
+- (void)setClusterRenderer:(id <MKClusterRenderer>)clusterRenderer;
 
-- (void)addItem:(id <GClusterItem>) item;
+- (void)addItem:(id <GClusterItem>)item;
 
 - (void)cluster;
 

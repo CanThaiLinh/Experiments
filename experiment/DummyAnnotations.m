@@ -1,6 +1,7 @@
 #import <MapKit/MapKit.h>
 #import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
 #import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
+#import "MKClusterManager.h"
 #import "DummyAnnotations.h"
 #import "Spot.h"
 #import "MKClusterManager.h"
@@ -15,19 +16,20 @@
         Spot *spot = [Spot new];
         spot.location = value;
         spot.text = [self randomString];
+        spot.priority = arc4random() % 50;
         [manager addItem:spot];
     }
 }
 
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center {
     NSMutableArray *coordinates = [@[] mutableCopy];
-    for (int primaryLocation = 0; primaryLocation < 10; primaryLocation++) {
+    for (int primaryLocation = 0; primaryLocation < 6; primaryLocation++) {
         CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0001];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
 
         if (primaryLocation < 5) {
             for (int clusterLocation = 0; clusterLocation < 3; clusterLocation++) {
-                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00004];
+                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00005];
                 [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
             }
         }

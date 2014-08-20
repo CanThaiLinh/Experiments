@@ -2,6 +2,7 @@
 #import <MKMapView-ZoomLevel/MKMapView+ZoomLevel.h>
 #import "MKClusterManager.h"
 #import "MyMarker.h"
+#import "MKClusterRenderer.h"
 
 @implementation MKClusterManager {
     NSUInteger previousZoom;
@@ -15,7 +16,7 @@
     algorithm = clusterAlgorithm;
 }
 
-- (void)setClusterRenderer:(id <GClusterRenderer>)clusterRenderer {
+- (void)setClusterRenderer:(id <MKClusterRenderer>)clusterRenderer {
     renderer = clusterRenderer;
 }
 
@@ -25,7 +26,7 @@
 
 - (void)cluster {
     NSSet *clusters = [algorithm getClusters:[map zoomLevel]];
-    [renderer clustersChanged:clusters];
+    [renderer clustersChanged:clusters atMaxZoom: [map zoomLevel] == 17];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
