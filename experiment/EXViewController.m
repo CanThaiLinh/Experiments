@@ -19,6 +19,7 @@ const int MIN_ZOOM_LEVEL = 17;
 
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
+    self.clipView.heightConstraint = self.shadeHeightConstraint;
 
     [self.scrollView buildCards];
 

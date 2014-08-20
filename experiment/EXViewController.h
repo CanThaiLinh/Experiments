@@ -8,6 +8,7 @@
 
 @interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadeHeightConstraint;
 @property(weak, nonatomic) IBOutlet ClipView *clipView;
 @property(weak, nonatomic) IBOutlet ShadeScrollView *scrollView;
 

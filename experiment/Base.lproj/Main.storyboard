@@ -53,6 +53,7 @@
                         <outlet property="clipView" destination="Hvg-8O-Dtg" id="RgB-2k-wu0"/>
                         <outlet property="mapView" destination="81H-MJ-hY0" id="Q9N-l7-WcX"/>
                         <outlet property="scrollView" destination="BGj-Ud-UeV" id="pdl-LT-7i0"/>
+                        <outlet property="shadeHeightConstraint" destination="f0m-TK-RX7" id="QzF-bd-NDf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

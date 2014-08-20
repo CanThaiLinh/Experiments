@@ -1,5 +1,6 @@
 #import "ShadeScrollView.h"
 #import "ShadeTableViewController.h"
+#import "ClipView.h"
 
 @implementation ShadeScrollView
 
@@ -87,14 +88,16 @@ typedef enum {
 - (void)moveCard:(direction)direction animate:(BOOL)animate {
     int page = [self currentPage];
     UITableView *card = self.cardViews[page];
+    ClipView *clipView = (ClipView *) self.superview;
     int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
     int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight] - 25);
     int boundHeightToMove = MIN(maxHeight, heightToMove);
 
-    int yTranslation = direction == UP ? -1 * boundHeightToMove : boundHeightToMove;
+    int yTranslation = direction == UP ? boundHeightToMove : -1 * boundHeightToMove;
     if (animate) {
         [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.superview.center = CGPointMake(self.superview.center.x, self.superview.center.y + yTranslation);
+            clipView.heightConstraint.constant = clipView.heightConstraint.constant + yTranslation;
+            [clipView.superview layoutIfNeeded];
         }                completion:^(BOOL finished) {
             self.cardRevealed = !self.cardRevealed;
 
@@ -105,7 +108,7 @@ typedef enum {
         }];
     }
     else {
-        card.center = CGPointMake(card.center.x, card.center.y + yTranslation);
+        clipView.heightConstraint.constant = clipView.heightConstraint.constant + yTranslation;
     }
 }
 
