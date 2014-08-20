@@ -26,8 +26,8 @@
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
 
         if (primaryLocation < 5) {
-            for (int clusterLocation = 0; clusterLocation < 5; clusterLocation++) {
-                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00001];
+            for (int clusterLocation = 0; clusterLocation < 3; clusterLocation++) {
+                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00004];
                 [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
             }
         }

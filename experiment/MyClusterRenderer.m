@@ -16,37 +16,46 @@
 }
 
 - (void)clustersChanged:(NSSet *)clusters {
+    NSLog(@"Reclustering");
     [self.mapView removeAnnotations:self.markerCache];
     [self.markerCache removeAllObjects];
 
     for (id <GCluster> cluster in clusters) {
-        MyMarker *marker;
         if ([cluster count] > 1) {
-            marker = [[MyMarker alloc] initWithIsCluster:YES text:nil];
+            for (id unknown in [cluster getItems]) {
+                [self addItem:unknown isBubble: NO];
+            }
         }
         else {
             id unknownItem = [[cluster getItems] allObjects][0];
-            Spot *spot;
-            if ([unknownItem isKindOfClass:Spot.class]) {
-                spot = unknownItem;
-            }
-            else {
-                GQuadItem *item = unknownItem;
-                spot = [item.getItems allObjects][0];
-            }
-
-            marker = [[MyMarker alloc] initWithIsCluster:NO text:spot.text];
+            [self addItem:unknownItem isBubble:YES];
         }
-
-        [marker setCoordinate:cluster.position];
-        [self.markerCache addObject:marker];
-        [self.mapView addAnnotation:marker];
     }
+}
+
+- (void)addItem:(id)item isBubble:(BOOL)bubble {
+    Spot *spot;
+    if ([item isKindOfClass:Spot.class]) {
+        spot = item;
+    }
+    else {
+        GQuadItem *quadItem = item;
+        spot = [quadItem.getItems allObjects][0];
+    }
+
+    MyMarker *marker = [[MyMarker alloc] initWithIsBubble:bubble text:spot.text];
+    [self addMarker:marker atPosition:spot.position];
+}
+
+- (void)addMarker:(MyMarker *)marker atPosition:(CLLocationCoordinate2D)position {
+    [marker setCoordinate:position];
+    [self.markerCache addObject:marker];
+    [self.mapView addAnnotation:marker];
 }
 
 - (void)unselectAll {
     for (MyMarker *marker in self.markerCache) {
-        [marker setIsSelected:NO];
+//        [marker setIsSelected:NO];
     }
 }
 @end

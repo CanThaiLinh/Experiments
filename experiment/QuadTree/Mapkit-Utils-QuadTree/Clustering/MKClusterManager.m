@@ -35,11 +35,11 @@
 
     MKPinAnnotationView *pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     MyMarker *marker = annotation;
-    if (marker.isCluster) {
-        pav.pinColor = MKPinAnnotationColorRed;
+    if (marker.isBubble) {
+        pav.pinColor = MKPinAnnotationColorGreen;
     }
     else {
-        pav.pinColor = MKPinAnnotationColorGreen;
+        pav.pinColor = MKPinAnnotationColorRed;
     }
     return pav;
 }
