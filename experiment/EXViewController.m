@@ -36,7 +36,6 @@ const int MIN_ZOOM_LEVEL = 17;
     [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setDelegate:self.clusterManager];
-//    [self.mapView bringSubviewToFront:self.clipView];
     [self.mapView setShowsUserLocation:YES];
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
 }
