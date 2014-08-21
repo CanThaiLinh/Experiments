@@ -44,7 +44,7 @@
 - (void)addItem:(id)item isBubble:(BOOL)bubble {
     Spot *spot = [self spotFromUnknown:item];
 
-    MyMarker *marker = [[MyMarker alloc] initWithIsBubble:bubble text:spot.text];
+    MyMarker *marker = [[MyMarker alloc] initWithData:spot.data isBubble:bubble];
     [self addMarker:marker atPosition:spot.position];
 }
 

@@ -1,13 +1,12 @@
 #import "MyMarker.h"
-#import "TextDrawer.h"
 
 @implementation MyMarker
 
-- (instancetype)initWithIsBubble:(BOOL)isBubble text:(NSString *)text {
+- (instancetype)initWithData:(NSArray *)data isBubble:(BOOL)isBubble {
     self = [super init];
     if (self) {
+        self.data = data;
         self.isBubble = isBubble;
-        self.text = text;
     }
 
     return self;

@@ -1,15 +1,18 @@
 #import <MapKit/MapKit.h>
 #import "GMSMarker.h"
 
+@class SpotData;
+
 @interface MyMarker : NSObject<MKAnnotation>
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
-@property(nonatomic, copy) NSString *text;
+@property(nonatomic, strong) NSArray *data;
 
 @property(nonatomic) BOOL isBubble;
 
 @property(nonatomic) BOOL isSelected;
 
-- (instancetype)initWithIsBubble:(BOOL)isBubble text:(NSString *)text;
+- (instancetype)initWithData:(NSArray *)data isBubble:(BOOL)isBubble;
+
 
 @end

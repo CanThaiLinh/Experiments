@@ -4,30 +4,51 @@
 #import "MKClusterManager.h"
 #import "DummyAnnotations.h"
 #import "Spot.h"
-#import "MKClusterManager.h"
+#import "SpotData.h"
 
 @implementation DummyAnnotations
 
 - (void)addAnnotations:(MKClusterManager *)manager around:(CLLocationCoordinate2D)around {
+    NSLog(@"Adding annotations");
     NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
     for (int i = 0; i < [dummyCoordinates count]; i++) {
         CLLocationCoordinate2D value;
         [dummyCoordinates[i] getValue:&value];
         Spot *spot = [Spot new];
         spot.location = value;
-        spot.text = [self randomString];
         spot.priority = arc4random() % 50;
+
+        BOOL hasStack = arc4random() % 4 == 0;
+        int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
+        for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
+            [spot addData:[[SpotData alloc] initWithShortName:[self randomStringOfLength:arc4random() % 4 + 1]
+                                                         name:[self randomName]
+                                                        price:[self randomPrice]]];
+        }
+
         [manager addItem:spot];
     }
+}
+
+- (NSString *)randomName {
+    return [NSString stringWithFormat:@"%@ %@", [self randomStringOfLength:4 + arc4random()%6], [self randomStringOfLength:4 + arc4random()%6]];
+}
+
+- (NSDecimalNumber *)randomPrice {
+    NSDecimalNumber *base = [NSDecimalNumber decimalNumberWithString:@"10"];
+    int adjustment = arc4random() % 1000;
+    int positiveOrNegative = arc4random() % 2 == 0 ? -1 : 1;
+    NSNumber *numberAdjustment = @(adjustment * positiveOrNegative);
+    return [base decimalNumberByAdding:[NSDecimalNumber decimalNumberWithDecimal:[numberAdjustment decimalValue]]];
 }
 
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center {
     NSMutableArray *coordinates = [@[] mutableCopy];
     for (int primaryLocation = 0; primaryLocation < 6; primaryLocation++) {
-        CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0001];
+        CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0002];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
 
-        if (primaryLocation < 5) {
+        if (primaryLocation < 4) {
             for (int clusterLocation = 0; clusterLocation < 3; clusterLocation++) {
                 CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00005];
                 [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
@@ -49,9 +70,8 @@
     return value;
 }
 
-- (NSString *)randomString {
+- (NSString *)randomStringOfLength:(int)length {
     NSString *alphabet = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    int length = arc4random() % 4 + 1;
     NSString *random = @"";
     for (int i = 0; i < length; i++) {
         random = [random stringByAppendingString:[alphabet substringWithRange:NSMakeRange(arc4random() % [alphabet length], 1)]];

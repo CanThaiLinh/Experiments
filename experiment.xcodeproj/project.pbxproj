@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		54590007F495C259C62BE8A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
-		54590040634AD8B6D66F3A73 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590DCA6651AEE54F7F5D92 /* Spot.m */; };
 		5459012080981111D76AE00E /* MKClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590D28F4F1771C4B977018 /* MKClusterManager.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
 		545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */; };
@@ -36,9 +35,11 @@
 		545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590875427A37523EF058E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590953C7AF8F61FBCAB788 /* MyClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903C940248707AC1827EE /* MyClusterManager.m */; };
+		5459095B2B5306333A6E7429 /* SpotData.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900B956FB7DD7327307E9 /* SpotData.m */; };
 		54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F722DEB94E84E01F5AD /* MyMarker.m */; };
 		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590B4ECE8FBEFFCCEF7A2F /* TextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */; };
+		54590D5D9D7F86C77EA8FF29 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 545901A5F45F4F7B8B810931 /* Spot.m */; };
 		54590DFBA163827AAA0C556B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
@@ -60,8 +61,10 @@
 /* Begin PBXFileReference section */
 		545900032AE6160B57B12734 /* TextDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDrawer.h; sourceTree = "<group>"; };
 		54590097F72564CF5883C78E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		545900B956FB7DD7327307E9 /* SpotData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotData.m; sourceTree = "<group>"; };
 		545900F740D78CFB1BE73629 /* MyClusterRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClusterRenderer.m; sourceTree = "<group>"; };
 		5459017E0F5D62E575190FF0 /* MKClusterRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKClusterRenderer.h; sourceTree = "<group>"; };
+		545901A5F45F4F7B8B810931 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
 		5459034CD093A7440B851947 /* EXViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXViewControllerTests.m; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
 		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		5459063FA73B58F097F62BA2 /* ClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipView.m; sourceTree = "<group>"; };
-		545906588E6477E91D406817 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spot.h; sourceTree = "<group>"; };
 		5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawer.m; sourceTree = "<group>"; };
 		5459089862011C24552756B2 /* experimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = experimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -83,17 +85,18 @@
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
+		54590B10ACEC404C21A33839 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spot.h; sourceTree = "<group>"; };
 		54590B4EBBA35E007E754CBD /* ClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipView.h; sourceTree = "<group>"; };
 		54590B84C497979972AFB2C3 /* ShadeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeTableViewController.m; sourceTree = "<group>"; };
 		54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		54590C19CC1189618C512C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54590C323E21D05C3542C049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		54590C4A0C8686E4A7D30E1F /* SpotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotData.h; sourceTree = "<group>"; };
 		54590CA1F92099505F649DD7 /* DummyAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotations.m; sourceTree = "<group>"; };
 		54590CB8E58CA8E2CB71B022 /* ShadeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeTableViewController.h; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54590D28F4F1771C4B977018 /* MKClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKClusterManager.m; sourceTree = "<group>"; };
 		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
-		54590DCA6651AEE54F7F5D92 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeScrollView.m; sourceTree = "<group>"; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
@@ -234,6 +237,17 @@
 			path = QuadTree;
 			sourceTree = "<group>";
 		};
+		54590DAC6471A663D57BE327 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				54590B10ACEC404C21A33839 /* Spot.h */,
+				545901A5F45F4F7B8B810931 /* Spot.m */,
+				545900B956FB7DD7327307E9 /* SpotData.m */,
+				54590C4A0C8686E4A7D30E1F /* SpotData.h */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		54590EA7163C610C710D17EA /* experimentTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,8 +276,6 @@
 				5459096F04E8EF316D8C8B9B /* StockCard.storyboard */,
 				54590CA1F92099505F649DD7 /* DummyAnnotations.m */,
 				545904E9F30422BB137B9EC2 /* DummyAnnotations.h */,
-				54590DCA6651AEE54F7F5D92 /* Spot.m */,
-				545906588E6477E91D406817 /* Spot.h */,
 				545900F740D78CFB1BE73629 /* MyClusterRenderer.m */,
 				54590F5EEE1604BA953D6DA2 /* MyClusterRenderer.h */,
 				545903C940248707AC1827EE /* MyClusterManager.m */,
@@ -274,6 +286,7 @@
 				545900032AE6160B57B12734 /* TextDrawer.h */,
 				54590485B1F90958A9CF0BED /* Shades */,
 				54590CE2DC5651D56215FD94 /* QuadTree */,
+				54590DAC6471A663D57BE327 /* Data */,
 			);
 			path = experiment;
 			sourceTree = "<group>";
@@ -462,7 +475,6 @@
 				5459047E98041F6915C2A711 /* ClipView.m in Sources */,
 				5459043CDE76191BE0B112DA /* Colors.m in Sources */,
 				5459037970902082C8AFF090 /* DummyAnnotations.m in Sources */,
-				54590040634AD8B6D66F3A73 /* Spot.m in Sources */,
 				54590258E96FCAD48D1C0C0C /* MyClusterRenderer.m in Sources */,
 				54590953C7AF8F61FBCAB788 /* MyClusterManager.m in Sources */,
 				54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */,
@@ -470,6 +482,8 @@
 				545903E29F95FB6DD0D0C873 /* ShadeTableViewController.m in Sources */,
 				545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */,
 				5459012080981111D76AE00E /* MKClusterManager.m in Sources */,
+				54590D5D9D7F86C77EA8FF29 /* Spot.m in Sources */,
+				5459095B2B5306333A6E7429 /* SpotData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
