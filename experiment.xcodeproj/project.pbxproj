@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54590007F495C259C62BE8A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
+		545900820063A47ACF831E9C /* StackedBubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */; };
 		5459012080981111D76AE00E /* MKClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590D28F4F1771C4B977018 /* MKClusterManager.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
 		545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903189C0E24E797D45785 /* BubbleAnnotation.m */; };
@@ -65,6 +66,7 @@
 		54590097F72564CF5883C78E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		545900B956FB7DD7327307E9 /* SpotData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotData.m; sourceTree = "<group>"; };
 		545900F740D78CFB1BE73629 /* MyClusterRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClusterRenderer.m; sourceTree = "<group>"; };
+		5459014BBFCD5C2BF3BA7AC1 /* StackedBubbleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackedBubbleAnnotation.h; sourceTree = "<group>"; };
 		5459017E0F5D62E575190FF0 /* MKClusterRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKClusterRenderer.h; sourceTree = "<group>"; };
 		545901A5F45F4F7B8B810931 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54590D28F4F1771C4B977018 /* MKClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKClusterManager.m; sourceTree = "<group>"; };
 		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
+		54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedBubbleAnnotation.m; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeScrollView.m; sourceTree = "<group>"; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				5459046AE47E1F98B1DE9220 /* DotAnnotationView.h */,
 				545903189C0E24E797D45785 /* BubbleAnnotation.m */,
 				54590B191563D1584C693CC1 /* BubbleAnnotation.h */,
+				54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */,
+				5459014BBFCD5C2BF3BA7AC1 /* StackedBubbleAnnotation.h */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				54590A3DA295727A6AA0658F /* DummyAnnotations.m in Sources */,
 				54590DB78DCC052754E87F85 /* DotAnnotationView.m in Sources */,
 				545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */,
+				545900820063A47ACF831E9C /* StackedBubbleAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

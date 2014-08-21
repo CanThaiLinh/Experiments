@@ -22,21 +22,12 @@
 
 - (UIImage *)buildImage {
     const int FONT_SIZE = 14;
-
     CGSize textFrame = [TextDrawer sizeOfText:[self getShortName] fontSize:FONT_SIZE];
 
-    int rectangleHeight = (int) (textFrame.height * 2);
-    int rectangleWidth = (int) (textFrame.width + 12);
     int triangleWidth = 10;
     int triangleHeight = 12;
 
-    CGRect rect = CGRectMake(0, 0, rectangleWidth, rectangleHeight + triangleHeight);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 3);
-    [[UIColor whiteColor] setStroke];
-
-    CGRect roundedRectangleRect = CGRectMake(0, 0, rectangleWidth, rectangleHeight);
+    CGRect roundedRectangleRect = [self roundedRectangleRectFor:textFrame bottomHeight:triangleHeight];
     [self drawRoundedRect:roundedRectangleRect];
     [self drawBottomTriangle:roundedRectangleRect withWidth:triangleWidth withHeight:triangleHeight];
 
@@ -47,11 +38,23 @@
     return image;
 }
 
+- (CGRect)roundedRectangleRectFor:(CGSize)size bottomHeight:(int)bottomHeight {
+    int rectangleHeight = (int) (size.height * 1.5);
+    int rectangleWidth = (int) (size.width + 12);
+    CGRect rect = CGRectMake(0, 0, rectangleWidth, rectangleHeight + bottomHeight);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    return CGRectMake(0, 0, rectangleWidth, rectangleHeight);
+}
+
 - (void)drawRoundedRect:(CGRect)roundedRectangleRect {
     CGRect insetRoundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
+
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:insetRoundedRectangleRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
     [[self currentColor] setFill];
     [path fill];
+
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 3);
+    [[UIColor whiteColor] setStroke];
     [path stroke];
 }
 
@@ -63,6 +66,7 @@
     [path moveToPoint:CGPointMake(leftX, fromRect.size.height - 2)];
     [path addLineToPoint:CGPointMake((leftX + rightX) / 2, fromRect.size.height + height)];
     [path addLineToPoint:CGPointMake(rightX, fromRect.size.height - 2)];
+    [[UIColor whiteColor] setStroke];
     [path stroke];
     [path closePath];
     [[self currentColor] setFill];

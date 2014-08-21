@@ -3,6 +3,7 @@
 #import "MKClusterRenderer.h"
 #import "DotAnnotationView.h"
 #import "BubbleAnnotation.h"
+#import "StackedBubbleAnnotation.h"
 
 @implementation MyClusterManager
 
@@ -40,7 +41,13 @@
 
     MKAnnotationView *view;
     MyMarker *marker = annotation;
-    if (marker.isBubble) {
+    if ([marker.data count] > 1 && marker.isBubble) {
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
+        if (view == nil) {
+            view = [[StackedBubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
+        }
+    }
+    else if (marker.isBubble) {
         view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(BubbleAnnotation.class)];
         if (view == nil) {
             view = [[BubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(BubbleAnnotation.class)];

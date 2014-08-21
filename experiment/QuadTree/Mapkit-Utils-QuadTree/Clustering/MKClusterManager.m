@@ -27,7 +27,7 @@
 
 - (void)cluster {
     NSSet *clusters = [algorithm getClusters:[map zoomLevel]];
-    [renderer clustersChanged:clusters atMaxZoom:[map zoomLevel] > 17.3];
+    [renderer clustersChanged:clusters atMaxZoom:[map zoomLevel] >= 16.8];
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
