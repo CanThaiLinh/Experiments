@@ -31,7 +31,6 @@
             }
         }
     }
-
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -42,10 +41,16 @@
     MKAnnotationView *view;
     MyMarker *marker = annotation;
     if (marker.isBubble) {
-        view = [[BubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(BubbleAnnotation.class)];
+        if (view == nil) {
+            view = [[BubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(BubbleAnnotation.class)];
+        }
     }
     else {
-        view = [[DotAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(DotAnnotationView.class)];
+        if (view == nil) {
+            view = [[DotAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(DotAnnotationView.class)];
+        }
     }
 
     return view;
