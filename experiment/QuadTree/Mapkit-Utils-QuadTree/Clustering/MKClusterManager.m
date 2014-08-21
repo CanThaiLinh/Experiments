@@ -3,6 +3,7 @@
 #import "MKClusterManager.h"
 #import "MyMarker.h"
 #import "MKClusterRenderer.h"
+#import "DotAnnotationView.h"
 
 @implementation MKClusterManager {
     float previousZoom;
@@ -26,24 +27,7 @@
 
 - (void)cluster {
     NSSet *clusters = [algorithm getClusters:[map zoomLevel]];
-    [renderer clustersChanged:clusters atMaxZoom: [map zoomLevel] > 17.5];
-}
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    if (![annotation conformsToProtocol:@protocol(MKAnnotation)]) {
-        return nil;
-    }
-
-    MKPinAnnotationView *pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    MyMarker *marker = annotation;
-    if (marker.isBubble) {
-        pav.pinColor = MKPinAnnotationColorGreen;
-    }
-    else {
-        pav.pinColor = MKPinAnnotationColorRed;
-    }
-
-    return pav;
+    [renderer clustersChanged:clusters atMaxZoom:[map zoomLevel] > 17.3];
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {

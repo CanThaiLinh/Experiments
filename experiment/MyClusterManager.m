@@ -1,6 +1,8 @@
 #import "MyMarker.h"
 #import "MyClusterManager.h"
 #import "MKClusterRenderer.h"
+#import "DotAnnotationView.h"
+#import "BubbleAnnotation.h"
 
 @implementation MyClusterManager
 
@@ -37,21 +39,16 @@
         return nil;
     }
 
-    MKPinAnnotationView *pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    MKAnnotationView *view;
     MyMarker *marker = annotation;
     if (marker.isBubble) {
-        pav.pinColor = MKPinAnnotationColorGreen;
+        view = [[BubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     }
     else {
-        pav.pinColor = MKPinAnnotationColorRed;
+        view = [[DotAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     }
 
-    if (marker.isSelected) {
-        pav.pinColor = MKPinAnnotationColorPurple;
-    }
-
-    return pav;
+    return view;
 }
-
 
 @end

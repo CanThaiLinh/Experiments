@@ -10,6 +10,7 @@
 		54590007F495C259C62BE8A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		5459012080981111D76AE00E /* MKClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590D28F4F1771C4B977018 /* MKClusterManager.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
+		545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903189C0E24E797D45785 /* BubbleAnnotation.m */; };
 		545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
 		54590258E96FCAD48D1C0C0C /* MyClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900F740D78CFB1BE73629 /* MyClusterRenderer.m */; };
@@ -40,6 +41,7 @@
 		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590B4ECE8FBEFFCCEF7A2F /* TextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */; };
 		54590D5D9D7F86C77EA8FF29 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 545901A5F45F4F7B8B810931 /* Spot.m */; };
+		54590DB78DCC052754E87F85 /* DotAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FC3FD0856276A0D180B /* DotAnnotationView.m */; };
 		54590DFBA163827AAA0C556B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
@@ -67,9 +69,11 @@
 		545901A5F45F4F7B8B810931 /* Spot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spot.m; sourceTree = "<group>"; };
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
+		545903189C0E24E797D45785 /* BubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleAnnotation.m; sourceTree = "<group>"; };
 		5459034CD093A7440B851947 /* EXViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXViewControllerTests.m; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
 		545903C940248707AC1827EE /* MyClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClusterManager.m; sourceTree = "<group>"; };
+		5459046AE47E1F98B1DE9220 /* DotAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotAnnotationView.h; sourceTree = "<group>"; };
 		54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotationsTests.m; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
 		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
 		54590B10ACEC404C21A33839 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spot.h; sourceTree = "<group>"; };
+		54590B191563D1584C693CC1 /* BubbleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleAnnotation.h; sourceTree = "<group>"; };
 		54590B84C497979972AFB2C3 /* ShadeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeTableViewController.m; sourceTree = "<group>"; };
 		54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		54590C19CC1189618C512C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		54590F976439DB3831C43B0A /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
 		54590FBDECCF115A24D7CA8F /* MyMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMarker.h; sourceTree = "<group>"; };
+		54590FC3FD0856276A0D180B /* DotAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotAnnotationView.m; sourceTree = "<group>"; };
 		A9EC307A56B4487697FC76FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC463A7B4DC4397A46C0DB9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +182,17 @@
 			path = Shades;
 			sourceTree = "<group>";
 		};
+		5459052D9BC08CAB64E1EB4C /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				54590FC3FD0856276A0D180B /* DotAnnotationView.m */,
+				5459046AE47E1F98B1DE9220 /* DotAnnotationView.h */,
+				545903189C0E24E797D45785 /* BubbleAnnotation.m */,
+				54590B191563D1584C693CC1 /* BubbleAnnotation.h */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
 		545905ED257CEB1C58F08C08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +212,7 @@
 			children = (
 				545907DD75BEE539744A209A /* ShadeView.m */,
 				54590EECB11B2DFB11038022 /* ShadeView.h */,
+				5459052D9BC08CAB64E1EB4C /* Annotations */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,6 +510,8 @@
 				5459095B2B5306333A6E7429 /* SpotData.m in Sources */,
 				5459097522289CA5974D6EFF /* ShadeView.m in Sources */,
 				54590A3DA295727A6AA0658F /* DummyAnnotations.m in Sources */,
+				54590DB78DCC052754E87F85 /* DotAnnotationView.m in Sources */,
+				545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

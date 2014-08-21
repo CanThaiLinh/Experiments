@@ -12,6 +12,8 @@
 
 @property(nonatomic) BOOL isSelected;
 
+@property(nonatomic, strong) UIImage *image;
+
 - (instancetype)initWithData:(NSArray *)data isBubble:(BOOL)isBubble;
 
 

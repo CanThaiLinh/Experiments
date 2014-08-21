@@ -9,7 +9,6 @@
 @implementation DummyAnnotations
 
 - (void)addAnnotations:(MKClusterManager *)manager around:(CLLocationCoordinate2D)around {
-    NSLog(@"Adding annotations");
     NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
     for (int i = 0; i < [dummyCoordinates count]; i++) {
         CLLocationCoordinate2D value;

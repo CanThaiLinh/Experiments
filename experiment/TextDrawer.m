@@ -40,6 +40,7 @@
     CFRelease(font_name);
     CFRelease(font);
 
+    NSLog(@"%@", text);
     CFStringRef string = CFStringCreateWithCString(NULL, [text UTF8String], kCFStringEncodingMacRoman);
     CFAttributedStringRef attr_string = CFAttributedStringCreate(NULL, string, font_attributes);
     CFRelease(string);

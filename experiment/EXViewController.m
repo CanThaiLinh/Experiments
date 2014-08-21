@@ -32,7 +32,7 @@ const int MAX_ZOOM_LEVEL = 21;
 
     self.clusterManager = [[MyClusterManager alloc] init];
     [self.clusterManager setMapView:self.mapView];
-    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:6500]];
+    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]];
     [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setDelegate:self.clusterManager];
