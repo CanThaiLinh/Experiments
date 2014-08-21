@@ -8,6 +8,8 @@
 - (instancetype)initWithAnnotation:(MyMarker *)annotation reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.triangleWidth = 10;
+        self.triangleHeight = 12;
         [self setImage:[self buildImage]];
     }
 
@@ -24,12 +26,9 @@
     const int FONT_SIZE = 14;
     CGSize textFrame = [TextDrawer sizeOfText:[self getShortName] fontSize:FONT_SIZE];
 
-    int triangleWidth = 10;
-    int triangleHeight = 12;
-
-    CGRect roundedRectangleRect = [self roundedRectangleRectFor:textFrame bottomHeight:triangleHeight];
+    CGRect roundedRectangleRect = [self roundedRectangleRectFor:textFrame bottomHeight:self.triangleHeight];
     [self drawRoundedRect:roundedRectangleRect];
-    [self drawBottomTriangle:roundedRectangleRect withWidth:triangleWidth withHeight:triangleHeight];
+    [self drawBottomTriangle:roundedRectangleRect withWidth:self.triangleWidth withHeight:self.triangleHeight];
 
     [TextDrawer writeText:[self getShortName] fontSize:FONT_SIZE inRect:roundedRectangleRect];
 
@@ -61,11 +60,15 @@
 - (void)drawBottomTriangle:(CGRect)fromRect withWidth:(int)width withHeight:(int)height {
     UIBezierPath *path = [UIBezierPath bezierPath];
 
-    int leftX = (int) (fromRect.size.width / 2.0 - width / 2.0);
-    int rightX = (int) (fromRect.size.width / 2.0 + width / 2.0);
-    [path moveToPoint:CGPointMake(leftX, fromRect.size.height - 2)];
-    [path addLineToPoint:CGPointMake((leftX + rightX) / 2, fromRect.size.height + height)];
-    [path addLineToPoint:CGPointMake(rightX, fromRect.size.height - 2)];
+    int leftX = (int) (fromRect.origin.x + (int) (fromRect.size.width / 2.0 - width / 2.0));
+    int rightX = (int) (fromRect.origin.x +(int) (fromRect.size.width / 2.0 + width / 2.0));
+
+    int topY = (int) (fromRect.size.height + fromRect.origin.y - 2);
+    int bottomY = (int) (fromRect.size.height + height + fromRect.origin.y);
+
+    [path moveToPoint:CGPointMake(leftX, topY)];
+    [path addLineToPoint:CGPointMake((leftX + rightX) / 2, bottomY)];
+    [path addLineToPoint:CGPointMake(rightX, topY)];
     [[UIColor whiteColor] setStroke];
     [path stroke];
     [path closePath];
