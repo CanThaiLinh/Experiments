@@ -17,9 +17,6 @@
 }
 
 - (void)clustersChanged:(NSSet *)clusters atMaxZoom:(BOOL)atMaxZoom {
-    [self.mapView removeAnnotations:self.markerCache];
-    [self.markerCache removeAllObjects];
-
     for (id <GCluster> cluster in clusters) {
         if ([cluster count] > 1) {
             id maxPriorityItem = [[[cluster getItems] objectEnumerator] allObjects][0];
@@ -44,8 +41,23 @@
 - (void)addItem:(id)item isBubble:(BOOL)bubble {
     Spot *spot = [self spotFromUnknown:item];
 
-    MyMarker *marker = [[MyMarker alloc] initWithData:spot.data isBubble:bubble];
-    [self addMarker:marker atPosition:spot.position];
+    MyMarker *existingMarker = [self existingMarkerAtPosition:spot.position];
+    BOOL bubbleTypeChanged = existingMarker != nil && existingMarker.isBubble != bubble;
+    if (bubbleTypeChanged || existingMarker == nil) {
+        [self.mapView removeAnnotation:existingMarker];
+        [self.markerCache removeObject:existingMarker];
+        MyMarker *marker = [[MyMarker alloc] initWithData:spot.data isBubble:bubble];
+        [self addMarker:marker atPosition:spot.position];
+    }
+}
+
+- (MyMarker *)existingMarkerAtPosition:(CLLocationCoordinate2D)coordinate {
+    for (MyMarker *marker in self.markerCache) {
+        if (marker.coordinate.latitude == coordinate.latitude && marker.coordinate.longitude == coordinate.longitude) {
+            return marker;
+        }
+    }
+    return nil;
 }
 
 - (Spot *)spotFromUnknown:(id)item {
