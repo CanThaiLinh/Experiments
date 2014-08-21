@@ -2,7 +2,7 @@
 #import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
 #import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "EXViewController.h"
-#import "ClipView.h"
+#import "ShadeView.h"
 #import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "MyClusterRenderer.h"

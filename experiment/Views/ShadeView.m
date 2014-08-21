@@ -1,6 +1,6 @@
-#import "ClipView.h"
+#import "ShadeView.h"
 
-@implementation ClipView
+@implementation ShadeView
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     return [self pointInside:point withEvent:event] ? self.scrollView : nil;

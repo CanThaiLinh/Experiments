@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
 
-@class ClipView;
+@class ShadeView;
 @class GClusterManager;
 @class ShadeScrollView;
 @class MKClusterManager;
@@ -9,7 +9,7 @@
 @interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadeHeightConstraint;
-@property(weak, nonatomic) IBOutlet ClipView *clipView;
+@property(weak, nonatomic) IBOutlet ShadeView *clipView;
 @property(weak, nonatomic) IBOutlet ShadeScrollView *scrollView;
 
 @property(nonatomic, strong) NSMutableArray *cardViews;

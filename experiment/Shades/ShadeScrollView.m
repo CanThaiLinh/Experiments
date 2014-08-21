@@ -1,6 +1,6 @@
 #import "ShadeScrollView.h"
 #import "ShadeTableViewController.h"
-#import "ClipView.h"
+#import "ShadeView.h"
 
 @implementation ShadeScrollView
 
@@ -88,7 +88,7 @@ typedef enum {
 - (void)moveCard:(direction)direction animate:(BOOL)animate {
     int page = [self currentPage];
     UITableView *card = self.cardViews[page];
-    ClipView *clipView = (ClipView *) self.superview;
+    ShadeView *clipView = (ShadeView *) self.superview;
     int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
     int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight] - 25);
     int boundHeightToMove = MIN(maxHeight, heightToMove);

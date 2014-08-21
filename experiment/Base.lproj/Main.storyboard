@@ -19,7 +19,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81H-MJ-hY0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvg-8O-Dtg" customClass="ClipView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvg-8O-Dtg" customClass="ShadeView">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGj-Ud-UeV" customClass="ShadeScrollView">
