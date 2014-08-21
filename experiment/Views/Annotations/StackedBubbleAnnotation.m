@@ -15,7 +15,9 @@
 
     CGRect roundedRectangleRect = CGRectMake(0, 0, roundedRectangleWidth, roundedRectangleHeight);
     CGRect finalRectangle = [self drawRectangleStack:roundedRectangleRect offset:offset];
+
     [self drawBottomTriangle:finalRectangle withWidth:self.triangleWidth withHeight:self.triangleHeight];
+    [TextDrawer writeText:[self getShortName] fontSize:FONT_SIZE inRect:finalRectangle];
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

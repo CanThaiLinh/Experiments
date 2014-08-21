@@ -18,7 +18,7 @@
     CFAttributedStringRef attr_string = [self getAttrString:text fontSize:fontSize];
     CTLineRef line = CTLineCreateWithAttributedString(attr_string);
 
-    CGContextSetTextPosition(context, 5, rect.size.height / 2 - (fontSize - 4) / 2);
+    CGContextSetTextPosition(context, rect.origin.x + 5, rect.size.height / 2 - (fontSize - 4) / 2 - rect.origin.y );
 
     CGContextTranslateCTM(context, 0, rect.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
