@@ -20,9 +20,12 @@
         BOOL hasStack = arc4random() % 4 == 0;
         int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
         for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
+            int stackPriority = arc4random() % 50;
             [spot addData:[[SpotData alloc] initWithShortName:[self randomStringOfLength:arc4random() % 4 + 1]
                                                          name:[self randomName]
-                                                        price:[self randomPrice]]];
+                                                        price:[self randomPrice]
+                                                     priority:stackPriority]];
+            spot.priority = stackPriority > spot.priority ? stackPriority : spot.priority;
         }
 
         [manager addItem:spot];
@@ -30,7 +33,7 @@
 }
 
 - (NSString *)randomName {
-    return [NSString stringWithFormat:@"%@ %@", [self randomStringOfLength:4 + arc4random()%6], [self randomStringOfLength:4 + arc4random()%6]];
+    return [NSString stringWithFormat:@"%@ %@", [self randomStringOfLength:4 + arc4random() % 6], [self randomStringOfLength:4 + arc4random() % 6]];
 }
 
 - (NSDecimalNumber *)randomPrice {

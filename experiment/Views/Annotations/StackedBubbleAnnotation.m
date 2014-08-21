@@ -1,11 +1,13 @@
 #import "StackedBubbleAnnotation.h"
 #import "TextDrawer.h"
+#import "SpotData.h"
+#import "MyMarker.h"
 
 @implementation StackedBubbleAnnotation
 
 - (UIImage *)buildImage {
     const int FONT_SIZE = 14;
-    CGSize textFrame = [TextDrawer sizeOfText:@"AAAA" fontSize:FONT_SIZE];
+    CGSize textFrame = [TextDrawer sizeOfText:[self getShortName] fontSize:FONT_SIZE];
     int offset = 2;
     int roundedRectangleHeight = (int) (textFrame.height * 1.5);
     int roundedRectangleWidth = (int) (textFrame.width + 12);
@@ -35,6 +37,17 @@
 
 - (UIColor *)currentColor {
     return [UIColor purpleColor];
+}
+
+- (NSString *)getShortName {
+    MyMarker *marker = self.annotation;
+    SpotData *highestPriority = marker.data[0];
+    for (SpotData *data in marker.data) {
+        if (data.priority > highestPriority.priority) {
+            highestPriority = data;
+        }
+    }
+    return highestPriority.shortName;
 }
 
 @end

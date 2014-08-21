@@ -18,7 +18,7 @@
     CFAttributedStringRef attr_string = [self getAttrString:text fontSize:fontSize];
     CTLineRef line = CTLineCreateWithAttributedString(attr_string);
 
-    CGContextSetTextPosition(context, rect.origin.x + 5, rect.size.height / 2 - (fontSize - 4) / 2 - rect.origin.y );
+    CGContextSetTextPosition(context, rect.origin.x + 5, rect.size.height / 2 - (fontSize - 4) / 2 - rect.origin.y);
 
     CGContextTranslateCTM(context, 0, rect.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
@@ -40,7 +40,6 @@
     CFRelease(font_name);
     CFRelease(font);
 
-    NSLog(@"%@", text);
     CFStringRef string = CFStringCreateWithCString(NULL, [text UTF8String], kCFStringEncodingMacRoman);
     CFAttributedStringRef attr_string = CFAttributedStringCreate(NULL, string, font_attributes);
     CFRelease(string);
