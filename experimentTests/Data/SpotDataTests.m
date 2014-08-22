@@ -1,5 +1,6 @@
 #import "SpotDataTests.h"
 #import "SpotData.h"
+#import "Spot.h"
 
 @implementation SpotDataTests
 

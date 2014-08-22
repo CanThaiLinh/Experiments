@@ -19,7 +19,7 @@
 - (void)addData:(SpotData *)data {
     [self.data addObject:data];
     [self.data sortUsingComparator:^NSComparisonResult(SpotData *obj1, SpotData *obj2) {
-        return [@(obj1.priority) compare:@(obj2.priority)];
+        return [@(obj2.priority) compare:@(obj1.priority)];
     }];
 }
 

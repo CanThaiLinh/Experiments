@@ -18,6 +18,7 @@
 		5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */; };
 		545903201999C84210EA2EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		54590346BA45647FD5325154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590EE42E452BC50DE38D08 /* main.m */; };
+		5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590C0D3253E759512F8D1B /* SpotTests.m */; };
 		545903A679A52A1E87C97CB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54590C323E21D05C3542C049 /* Images.xcassets */; };
 		545903AE8E4A9BEB5DD39DD8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		545903CC063520F9E097D1B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
@@ -98,12 +99,14 @@
 		54590B191563D1584C693CC1 /* BubbleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleAnnotation.h; sourceTree = "<group>"; };
 		54590B84C497979972AFB2C3 /* ShadeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeTableViewController.m; sourceTree = "<group>"; };
 		54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		54590C0D3253E759512F8D1B /* SpotTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotTests.m; sourceTree = "<group>"; };
 		54590C19CC1189618C512C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54590C323E21D05C3542C049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		54590C4A0C8686E4A7D30E1F /* SpotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotData.h; sourceTree = "<group>"; };
 		54590CB8E58CA8E2CB71B022 /* ShadeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeTableViewController.h; sourceTree = "<group>"; };
 		54590CBC98478A7DADE8BFFF /* DummyAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotations.m; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54590D15680FA8B9C0120605 /* SpotTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotTests.h; sourceTree = "<group>"; };
 		54590D28F4F1771C4B977018 /* MKClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKClusterManager.m; sourceTree = "<group>"; };
 		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
 		54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedBubbleAnnotation.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 			children = (
 				54590705A0A4A153467F401C /* SpotDataTests.m */,
 				5459083138C8B2F622819149 /* SpotDataTests.h */,
+				54590C0D3253E759512F8D1B /* SpotTests.m */,
+				54590D15680FA8B9C0120605 /* SpotTests.h */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 				5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */,
 				54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */,
 				54590F4F536A0063BB8FF0E3 /* SpotDataTests.m in Sources */,
+				5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
