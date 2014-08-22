@@ -35,7 +35,8 @@
 }
 
 - (NSDecimalNumber *)randomChangeFromPrice:(NSDecimalNumber *)price {
-    int change = arc4random() % ([[price decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] intValue] * 5);
+
+    int change = arc4random() % (([[price decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] intValue] * 5) + 1);
     NSDecimalNumber *changeDecimal = [NSDecimalNumber decimalNumberWithDecimal:[@(change / 100.0) decimalValue]];
     if (arc4random() % 2 == 0) {
         changeDecimal = [changeDecimal decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"-1"]];

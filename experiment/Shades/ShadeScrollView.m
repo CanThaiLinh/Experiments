@@ -1,6 +1,5 @@
 #import "ShadeScrollView.h"
 #import "ShadeTableViewController.h"
-#import "ShadeView.h"
 
 @implementation ShadeScrollView
 
@@ -16,30 +15,9 @@ typedef enum {
         self.pagingEnabled = YES;
         self.clipsToBounds = NO;
         [self setDelegate:self];
-
-        UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardPanned:)];
-        [recognizer setDelegate:self];
-        [self addGestureRecognizer:recognizer];
     }
 
     return self;
-}
-
-- (void)cardPanned:(UIPanGestureRecognizer *)gesture {
-    CGPoint v = [gesture velocityInView:self];
-    if(fabs(v.x) > 40){
-        return;
-    }
-
-    const int THRESHOLD = 100;
-    if (v.y <= -THRESHOLD && !self.swiping && !self.cardRevealed) {
-        self.swiping = YES;
-        [self revealCard];
-    }
-    else if (v.y >= THRESHOLD && !self.swiping && self.cardRevealed) {
-        self.swiping = YES;
-        [self hideCard:YES];
-    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -52,67 +30,6 @@ typedef enum {
     return NO;
 }
 
-- (void)revealCard {
-    if (!self.cardRevealed) {
-        [self hideOtherCards];
-        [self moveCard:UP animate:YES];
-    }
-}
-
-- (void)hideOtherCards {
-    int page = [self currentPage];
-    if (page > 0) {
-        [self.cardViews[page - 1] setHidden:YES];
-    }
-    if (page < [self.cardViews count] - 1) {
-        [self.cardViews[page + 1] setHidden:YES];
-    }
-}
-
-- (void)hideCard:(BOOL)animate {
-    if (self.cardRevealed) {
-        [self moveCard:DOWN animate:animate];
-    }
-}
-
-- (void)showOtherCards {
-    int page = [self currentPage];
-    if (page > 0) {
-        [self.cardViews[page - 1] setHidden:NO];
-    }
-    if (page < [self.cardViews count] - 1) {
-        [self.cardViews[page + 1] setHidden:NO];
-    }
-}
-
-- (void)moveCard:(direction)direction animate:(BOOL)animate {
-    int page = [self currentPage];
-    UITableView *card = self.cardViews[page];
-    ShadeView *clipView = (ShadeView *) self.superview;
-    int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
-    int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight] - 25);
-    int boundHeightToMove = MIN(maxHeight, heightToMove);
-
-    int yTranslation = direction == UP ? boundHeightToMove : -1 * boundHeightToMove;
-    if (animate) {
-        [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            clipView.heightConstraint.constant = clipView.heightConstraint.constant + yTranslation;
-            [clipView.superview layoutIfNeeded];
-        }                completion:^(BOOL finished) {
-            self.cardRevealed = !self.cardRevealed;
-
-            if (!self.cardRevealed) {
-                [self showOtherCards];
-            }
-            self.swiping = NO;
-        }];
-    }
-    else {
-        clipView.heightConstraint.constant = clipView.heightConstraint.constant + yTranslation;
-    }
-}
-
-
 - (int)currentPage {
     int page = (int) (self.contentOffset.x / self.frame.size.width);
     return page;
@@ -121,6 +38,18 @@ typedef enum {
 - (CGFloat)cardRowHeight {
     UITableView *exampleView = (self.cardViews)[0];
     return [[exampleView delegate] tableView:exampleView heightForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self resizeContent];
+}
+
+- (void)resizeContent {
+    UITableView *view = self.cardViews[(NSUInteger) [self currentPage]];
+    int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
+    CGFloat height = [self cardRowHeight] * rows;
+    self.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, height);
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
 }
 
 - (void)buildCards {
@@ -133,17 +62,23 @@ typedef enum {
         ShadeTableViewController *individualController = [[ShadeTableViewController alloc] init];
         [self.viewControllers addObject:individualController];
 
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
+
+        UITableView *tableView = [UITableView new];
         int count = 3 + i * 5;
         [individualController setItems:[self textArrayOfSize:count]];
-        tableView.scrollEnabled = NO;
         [tableView setDataSource:individualController];
         [tableView setDelegate:individualController];
+
+        int rows = [individualController tableView:tableView numberOfRowsInSection:0];
+        CGFloat height = [individualController tableView:tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        tableView.frame = CGRectMake(0, 0, self.frame.size.width, height * rows);
+
         [self.cardViews addObject:tableView];
         [self addSubview:tableView];
     }
 
     [self adjustCardSizes];
+    [self resizeContent];
 }
 
 - (NSArray *)textArrayOfSize:(int)size {
