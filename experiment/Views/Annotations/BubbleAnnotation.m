@@ -33,7 +33,10 @@
     CGSize textFrame = [TextDrawer sizeOfText:[self getShortName] fontSize:FONT_SIZE];
 
     CGRect roundedRectangleRect = [self roundedRectangleRectFor:textFrame bottomHeight:self.triangleHeight];
+    [[self currentColor] setFill];
     [self drawRoundedRect:roundedRectangleRect];
+
+    [[self currentColor] setFill];
     [self drawBottomTriangle:roundedRectangleRect withWidth:self.triangleWidth withHeight:self.triangleHeight];
 
     [TextDrawer writeText:[self getShortName] fontSize:FONT_SIZE inRect:roundedRectangleRect];
@@ -55,7 +58,6 @@
     CGRect insetRoundedRectangleRect = CGRectInset(roundedRectangleRect, 1, 1);
 
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:insetRoundedRectangleRect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5, 5)];
-    [[self currentColor] setFill];
     [path fill];
 
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 3);
@@ -78,7 +80,6 @@
     [[UIColor whiteColor] setStroke];
     [path stroke];
     [path closePath];
-    [[self currentColor] setFill];
     [path fill];
 }
 

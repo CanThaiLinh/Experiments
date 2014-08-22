@@ -2,6 +2,7 @@
 #import "TextDrawer.h"
 #import "SpotData.h"
 #import "MyMarker.h"
+#import "SpotDataColors.h"
 
 @implementation StackedBubbleAnnotation
 
@@ -18,6 +19,8 @@
     CGRect roundedRectangleRect = CGRectMake(0, 0, roundedRectangleWidth, roundedRectangleHeight);
     CGRect finalRectangle = [self drawRectangleStack:roundedRectangleRect offset:offset];
 
+    MyMarker *marker = self.annotation;
+    [[SpotDataColors colorFor:marker.data[0]] setFill];
     [self drawBottomTriangle:finalRectangle withWidth:self.triangleWidth withHeight:self.triangleHeight];
     [TextDrawer writeText:[self getShortName] fontSize:FONT_SIZE inRect:finalRectangle];
 
@@ -27,26 +30,22 @@
 }
 
 - (CGRect)drawRectangleStack:(CGRect)roundedRectangleRect offset:(int)offset {
-    [self drawRoundedRect:roundedRectangleRect];
-    for (int i = 1; i <= 2; i++) {
-        roundedRectangleRect.origin = CGPointMake(roundedRectangleRect.origin.x + offset, roundedRectangleRect.origin.x + offset);
+    MyMarker *marker = self.annotation;
+    for (int i = 0; i < 3; i++) {
+        if (marker.data.count > i) {
+            [[SpotDataColors colorFor:marker.data[(NSUInteger) i]] setFill];
+        }
+        if (i != 0) {
+            roundedRectangleRect.origin = CGPointMake(roundedRectangleRect.origin.x + offset, roundedRectangleRect.origin.x + offset);
+        }
         [self drawRoundedRect:roundedRectangleRect];
     }
     return roundedRectangleRect;
 }
 
-- (UIColor *)currentColor {
-    return [UIColor purpleColor];
-}
-
 - (NSString *)getShortName {
     MyMarker *marker = self.annotation;
     SpotData *highestPriority = marker.data[0];
-    for (SpotData *data in marker.data) {
-        if (data.priority > highestPriority.priority) {
-            highestPriority = data;
-        }
-    }
     return highestPriority.shortName;
 }
 
