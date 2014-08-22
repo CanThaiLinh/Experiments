@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		54590007F495C259C62BE8A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
+		5459006225DAF0B4A94ADA87 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		545900820063A47ACF831E9C /* StackedBubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */; };
 		5459012080981111D76AE00E /* MKClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590D28F4F1771C4B977018 /* MKClusterManager.m */; };
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
 		545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903189C0E24E797D45785 /* BubbleAnnotation.m */; };
 		545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
-		5459025E817F1AA140D1D40F /* EXViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459034CD093A7440B851947 /* EXViewControllerTests.m */; };
 		5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */; };
 		545903201999C84210EA2EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		54590346BA45647FD5325154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590EE42E452BC50DE38D08 /* main.m */; };
@@ -46,6 +46,7 @@
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
 		54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590D9E2826CA1887044250 /* TextDrawerTests.m */; };
+		54590F4F536A0063BB8FF0E3 /* SpotDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590705A0A4A153467F401C /* SpotDataTests.m */; };
 		B10DB3DBCA434CBE87F1EB70 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC307A56B4487697FC76FF /* libPods.a */; };
 		D9BA501384FC473BAD275C77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC307A56B4487697FC76FF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -71,14 +72,15 @@
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
 		545903189C0E24E797D45785 /* BubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleAnnotation.m; sourceTree = "<group>"; };
-		5459034CD093A7440B851947 /* EXViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXViewControllerTests.m; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
 		5459046AE47E1F98B1DE9220 /* DotAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotAnnotationView.h; sourceTree = "<group>"; };
 		54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotationsTests.m; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
 		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		545905F3BF97A2D66D909734 /* DummyAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAnnotations.h; sourceTree = "<group>"; };
+		54590705A0A4A153467F401C /* SpotDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataTests.m; sourceTree = "<group>"; };
 		545907DD75BEE539744A209A /* ShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeView.m; sourceTree = "<group>"; };
+		5459083138C8B2F622819149 /* SpotDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotDataTests.h; sourceTree = "<group>"; };
 		5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawer.m; sourceTree = "<group>"; };
 		5459089862011C24552756B2 /* experimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = experimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		545908EF8682170A6EC8685A /* MyClusterRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClusterRenderer.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				D9BA501384FC473BAD275C77 /* libPods.a in Frameworks */,
 				5459069861B9BBC02FC65858 /* CoreLocation.framework in Frameworks */,
 				54590DFBA163827AAA0C556B /* MapKit.framework in Frameworks */,
+				5459006225DAF0B4A94ADA87 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +162,15 @@
 				5459089862011C24552756B2 /* experimentTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		54590372C788A0F219CD5229 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				54590705A0A4A153467F401C /* SpotDataTests.m */,
+				5459083138C8B2F622819149 /* SpotDataTests.h */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		545903B971A5E69AF2F65D3E /* Clustering */ = {
@@ -287,7 +299,7 @@
 				545907147ED854E92644EA88 /* Supporting Files */,
 				54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */,
 				54590D9E2826CA1887044250 /* TextDrawerTests.m */,
-				5459034CD093A7440B851947 /* EXViewControllerTests.m */,
+				54590372C788A0F219CD5229 /* Data */,
 			);
 			path = experimentTests;
 			sourceTree = "<group>";
@@ -487,7 +499,7 @@
 			files = (
 				5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */,
 				54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */,
-				5459025E817F1AA140D1D40F /* EXViewControllerTests.m in Sources */,
+				54590F4F536A0063BB8FF0E3 /* SpotDataTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

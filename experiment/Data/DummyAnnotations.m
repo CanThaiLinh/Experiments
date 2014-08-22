@@ -21,15 +21,26 @@
         int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
         for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
             int stackPriority = arc4random() % 50;
+            NSDecimalNumber *price = [self randomPrice];
             [spot addData:[[SpotData alloc] initWithShortName:[self randomStringOfLength:arc4random() % 4 + 1]
                                                          name:[self randomName]
-                                                        price:[self randomPrice]
+                                                        price:price
+                                                       change:[self randomChangeFromPrice:price]
                                                      priority:stackPriority]];
             spot.priority = stackPriority > spot.priority ? stackPriority : spot.priority;
         }
 
         [manager addItem:spot];
     }
+}
+
+- (NSDecimalNumber *)randomChangeFromPrice:(NSDecimalNumber *)price {
+    int change = arc4random() % ([[price decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] intValue] * 5);
+    NSDecimalNumber *changeDecimal = [NSDecimalNumber decimalNumberWithDecimal:[@(change / 100.0) decimalValue]];
+    if (arc4random() % 2 == 0) {
+        changeDecimal = [changeDecimal decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"-1"]];
+    }
+    return changeDecimal;
 }
 
 - (NSString *)randomName {
