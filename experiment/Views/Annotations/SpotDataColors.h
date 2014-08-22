@@ -4,4 +4,5 @@
 
 + colorFor:(SpotData *)data;
 
++ (UIColor *)selectedColor;
 @end

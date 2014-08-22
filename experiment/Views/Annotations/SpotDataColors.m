@@ -12,4 +12,8 @@
     }
 }
 
++ (UIColor *)selectedColor {
+    return [UIColor blueColor];
+}
+
 @end

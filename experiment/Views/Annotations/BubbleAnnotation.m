@@ -86,7 +86,7 @@
 - (UIColor *)currentColor {
     MyMarker *marker = self.annotation;
     if ([marker isSelected]) {
-        return [UIColor blueColor];
+        return [SpotDataColors selectedColor];
     }
     else {
         return [SpotDataColors colorFor:marker.data[0]];;

@@ -28,7 +28,7 @@
 
 - (void)cluster {
     NSSet *clusters = [self.algorithm getClusters:[self.mapView zoomLevel]];
-    [self.renderer clustersChanged:clusters atMaxZoom:[self.mapView zoomLevel] >= 16.8];
+    [self.renderer clustersChanged:clusters atMaxZoom:[self.mapView zoomLevel] >= 16.9];
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
@@ -40,7 +40,7 @@
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    if ([mapView zoomLevel] < 14 && self.initialLocationFound) {
+    if ([mapView zoomLevel] < 15 && self.initialLocationFound) {
         [mapView setCenterCoordinate:mapView.centerCoordinate zoomLevel:15 animated:YES];
     }
 

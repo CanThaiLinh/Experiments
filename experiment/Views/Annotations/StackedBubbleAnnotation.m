@@ -19,8 +19,7 @@
     CGRect roundedRectangleRect = CGRectMake(0, 0, roundedRectangleWidth, roundedRectangleHeight);
     CGRect finalRectangle = [self drawRectangleStack:roundedRectangleRect offset:offset];
 
-    MyMarker *marker = self.annotation;
-    [[SpotDataColors colorFor:marker.data[0]] setFill];
+    [self setPrimaryColorFill];
     [self drawBottomTriangle:finalRectangle withWidth:self.triangleWidth withHeight:self.triangleHeight];
     [TextDrawer writeText:[self getShortName] fontSize:FONT_SIZE inRect:finalRectangle];
 
@@ -29,11 +28,27 @@
     return image;
 }
 
+- (void)setPrimaryColorFill {
+    MyMarker *marker = self.annotation;
+    if (marker.isSelected) {
+        [[SpotDataColors selectedColor] setFill];
+    }
+    else {
+        [[SpotDataColors colorFor:marker.data[0]] setFill];
+    }
+}
+
 - (CGRect)drawRectangleStack:(CGRect)roundedRectangleRect offset:(int)offset {
     MyMarker *marker = self.annotation;
     for (int i = 0; i < 3; i++) {
         int markerIndexToDraw = MIN(2 - i, marker.data.count - 1);
-        [[SpotDataColors colorFor:marker.data[(NSUInteger) markerIndexToDraw]] setFill];
+        if ([marker isSelected]) {
+            [[SpotDataColors selectedColor] setFill];
+        }
+        else {
+            [[SpotDataColors colorFor:marker.data[(NSUInteger) markerIndexToDraw]] setFill];
+        }
+
         if (i != 0) {
             roundedRectangleRect.origin = CGPointMake(roundedRectangleRect.origin.x + offset, roundedRectangleRect.origin.x + offset);
         }
