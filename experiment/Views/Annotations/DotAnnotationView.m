@@ -7,7 +7,7 @@
 - (instancetype)initWithAnnotation:(id <MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self setImage:[self buildImage]];
+        [self draw];
     }
 
     return self;
@@ -46,6 +46,10 @@
     MyMarker *marker = self.annotation;
     [[SpotDataColors colorFor:marker.data[0]] setFill];
     CGContextFillEllipseInRect(ctx, circleRect);
+}
+
+- (void)draw {
+    [self setImage:[self buildImage]];
 }
 
 @end

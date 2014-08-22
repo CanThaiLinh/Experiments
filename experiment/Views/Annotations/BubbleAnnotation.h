@@ -1,6 +1,7 @@
 #import <MapKit/MapKit.h>
+#import "MyAnnotationView.h"
 
-@interface BubbleAnnotation : MKAnnotationView
+@interface BubbleAnnotation : MKAnnotationView<MyAnnotationView>
 
 @property(nonatomic) int triangleWidth;
 

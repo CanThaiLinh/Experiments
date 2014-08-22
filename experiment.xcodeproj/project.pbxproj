@@ -105,6 +105,7 @@
 		54590C4A0C8686E4A7D30E1F /* SpotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotData.h; sourceTree = "<group>"; };
 		54590CB8E58CA8E2CB71B022 /* ShadeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeTableViewController.h; sourceTree = "<group>"; };
 		54590CBC98478A7DADE8BFFF /* DummyAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotations.m; sourceTree = "<group>"; };
+		54590CD9460DC5B5E9C7F15B /* MyAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotationView.h; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54590D15680FA8B9C0120605 /* SpotTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotTests.h; sourceTree = "<group>"; };
 		54590D28F4F1771C4B977018 /* MKClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKClusterManager.m; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 				5459017E0F5D62E575190FF0 /* MKClusterRenderer.h */,
 				5459000E2F780EAAE59F3E07 /* MyClusterRenderer.m */,
 				545908EF8682170A6EC8685A /* MyClusterRenderer.h */,
+				54590CD9460DC5B5E9C7F15B /* MyAnnotationView.h */,
 			);
 			path = Clustering;
 			sourceTree = "<group>";

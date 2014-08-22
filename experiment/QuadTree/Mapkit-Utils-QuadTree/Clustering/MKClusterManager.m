@@ -91,28 +91,28 @@
         return nil;
     }
 
-    MKAnnotationView *view;
+    MKAnnotationView <MyAnnotationView> *view;
     MyMarker *marker = annotation;
     if ([marker.data count] > 1 && (marker.isBubble || marker.isSelected)) {
-        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
+        view = (MKAnnotationView <MyAnnotationView> *) [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
         if (view == nil) {
             view = [[StackedBubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
         }
     }
     else if (marker.isBubble || marker.isSelected) {
-        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(BubbleAnnotation.class)];
+        view = (MKAnnotationView <MyAnnotationView> *) [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(BubbleAnnotation.class)];
         if (view == nil) {
             view = [[BubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(BubbleAnnotation.class)];
-            [(BubbleAnnotation *) view draw];
         }
     }
     else {
-        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(DotAnnotationView.class)];
+        view = (MKAnnotationView <MyAnnotationView> *) [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(DotAnnotationView.class)];
         if (view == nil) {
             view = [[DotAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(DotAnnotationView.class)];
         }
     }
-
+    view.annotation = annotation;
+    [view draw];
     return view;
 }
 

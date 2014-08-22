@@ -1,4 +1,5 @@
 #import <MapKit/MapKit.h>
+#import "MyAnnotationView.h"
 
-@interface DotAnnotationView : MKAnnotationView
+@interface DotAnnotationView : MKAnnotationView<MyAnnotationView>
 @end
