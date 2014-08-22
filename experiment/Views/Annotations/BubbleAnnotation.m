@@ -2,6 +2,7 @@
 #import "TextDrawer.h"
 #import "MyMarker.h"
 #import "SpotData.h"
+#import "SpotDataColors.h"
 
 @implementation BubbleAnnotation
 
@@ -87,7 +88,7 @@
         return [UIColor blueColor];
     }
     else {
-        return [UIColor colorWithRed:18.0f / 255.0f green:204.0f / 255.0f blue:64.0f / 255.0f alpha:1.0];
+        return [SpotDataColors colorFor:marker.data[0]];;
     }
 }
 

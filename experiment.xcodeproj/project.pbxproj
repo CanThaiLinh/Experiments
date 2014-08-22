@@ -31,6 +31,7 @@
 		5459069861B9BBC02FC65858 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		545906AA57F138795FFCD581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459014022FCED21F8A10C73 /* InfoPlist.strings */; };
 		54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */; };
+		5459078127E4D4C998D06392 /* SpotDataColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 545906EA4A0955BF59068353 /* SpotDataColors.m */; };
 		545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590875427A37523EF058E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		5459095B2B5306333A6E7429 /* SpotData.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900B956FB7DD7327307E9 /* SpotData.m */; };
@@ -78,6 +79,7 @@
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
 		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		545905F3BF97A2D66D909734 /* DummyAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAnnotations.h; sourceTree = "<group>"; };
+		545906EA4A0955BF59068353 /* SpotDataColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataColors.m; sourceTree = "<group>"; };
 		54590705A0A4A153467F401C /* SpotDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataTests.m; sourceTree = "<group>"; };
 		545907DD75BEE539744A209A /* ShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeView.m; sourceTree = "<group>"; };
 		5459083138C8B2F622819149 /* SpotDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotDataTests.h; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		5459092383AD4A7ED74D3A75 /* experiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "experiment-Prefix.pch"; sourceTree = "<group>"; };
 		5459096F04E8EF316D8C8B9B /* StockCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StockCard.storyboard; sourceTree = "<group>"; };
 		5459098B6080F4488BABF3B1 /* ShadeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeScrollView.h; sourceTree = "<group>"; };
+		545909BCC601D05BAAA0D9AD /* SpotDataColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotDataColors.h; sourceTree = "<group>"; };
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				54590B191563D1584C693CC1 /* BubbleAnnotation.h */,
 				54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */,
 				5459014BBFCD5C2BF3BA7AC1 /* StackedBubbleAnnotation.h */,
+				545906EA4A0955BF59068353 /* SpotDataColors.m */,
+				545909BCC601D05BAAA0D9AD /* SpotDataColors.h */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -524,6 +529,7 @@
 				545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */,
 				545900820063A47ACF831E9C /* StackedBubbleAnnotation.m in Sources */,
 				545909E16507E2723E8B5328 /* MyClusterRenderer.m in Sources */,
+				5459078127E4D4C998D06392 /* SpotDataColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
