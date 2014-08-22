@@ -17,6 +17,7 @@
 
 @property(nonatomic) BOOL initialLocationFound;
 
+- (instancetype)initWithMapView:(MKMapView *)mapView algorithm:(id <GClusterAlgorithm>)algorithm renderer:(id <MKClusterRenderer>)renderer;
 
 - (void)addItem:(id <GClusterItem>)item;
 

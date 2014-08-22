@@ -6,6 +6,8 @@
 
 @property(nonatomic) int triangleHeight;
 
+- (void)draw;
+
 - (UIImage *)buildImage;
 
 - (NSString *)getShortName;

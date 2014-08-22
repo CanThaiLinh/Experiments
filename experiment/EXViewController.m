@@ -6,10 +6,10 @@
 #import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "MyClusterRenderer.h"
-#import "MyClusterManager.h"
 #import "ShadeScrollView.h"
 
 #include "MKMapView+ZoomLevel.h"
+#import "MKClusterManager.h"
 
 @implementation EXViewController
 
@@ -18,7 +18,6 @@ const int MAX_ZOOM_LEVEL = 21;
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
     self.clipView.heightConstraint = self.shadeHeightConstraint;
-
     [self.scrollView buildCards];
 
     self.locationManager = [[CLLocationManager alloc] init];
@@ -29,12 +28,12 @@ const int MAX_ZOOM_LEVEL = 21;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
-    self.clusterManager = [[MyClusterManager alloc] init];
-    [self.clusterManager setMapView:self.mapView];
-    [self.clusterManager setAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]];
-    [self.clusterManager setRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
+    self.clusterManager = [[MKClusterManager alloc] initWithMapView:self.mapView
+                                                          algorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]
+                                                           renderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setDelegate:self.clusterManager];
+
     [self.mapView setShowsUserLocation:YES];
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
 }

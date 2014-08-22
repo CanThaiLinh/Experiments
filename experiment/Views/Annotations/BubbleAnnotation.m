@@ -10,10 +10,14 @@
     if (self) {
         self.triangleWidth = 10;
         self.triangleHeight = 12;
-        [self setImage:[self buildImage]];
+        [self draw];
     }
 
     return self;
+}
+
+- (void)draw {
+    [self setImage:[self buildImage]];
 }
 
 - (NSString *)getShortName {
@@ -61,7 +65,7 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
 
     int leftX = (int) (fromRect.origin.x + (int) (fromRect.size.width / 2.0 - width / 2.0));
-    int rightX = (int) (fromRect.origin.x +(int) (fromRect.size.width / 2.0 + width / 2.0));
+    int rightX = (int) (fromRect.origin.x + (int) (fromRect.size.width / 2.0 + width / 2.0));
 
     int topY = (int) (fromRect.size.height + fromRect.origin.y - 2);
     int bottomY = (int) (fromRect.size.height + height + fromRect.origin.y);
@@ -77,7 +81,9 @@
 }
 
 - (UIColor *)currentColor {
-    if ([self isSelected]) {
+    NSLog(@"Testing");
+    MyMarker *marker = self.annotation;
+    if ([marker isSelected]) {
         return [UIColor blueColor];
     }
     else {

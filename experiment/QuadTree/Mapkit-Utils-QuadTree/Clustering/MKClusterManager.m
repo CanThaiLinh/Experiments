@@ -2,9 +2,24 @@
 #import <MKMapView-ZoomLevel/MKMapView+ZoomLevel.h>
 #import "MKClusterManager.h"
 #import "MKClusterRenderer.h"
+#import "MyMarker.h"
+#import "BubbleAnnotation.h"
+#import "StackedBubbleAnnotation.h"
+#import "DotAnnotationView.h"
 
 @implementation MKClusterManager {
     float previousZoom;
+}
+
+- (instancetype)initWithMapView:(MKMapView *)mapView algorithm:(id <GClusterAlgorithm>)algorithm renderer:(id <MKClusterRenderer>)renderer {
+    self = [super init];
+    if (self) {
+        self.mapView = mapView;
+        self.algorithm = algorithm;
+        self.renderer = renderer;
+    }
+
+    return self;
 }
 
 - (void)addItem:(id <GClusterItem>)item {
@@ -40,6 +55,65 @@
     }
     previousZoom = [self.mapView zoomLevel];
     [self cluster];
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    MyMarker *marker = view.annotation;
+    if (![marker isKindOfClass:MyMarker.class]) {
+        return;
+    }
+
+    if (!marker.isSelected) {
+        [self unselectAll];
+        marker.isSelected = YES;
+        [self redrawMarker:marker];
+    }
+}
+
+- (void)unselectAll {
+    for (MyMarker *marker in self.mapView.annotations) {
+        if ([marker isKindOfClass:MyMarker.class]) {
+            if (marker.isSelected) {
+                marker.isSelected = NO;
+                [self redrawMarker:marker];
+            }
+        }
+    }
+}
+
+- (void)redrawMarker:(MyMarker *)marker {
+    [self.renderer removeMarker:marker];
+    [self.renderer addMarker:marker atPosition:marker.coordinate];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    if (![annotation isKindOfClass:MyMarker.class]) {
+        return nil;
+    }
+
+    MKAnnotationView *view;
+    MyMarker *marker = annotation;
+    if ([marker.data count] > 1 && marker.isBubble) {
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
+        if (view == nil) {
+            view = [[StackedBubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
+        }
+    }
+    else if (marker.isBubble || marker.isSelected) {
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(BubbleAnnotation.class)];
+        if (view == nil) {
+            view = [[BubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(BubbleAnnotation.class)];
+            [(BubbleAnnotation *) view draw];
+        }
+    }
+    else {
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(DotAnnotationView.class)];
+        if (view == nil) {
+            view = [[DotAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(DotAnnotationView.class)];
+        }
+    }
+
+    return view;
 }
 
 @end
