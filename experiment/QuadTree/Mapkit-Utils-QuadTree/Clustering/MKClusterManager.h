@@ -8,19 +8,15 @@
 @protocol MKClusterRenderer;
 
 @interface MKClusterManager : NSObject <MKMapViewDelegate> {
-    MKMapView *map;
-    id <GClusterAlgorithm> algorithm;
-    id <MKClusterRenderer> renderer;
-    BOOL previousCameraPosition;
 }
 
+@property(nonatomic, strong) MKMapView *mapView;
+@property(nonatomic, strong) id <GClusterAlgorithm> algorithm;
+@property(nonatomic, strong) id <MKClusterRenderer> renderer;
 @property(nonatomic, weak) NSTimer *clusterTimer;
 
-- (void)setMapView:(MKMapView *)mapView;
+@property(nonatomic) BOOL initialLocationFound;
 
-- (void)setClusterAlgorithm:(id <GClusterAlgorithm>)clusterAlgorithm;
-
-- (void)setClusterRenderer:(id <MKClusterRenderer>)clusterRenderer;
 
 - (void)addItem:(id <GClusterItem>)item;
 

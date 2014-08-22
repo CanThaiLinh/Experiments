@@ -1,33 +1,19 @@
 #import <MapKit/MapKit.h>
 #import <MKMapView-ZoomLevel/MKMapView+ZoomLevel.h>
 #import "MKClusterManager.h"
-#import "MyMarker.h"
 #import "MKClusterRenderer.h"
-#import "DotAnnotationView.h"
 
 @implementation MKClusterManager {
     float previousZoom;
 }
 
-- (void)setMapView:(MKMapView *)mapView {
-    map = mapView;
-}
-
-- (void)setClusterAlgorithm:(id <GClusterAlgorithm>)clusterAlgorithm {
-    algorithm = clusterAlgorithm;
-}
-
-- (void)setClusterRenderer:(id <MKClusterRenderer>)clusterRenderer {
-    renderer = clusterRenderer;
-}
-
 - (void)addItem:(id <GClusterItem>)item {
-    [algorithm addItem:item];
+    [self.algorithm addItem:item];
 }
 
 - (void)cluster {
-    NSSet *clusters = [algorithm getClusters:[map zoomLevel]];
-    [renderer clustersChanged:clusters atMaxZoom:[map zoomLevel] >= 16.8];
+    NSSet *clusters = [self.algorithm getClusters:[self.mapView zoomLevel]];
+    [self.renderer clustersChanged:clusters atMaxZoom:[self.mapView zoomLevel] >= 16.8];
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
@@ -39,17 +25,20 @@
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if ([mapView zoomLevel] < 14 && self.initialLocationFound) {
+        [mapView setCenterCoordinate:mapView.centerCoordinate zoomLevel:15 animated:YES];
+    }
+
     [self.clusterTimer invalidate];
     self.clusterTimer = nil;
     [self regionChanged];
 }
 
 - (void)regionChanged {
-    if (previousCameraPosition && previousZoom == [map zoomLevel]) {
+    if (previousZoom == [self.mapView zoomLevel]) {
         return;
     }
-    previousCameraPosition = YES;
-    previousZoom = [map zoomLevel];
+    previousZoom = [self.mapView zoomLevel];
     [self cluster];
 }
 

@@ -17,18 +17,18 @@
         [self unselectAll];
 
         annotation.isSelected = YES;
-        [renderer removeMarker:annotation];
-        [renderer addMarker:annotation atPosition:annotation.coordinate];
+        [self.renderer removeMarker:annotation];
+        [self.renderer addMarker:annotation atPosition:annotation.coordinate];
     }
 }
 
 - (void)unselectAll {
-    for (MyMarker *marker in map.annotations) {
+    for (MyMarker *marker in self.mapView.annotations) {
         if ([marker isKindOfClass:MyMarker.class]) {
             if (marker.isSelected) {
                 marker.isSelected = NO;
-                [renderer removeMarker:marker];
-                [renderer addMarker:marker atPosition:marker.coordinate];
+                [self.renderer removeMarker:marker];
+                [self.renderer addMarker:marker atPosition:marker.coordinate];
             }
         }
     }

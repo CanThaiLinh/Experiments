@@ -10,7 +10,6 @@
 #import "ShadeScrollView.h"
 
 #include "MKMapView+ZoomLevel.h"
-#import "MKClusterManager.h"
 
 @implementation EXViewController
 
@@ -32,8 +31,8 @@ const int MAX_ZOOM_LEVEL = 21;
 
     self.clusterManager = [[MyClusterManager alloc] init];
     [self.clusterManager setMapView:self.mapView];
-    [self.clusterManager setClusterAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]];
-    [self.clusterManager setClusterRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
+    [self.clusterManager setAlgorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]];
+    [self.clusterManager setRenderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
 
     [self.mapView setDelegate:self.clusterManager];
     [self.mapView setShowsUserLocation:YES];
@@ -46,6 +45,7 @@ const int MAX_ZOOM_LEVEL = 21;
     if (!self.hasFoundInitialLocation) {
         self.hasFoundInitialLocation = YES;
         [self.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:MAX_ZOOM_LEVEL animated:NO];
+        self.clusterManager.initialLocationFound = YES;
         [[DummyAnnotations new] addAnnotations:self.clusterManager around:newLocation.coordinate];
         [[self clusterManager] cluster];
     }
