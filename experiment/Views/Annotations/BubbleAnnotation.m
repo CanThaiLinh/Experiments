@@ -10,6 +10,7 @@
     if (self) {
         self.triangleWidth = 10;
         self.triangleHeight = 12;
+        self.centerOffset = CGPointMake(0, -self.triangleHeight);
         [self draw];
     }
 
@@ -81,7 +82,6 @@
 }
 
 - (UIColor *)currentColor {
-    NSLog(@"Testing");
     MyMarker *marker = self.annotation;
     if ([marker isSelected]) {
         return [UIColor blueColor];

@@ -93,7 +93,7 @@
 
     MKAnnotationView *view;
     MyMarker *marker = annotation;
-    if ([marker.data count] > 1 && marker.isBubble) {
+    if ([marker.data count] > 1 && (marker.isBubble || marker.isSelected)) {
         view = [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
         if (view == nil) {
             view = [[StackedBubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
