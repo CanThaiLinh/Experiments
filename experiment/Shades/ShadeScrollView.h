@@ -1,4 +1,5 @@
 @class ShadeTableViewController;
+@class Spot;
 
 @interface ShadeScrollView : UIScrollView <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 @property(nonatomic) BOOL swiping;
@@ -8,4 +9,6 @@
 @property(nonatomic, strong) NSMutableArray *viewControllers;
 
 - (void)buildCards:(NSArray *)data;
+
+- (void)selectSpot:(Spot *)spot;
 @end

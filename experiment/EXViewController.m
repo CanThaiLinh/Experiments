@@ -11,7 +11,6 @@
 #import "MKClusterManager.h"
 #import "DummyDataProvider.h"
 #import "Spot.h"
-#import "SpotData.h"
 
 @implementation EXViewController
 
@@ -59,9 +58,7 @@ const int MAX_ZOOM_LEVEL = 21;
 }
 
 - (void)didSelectSpot:(Spot *)spot {
-    SpotData *data = spot.data[0];
-    NSLog(@"%@", data.shortName);
+    [self.scrollView selectSpot:spot];
 }
-
 
 @end

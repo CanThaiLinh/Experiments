@@ -173,4 +173,22 @@ typedef enum {
     return YES;
 }
 
+- (void)selectSpot:(Spot *)spot {
+    [self hideCard:NO];
+    int position = [self positionForSpot:spot];
+    CGRect rect = CGRectMake(self.frame.size.width * position, 0, self.frame.size.width, self.frame.size.height);
+    [self scrollRectToVisible:rect animated:YES];
+
+}
+
+- (int)positionForSpot:(Spot *)spot {
+    for (int i = 0; i < [self.viewControllers count]; i++) {
+        ShadeTableViewController *controller = (self.viewControllers)[i];
+        if (controller.spot == spot) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 @end
