@@ -5,16 +5,11 @@
 
 @implementation ShadeTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self registerCellNib:ShadeCell.class];
-}
-
-
 - (instancetype)initWithSpot:(Spot *)spot {
     self = [super init];
     if (self) {
         self.spot = spot;
+        [self registerCellNib:ShadeCell.class];
     }
 
     return self;
@@ -26,9 +21,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ShadeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(ShadeCell.class)];
-    if( cell == nil ){
-        cell = [[ShadeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(ShadeCell.class)];
-    }
     SpotData *data = self.spot.data[[indexPath row]];
     return cell;
 }

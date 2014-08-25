@@ -94,7 +94,7 @@ typedef enum {
 - (void)moveCard:(direction)direction animate:(BOOL)animate {
     int page = [self currentPage];
     UITableView *card = self.cardViews[page];
-    ShadeView *clipView = (ShadeView *) self.superview;
+    ShadeView *shadeView = (ShadeView *) self.superview;
     int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
     int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight] - 25);
     int boundHeightToMove = MIN(maxHeight, heightToMove);
@@ -102,8 +102,8 @@ typedef enum {
     int yTranslation = direction == UP ? boundHeightToMove : -1 * boundHeightToMove;
     if (animate) {
         [UIView animateWithDuration:0.15 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            clipView.heightConstraint.constant = clipView.heightConstraint.constant + yTranslation;
-            [clipView.superview layoutIfNeeded];
+            shadeView.heightConstraint.constant = shadeView.heightConstraint.constant + yTranslation;
+            [shadeView.superview layoutIfNeeded];
         }                completion:^(BOOL finished) {
             self.cardRevealed = !self.cardRevealed;
 
@@ -114,7 +114,7 @@ typedef enum {
         }];
     }
     else {
-        clipView.heightConstraint.constant = clipView.heightConstraint.constant + yTranslation;
+        shadeView.heightConstraint.constant = shadeView.heightConstraint.constant + yTranslation;
     }
 }
 
@@ -136,13 +136,12 @@ typedef enum {
         Spot *spot = data[(NSUInteger) i];
         ShadeTableViewController *individualController = [[ShadeTableViewController alloc] initWithSpot:spot];
         [self.viewControllers addObject:individualController];
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
-        tableView.scrollEnabled = NO;
-        [tableView setDataSource:individualController];
-        [tableView setDelegate:individualController];
-        [self.cardViews addObject:tableView];
-        [self addSubview:tableView];
+        [self.cardViews addObject:individualController.tableView];
+        [self addSubview:individualController.tableView];
     }
+
+    ShadeView *shadeView = (ShadeView *) self.superview;
+    shadeView.heightConstraint.constant = [self cardRowHeight];
 
     [self adjustCardSizes];
 }
