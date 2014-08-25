@@ -3,6 +3,7 @@
 #import "SpotData.h"
 #import "MyMarker.h"
 #import "SpotDataColors.h"
+#import "Spot.h"
 
 @implementation StackedBubbleAnnotation
 
@@ -34,19 +35,19 @@
         [[SpotDataColors selectedColor] setFill];
     }
     else {
-        [[SpotDataColors colorFor:marker.data[0]] setFill];
+        [[SpotDataColors colorFor:marker.spot.data[0]] setFill];
     }
 }
 
 - (CGRect)drawRectangleStack:(CGRect)roundedRectangleRect offset:(int)offset {
     MyMarker *marker = self.annotation;
     for (int i = 0; i < 3; i++) {
-        int markerIndexToDraw = MIN(2 - i, marker.data.count - 1);
+        int markerIndexToDraw = MIN(2 - i, marker.spot.data.count - 1);
         if ([marker isSelected]) {
             [[SpotDataColors selectedColor] setFill];
         }
         else {
-            [[SpotDataColors colorFor:marker.data[(NSUInteger) markerIndexToDraw]] setFill];
+            [[SpotDataColors colorFor:marker.spot.data[(NSUInteger) markerIndexToDraw]] setFill];
         }
 
         if (i != 0) {
@@ -59,7 +60,7 @@
 
 - (NSString *)getShortName {
     MyMarker *marker = self.annotation;
-    SpotData *highestPriority = marker.data[0];
+    SpotData *highestPriority = marker.spot.data[0];
     return highestPriority.shortName;
 }
 

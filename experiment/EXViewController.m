@@ -11,6 +11,7 @@
 #import "MKClusterManager.h"
 #import "DummyDataProvider.h"
 #import "Spot.h"
+#import "SpotData.h"
 
 @implementation EXViewController
 
@@ -31,6 +32,7 @@ const int MAX_ZOOM_LEVEL = 21;
     self.clusterManager = [[MKClusterManager alloc] initWithMapView:self.mapView
                                                           algorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]
                                                            renderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
+    self.clusterManager.delegate = self;
 
     [self.mapView setDelegate:self.clusterManager];
 
@@ -51,9 +53,15 @@ const int MAX_ZOOM_LEVEL = 21;
                 [self.clusterManager addItem:spot];
             }
             [[self clusterManager] cluster];
-            [self.scrollView buildCards: data];
+            [self.scrollView buildCards:data];
         }];
     }
 }
+
+- (void)didSelectSpot:(Spot *)spot {
+    SpotData *data = spot.data[0];
+    NSLog(@"%@", data.shortName);
+}
+
 
 @end

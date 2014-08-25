@@ -1,12 +1,13 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
+#import "SpotSelectionDelegate.h"
 
 @class ShadeView;
 @class GClusterManager;
 @class ShadeScrollView;
 @class MKClusterManager;
 
-@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate> {
+@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate, SpotSelectionDelegate> {
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadeHeightConstraint;
 @property(weak, nonatomic) IBOutlet ShadeView *clipView;

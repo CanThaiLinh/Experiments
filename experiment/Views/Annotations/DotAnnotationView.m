@@ -1,6 +1,7 @@
 #import "DotAnnotationView.h"
 #import "SpotDataColors.h"
 #import "MyMarker.h"
+#import "Spot.h"
 
 @implementation DotAnnotationView
 
@@ -44,7 +45,7 @@
 - (void)drawCircle:(CGContextRef)ctx circleRect:(CGRect)circleRect {
     CGContextSetShadowWithColor(ctx, CGSizeMake(0, 1), 3.0, [UIColor grayColor].CGColor);
     MyMarker *marker = self.annotation;
-    [[SpotDataColors colorFor:marker.data[0]] setFill];
+    [[SpotDataColors colorFor:marker.spot.data[0]] setFill];
     CGContextFillEllipseInRect(ctx, circleRect);
 }
 

@@ -6,6 +6,8 @@
 #import "BubbleAnnotation.h"
 #import "StackedBubbleAnnotation.h"
 #import "DotAnnotationView.h"
+#import "Spot.h"
+#import "SpotSelectionDelegate.h"
 
 @implementation MKClusterManager {
     float previousZoom;
@@ -67,6 +69,7 @@
         [self unselectAll];
         marker.isSelected = YES;
         [self redrawMarker:marker];
+        [[self delegate] didSelectSpot: marker.spot];
     }
 }
 
@@ -93,7 +96,7 @@
 
     MKAnnotationView <MyAnnotationView> *view;
     MyMarker *marker = annotation;
-    if ([marker.data count] > 1 && (marker.isBubble || marker.isSelected)) {
+    if ([marker.spot.data count] > 1 && (marker.isBubble || marker.isSelected)) {
         view = (MKAnnotationView <MyAnnotationView> *) [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];
         if (view == nil) {
             view = [[StackedBubbleAnnotation alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(StackedBubbleAnnotation.class)];

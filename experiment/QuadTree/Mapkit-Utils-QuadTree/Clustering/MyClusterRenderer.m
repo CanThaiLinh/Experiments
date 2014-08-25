@@ -46,7 +46,7 @@
     if (bubbleTypeChanged || existingMarker == nil) {
         [self.mapView removeAnnotation:existingMarker];
         [self.markerCache removeObject:existingMarker];
-        MyMarker *marker = [[MyMarker alloc] initWithData:spot.data isBubble:bubble];
+        MyMarker *marker = [[MyMarker alloc] initWithSpot:spot isBubble:bubble];
         [self addMarker:marker atPosition:spot.position];
     }
 }

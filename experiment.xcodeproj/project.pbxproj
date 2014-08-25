@@ -95,6 +95,7 @@
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
 		54590B10ACEC404C21A33839 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spot.h; sourceTree = "<group>"; };
 		54590B191563D1584C693CC1 /* BubbleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleAnnotation.h; sourceTree = "<group>"; };
+		54590B7485D102B75F5E37D3 /* SpotSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotSelectionDelegate.h; sourceTree = "<group>"; };
 		54590B84C497979972AFB2C3 /* ShadeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeTableViewController.m; sourceTree = "<group>"; };
 		54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		54590C0D3253E759512F8D1B /* SpotTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotTests.m; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 				5459000E2F780EAAE59F3E07 /* MyClusterRenderer.m */,
 				545908EF8682170A6EC8685A /* MyClusterRenderer.h */,
 				54590CD9460DC5B5E9C7F15B /* MyAnnotationView.h */,
+				54590B7485D102B75F5E37D3 /* SpotSelectionDelegate.h */,
 			);
 			path = Clustering;
 			sourceTree = "<group>";

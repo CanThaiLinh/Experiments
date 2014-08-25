@@ -3,6 +3,7 @@
 #import "MyMarker.h"
 #import "SpotData.h"
 #import "SpotDataColors.h"
+#import "Spot.h"
 
 @implementation BubbleAnnotation
 
@@ -24,7 +25,7 @@
 
 - (NSString *)getShortName {
     MyMarker *marker = self.annotation;
-    SpotData *data = marker.data[0];
+    SpotData *data = marker.spot.data[0];
     return data.shortName;
 }
 
@@ -89,7 +90,7 @@
         return [SpotDataColors selectedColor];
     }
     else {
-        return [SpotDataColors colorFor:marker.data[0]];;
+        return [SpotDataColors colorFor:marker.spot.data[0]];
     }
 }
 

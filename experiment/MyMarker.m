@@ -1,11 +1,12 @@
 #import "MyMarker.h"
+#import "Spot.h"
 
 @implementation MyMarker
 
-- (instancetype)initWithData:(NSArray *)data isBubble:(BOOL)isBubble {
+- (instancetype)initWithSpot:(Spot *)spot isBubble:(BOOL)isBubble {
     self = [super init];
     if (self) {
-        self.data = data;
+        self.spot = spot;
         self.isBubble = isBubble;
     }
 

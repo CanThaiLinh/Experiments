@@ -6,6 +6,7 @@
 
 @class MKMapView;
 @protocol MKClusterRenderer;
+@protocol SpotSelectionDelegate;
 
 @interface MKClusterManager : NSObject <MKMapViewDelegate> {
 }
@@ -16,6 +17,8 @@
 @property(nonatomic, weak) NSTimer *clusterTimer;
 
 @property(nonatomic) BOOL initialLocationFound;
+
+@property(nonatomic, strong) NSObject<SpotSelectionDelegate> *delegate;
 
 - (instancetype)initWithMapView:(MKMapView *)mapView algorithm:(id <GClusterAlgorithm>)algorithm renderer:(id <MKClusterRenderer>)renderer;
 
