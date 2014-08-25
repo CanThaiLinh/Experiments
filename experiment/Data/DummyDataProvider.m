@@ -1,37 +1,47 @@
-#import <MapKit/MapKit.h>
-#import <Google-Maps-iOS-SDK/GoogleMaps/GMSMapView.h>
-#import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
-#import "MKClusterManager.h"
-#import "DummyAnnotations.h"
+#import "DummyDataProvider.h"
 #import "Spot.h"
 #import "SpotData.h"
 
-@implementation DummyAnnotations
+@implementation DummyDataProvider
 
-- (void)addAnnotations:(MKClusterManager *)manager around:(CLLocationCoordinate2D)around {
-    NSArray *dummyCoordinates = [self dummyCoordinatesFor:around];
-    for (int i = 0; i < [dummyCoordinates count]; i++) {
-        CLLocationCoordinate2D value;
-        [dummyCoordinates[i] getValue:&value];
-        Spot *spot = [Spot new];
-        spot.location = value;
-        spot.priority = arc4random() % 50;
-
-        BOOL hasStack = arc4random() % 4 == 0;
-        int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
-        for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
-            int stackPriority = arc4random() % 50;
-            NSDecimalNumber *price = [self randomPrice];
-            [spot addData:[[SpotData alloc] initWithShortName:[self randomStringOfLength:arc4random() % 4 + 1]
-                                                         name:[self randomName]
-                                                        price:price
-                                                       change:[self randomChangeFromPrice:price]
-                                                     priority:stackPriority]];
-            spot.priority = stackPriority > spot.priority ? stackPriority : spot.priority;
-        }
-
-        [manager addItem:spot];
+- (instancetype)initWithOrigin:(CLLocationCoordinate2D)origin {
+    self = [super init];
+    if (self) {
+        self.origin = origin;
     }
+
+    return self;
+}
+
+- (void)retrieveData:(void (^)(NSArray *))callback {
+    if (self.data == nil) {
+        self.data = (NSMutableArray *) [@[] mutableCopy];
+        NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin];
+        for (int i = 0; i < [dummyCoordinates count]; i++) {
+            CLLocationCoordinate2D value;
+            [dummyCoordinates[i] getValue:&value];
+            Spot *spot = [Spot new];
+            spot.location = value;
+            spot.priority = arc4random() % 50;
+
+            BOOL hasStack = arc4random() % 4 == 0;
+            int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
+            for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
+                int stackPriority = arc4random() % 50;
+                NSDecimalNumber *price = [self randomPrice];
+                [spot addData:[[SpotData alloc] initWithShortName:[self randomStringOfLength:arc4random() % 4 + 1]
+                                                             name:[self randomName]
+                                                            price:price
+                                                           change:[self randomChangeFromPrice:price]
+                                                         priority:stackPriority]];
+                spot.priority = stackPriority > spot.priority ? stackPriority : spot.priority;
+            }
+
+            [self.data addObject:spot];
+        }
+    }
+
+    callback(self.data);
 }
 
 - (NSDecimalNumber *)randomChangeFromPrice:(NSDecimalNumber *)price {

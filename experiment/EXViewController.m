@@ -3,13 +3,14 @@
 #import <Google-Maps-iOS-Utils-QuadTree/GClusterManager.h>
 #import "EXViewController.h"
 #import "ShadeView.h"
-#import "DummyAnnotations.h"
 #import "NonHierarchicalDistanceBasedAlgorithm.h"
 #import "MyClusterRenderer.h"
 #import "ShadeScrollView.h"
 
 #include "MKMapView+ZoomLevel.h"
 #import "MKClusterManager.h"
+#import "DummyDataProvider.h"
+#import "Spot.h"
 
 @implementation EXViewController
 
@@ -45,8 +46,13 @@ const int MAX_ZOOM_LEVEL = 21;
         self.hasFoundInitialLocation = YES;
         [self.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:MAX_ZOOM_LEVEL animated:NO];
         self.clusterManager.initialLocationFound = YES;
-        [[DummyAnnotations new] addAnnotations:self.clusterManager around:newLocation.coordinate];
-        [[self clusterManager] cluster];
+        DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:newLocation.coordinate];
+        [provider retrieveData:^(NSArray *data) {
+            for (Spot *spot in data) {
+                [self.clusterManager addItem:spot];
+            }
+            [[self clusterManager] cluster];
+        }];
     }
 }
 

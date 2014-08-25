@@ -15,7 +15,6 @@
 		545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903189C0E24E797D45785 /* BubbleAnnotation.m */; };
 		545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
-		5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */; };
 		545903201999C84210EA2EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		54590346BA45647FD5325154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590EE42E452BC50DE38D08 /* main.m */; };
 		5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590C0D3253E759512F8D1B /* SpotTests.m */; };
@@ -39,11 +38,11 @@
 		54590969E9488DCB48BFBCEA /* MyMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F722DEB94E84E01F5AD /* MyMarker.m */; };
 		5459097522289CA5974D6EFF /* ShadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 545907DD75BEE539744A209A /* ShadeView.m */; };
 		545909E16507E2723E8B5328 /* MyClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459000E2F780EAAE59F3E07 /* MyClusterRenderer.m */; };
-		54590A3DA295727A6AA0658F /* DummyAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590CBC98478A7DADE8BFFF /* DummyAnnotations.m */; };
 		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590B4ECE8FBEFFCCEF7A2F /* TextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */; };
 		54590D5D9D7F86C77EA8FF29 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 545901A5F45F4F7B8B810931 /* Spot.m */; };
 		54590DB78DCC052754E87F85 /* DotAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FC3FD0856276A0D180B /* DotAnnotationView.m */; };
+		54590DDAD42C7965910ACAEF /* DummyDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E768C7958768EFA6E27 /* DummyDataProvider.m */; };
 		54590DFBA163827AAA0C556B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590EDB9ED935FDB962BA31 /* MapKit.framework */; };
 		54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459096F04E8EF316D8C8B9B /* StockCard.storyboard */; };
 		54590E2E433FB2FD3E92EE06 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */; };
@@ -76,10 +75,9 @@
 		545903189C0E24E797D45785 /* BubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleAnnotation.m; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
 		5459046AE47E1F98B1DE9220 /* DotAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotAnnotationView.h; sourceTree = "<group>"; };
-		54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotationsTests.m; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
 		5459058B07CD319037FD76AC /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
-		545905F3BF97A2D66D909734 /* DummyAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAnnotations.h; sourceTree = "<group>"; };
+		545906BA5B91BAD78345CFC1 /* DummyDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyDataProvider.h; sourceTree = "<group>"; };
 		545906EA4A0955BF59068353 /* SpotDataColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataColors.m; sourceTree = "<group>"; };
 		54590705A0A4A153467F401C /* SpotDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataTests.m; sourceTree = "<group>"; };
 		545907DD75BEE539744A209A /* ShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeView.m; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 		54590C323E21D05C3542C049 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		54590C4A0C8686E4A7D30E1F /* SpotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotData.h; sourceTree = "<group>"; };
 		54590CB8E58CA8E2CB71B022 /* ShadeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeTableViewController.h; sourceTree = "<group>"; };
-		54590CBC98478A7DADE8BFFF /* DummyAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAnnotations.m; sourceTree = "<group>"; };
 		54590CD9460DC5B5E9C7F15B /* MyAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotationView.h; sourceTree = "<group>"; };
 		54590CFFA3DC9E9B9743794F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54590D15680FA8B9C0120605 /* SpotTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotTests.h; sourceTree = "<group>"; };
@@ -112,6 +109,7 @@
 		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
 		54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedBubbleAnnotation.m; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		54590E768C7958768EFA6E27 /* DummyDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyDataProvider.m; sourceTree = "<group>"; };
 		54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeScrollView.m; sourceTree = "<group>"; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		54590EDB9ED935FDB962BA31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -299,8 +297,8 @@
 				545901A5F45F4F7B8B810931 /* Spot.m */,
 				545900B956FB7DD7327307E9 /* SpotData.m */,
 				54590C4A0C8686E4A7D30E1F /* SpotData.h */,
-				54590CBC98478A7DADE8BFFF /* DummyAnnotations.m */,
-				545905F3BF97A2D66D909734 /* DummyAnnotations.h */,
+				54590E768C7958768EFA6E27 /* DummyDataProvider.m */,
+				545906BA5B91BAD78345CFC1 /* DummyDataProvider.h */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -309,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				545907147ED854E92644EA88 /* Supporting Files */,
-				54590533AE3E31B5EFAA5289 /* DummyAnnotationsTests.m */,
 				54590D9E2826CA1887044250 /* TextDrawerTests.m */,
 				54590372C788A0F219CD5229 /* Data */,
 			);
@@ -509,7 +506,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5459027645AEF5F8F2F86714 /* DummyAnnotationsTests.m in Sources */,
 				54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */,
 				54590F4F536A0063BB8FF0E3 /* SpotDataTests.m in Sources */,
 				5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */,
@@ -532,12 +528,12 @@
 				54590D5D9D7F86C77EA8FF29 /* Spot.m in Sources */,
 				5459095B2B5306333A6E7429 /* SpotData.m in Sources */,
 				5459097522289CA5974D6EFF /* ShadeView.m in Sources */,
-				54590A3DA295727A6AA0658F /* DummyAnnotations.m in Sources */,
 				54590DB78DCC052754E87F85 /* DotAnnotationView.m in Sources */,
 				545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */,
 				545900820063A47ACF831E9C /* StackedBubbleAnnotation.m in Sources */,
 				545909E16507E2723E8B5328 /* MyClusterRenderer.m in Sources */,
 				5459078127E4D4C998D06392 /* SpotDataColors.m in Sources */,
+				54590DDAD42C7965910ACAEF /* DummyDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
