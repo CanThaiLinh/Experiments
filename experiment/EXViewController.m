@@ -19,7 +19,6 @@ const int MAX_ZOOM_LEVEL = 21;
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
     self.clipView.heightConstraint = self.shadeHeightConstraint;
-    [self.scrollView buildCards];
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -52,6 +51,7 @@ const int MAX_ZOOM_LEVEL = 21;
                 [self.clusterManager addItem:spot];
             }
             [[self clusterManager] cluster];
+            [self.scrollView buildCards: data];
         }];
     }
 }

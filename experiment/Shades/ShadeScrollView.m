@@ -1,6 +1,7 @@
 #import "ShadeScrollView.h"
 #import "ShadeTableViewController.h"
 #import "ShadeView.h"
+#import "Spot.h"
 
 @implementation ShadeScrollView
 
@@ -27,7 +28,7 @@ typedef enum {
 
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
     CGPoint v = [gesture velocityInView:self];
-    if(fabs(v.x) > 40){
+    if (fabs(v.x) > 40) {
         return;
     }
 
@@ -123,19 +124,15 @@ typedef enum {
     return [[exampleView delegate] tableView:exampleView heightForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
 }
 
-- (void)buildCards {
-    const int CARD_COUNT = 5;
+- (void)buildCards:(NSArray *)data {
     self.cardViews = [@[] mutableCopy];
-    UIStoryboard *cardBoard = [UIStoryboard storyboardWithName:@"StockCard" bundle:nil];
-    ShadeTableViewController *controller = [cardBoard instantiateViewControllerWithIdentifier:@"stockCards"];
     self.viewControllers = [@[] mutableCopy];
-    for (int i = 0; i < CARD_COUNT; i++) {
-        ShadeTableViewController *individualController = [[ShadeTableViewController alloc] init];
-        [self.viewControllers addObject:individualController];
 
+    for (int i = 0; i < [data count]; i++) {
+        Spot *spot = data[(NSUInteger) i];
+        ShadeTableViewController *individualController = [[ShadeTableViewController alloc] initWithSpot: spot];
+        [self.viewControllers addObject:individualController];
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
-        int count = 3 + i * 5;
-        [individualController setItems:[self textArrayOfSize:count]];
         tableView.scrollEnabled = NO;
         [tableView setDataSource:individualController];
         [tableView setDelegate:individualController];

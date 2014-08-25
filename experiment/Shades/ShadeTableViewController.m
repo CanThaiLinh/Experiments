@@ -1,9 +1,20 @@
 #import "ShadeTableViewController.h"
+#import "Spot.h"
+#import "SpotData.h"
 
 @implementation ShadeTableViewController
 
+- (instancetype)initWithSpot:(Spot *)spot {
+    self = [super init];
+    if (self) {
+        self.spot = spot;
+    }
+
+    return self;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.items count];
+    return [self.spot.data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -11,7 +22,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ShadeCell"];
     }
-    [cell.textLabel setText:self.items[(NSUInteger) [indexPath row]]];
+    SpotData *data = self.spot.data[[indexPath row]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@: %@", data.shortName, data.name]];
     return cell;
 }
 
