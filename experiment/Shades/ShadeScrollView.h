@@ -7,7 +7,5 @@
 @property(nonatomic, strong) NSMutableArray *cardViews;
 @property(nonatomic, strong) NSMutableArray *viewControllers;
 
-- (void)buildCards;
-
 - (void)buildCards:(NSArray *)data;
 @end

@@ -27,6 +27,11 @@ typedef enum {
 }
 
 - (void)cardPanned:(UIPanGestureRecognizer *)gesture {
+    UITableView *view = self.cardViews[(NSUInteger) [self currentPage]];
+    if ([view numberOfRowsInSection:0] <= 1) {
+        return;
+    }
+
     CGPoint v = [gesture velocityInView:self];
     if (fabs(v.x) > 40) {
         return;
@@ -113,7 +118,6 @@ typedef enum {
     }
 }
 
-
 - (int)currentPage {
     int page = (int) (self.contentOffset.x / self.frame.size.width);
     return page;
@@ -130,7 +134,7 @@ typedef enum {
 
     for (int i = 0; i < [data count]; i++) {
         Spot *spot = data[(NSUInteger) i];
-        ShadeTableViewController *individualController = [[ShadeTableViewController alloc] initWithSpot: spot];
+        ShadeTableViewController *individualController = [[ShadeTableViewController alloc] initWithSpot:spot];
         [self.viewControllers addObject:individualController];
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0, 0) style:UITableViewStylePlain];
         tableView.scrollEnabled = NO;
@@ -141,14 +145,6 @@ typedef enum {
     }
 
     [self adjustCardSizes];
-}
-
-- (NSArray *)textArrayOfSize:(int)size {
-    NSMutableArray *array = [@[] mutableCopy];
-    for (int i = 0; i < size; i++) {
-        [array addObject:[@"data" stringByAppendingString:[NSString stringWithFormat:@"%i", i]]];
-    }
-    return array;
 }
 
 - (void)adjustCardSizes {
