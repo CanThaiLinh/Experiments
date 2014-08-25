@@ -40,7 +40,7 @@ typedef enum {
     return [[exampleView delegate] tableView:exampleView heightForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self resizeContent];
 }
 
@@ -48,8 +48,8 @@ typedef enum {
     UITableView *view = self.cardViews[(NSUInteger) [self currentPage]];
     int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
     CGFloat height = [self cardRowHeight] * rows;
+    CGFloat heightDiff = self.frame.size.height - height;
     self.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, height);
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
 }
 
 - (void)buildCards {
