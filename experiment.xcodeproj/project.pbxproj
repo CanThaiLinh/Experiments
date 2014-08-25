@@ -25,11 +25,13 @@
 		545904185BE7DEC0F407C7E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459028C98D7989DCD15FE3E /* Main.storyboard */; };
 		5459041D667D9B8941E44A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459098D06B74EB703C28FC9 /* InfoPlist.strings */; };
 		5459043CDE76191BE0B112DA /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E808D94E1B897382864 /* Colors.m */; };
+		545904F27C52D2FD882C85FD /* ShadeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 545907C84E04530D6CF9F986 /* ShadeCell.m */; };
 		5459056A4B8E872C35B62510 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
 		545905F48D8991418805110B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		54590618522D8A9568E48DFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		5459069861B9BBC02FC65858 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
 		545906AA57F138795FFCD581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459014022FCED21F8A10C73 /* InfoPlist.strings */; };
+		5459072C9D1CC0DDE7E5C11C /* ShadeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5459033F73EA30FAE3E94DBE /* ShadeCell.xib */; };
 		54590777618BFAA5EBF37B4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590B86B8E9A3E68E3404B9 /* CoreGraphics.framework */; };
 		5459078127E4D4C998D06392 /* SpotDataColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 545906EA4A0955BF59068353 /* SpotDataColors.m */; };
 		545907E1002BF02F1E9DA366 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
@@ -73,6 +75,7 @@
 		54590238054C4212F1E3AEAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		545902F407A6E4F70F069006 /* experiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experiment-Info.plist"; sourceTree = "<group>"; };
 		545903189C0E24E797D45785 /* BubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleAnnotation.m; sourceTree = "<group>"; };
+		5459033F73EA30FAE3E94DBE /* ShadeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShadeCell.xib; sourceTree = "<group>"; };
 		545903B1FF62DD3D6855F6DF /* EXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXAppDelegate.h; sourceTree = "<group>"; };
 		5459046AE47E1F98B1DE9220 /* DotAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotAnnotationView.h; sourceTree = "<group>"; };
 		545905606EBD9396DB2DF54F /* EXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		545906BA5B91BAD78345CFC1 /* DummyDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyDataProvider.h; sourceTree = "<group>"; };
 		545906EA4A0955BF59068353 /* SpotDataColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataColors.m; sourceTree = "<group>"; };
 		54590705A0A4A153467F401C /* SpotDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotDataTests.m; sourceTree = "<group>"; };
+		545907C84E04530D6CF9F986 /* ShadeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeCell.m; sourceTree = "<group>"; };
 		545907DD75BEE539744A209A /* ShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeView.m; sourceTree = "<group>"; };
 		5459083138C8B2F622819149 /* SpotDataTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotDataTests.h; sourceTree = "<group>"; };
 		5459087C21EA6AF4DB83A4F7 /* TextDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawer.m; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		54590D28F4F1771C4B977018 /* MKClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKClusterManager.m; sourceTree = "<group>"; };
 		54590D9E2826CA1887044250 /* TextDrawerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawerTests.m; sourceTree = "<group>"; };
 		54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedBubbleAnnotation.m; sourceTree = "<group>"; };
+		54590E4BF81DB4A945674E40 /* ShadeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeCell.h; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		54590E768C7958768EFA6E27 /* DummyDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyDataProvider.m; sourceTree = "<group>"; };
 		54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeScrollView.m; sourceTree = "<group>"; };
@@ -202,6 +207,9 @@
 				54590CB8E58CA8E2CB71B022 /* ShadeTableViewController.h */,
 				54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */,
 				5459098B6080F4488BABF3B1 /* ShadeScrollView.h */,
+				5459033F73EA30FAE3E94DBE /* ShadeCell.xib */,
+				545907C84E04530D6CF9F986 /* ShadeCell.m */,
+				54590E4BF81DB4A945674E40 /* ShadeCell.h */,
 			);
 			path = Shades;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 				545903A679A52A1E87C97CB5 /* Images.xcassets in Resources */,
 				545904185BE7DEC0F407C7E5 /* Main.storyboard in Resources */,
 				54590E04FCA17D3316C46A57 /* StockCard.storyboard in Resources */,
+				5459072C9D1CC0DDE7E5C11C /* ShadeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +545,7 @@
 				545909E16507E2723E8B5328 /* MyClusterRenderer.m in Sources */,
 				5459078127E4D4C998D06392 /* SpotDataColors.m in Sources */,
 				54590DDAD42C7965910ACAEF /* DummyDataProvider.m in Sources */,
+				545904F27C52D2FD882C85FD /* ShadeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
