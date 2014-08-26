@@ -45,10 +45,14 @@
 }
 
 - (NSDecimalNumber *)randomChangeFromPrice:(NSDecimalNumber *)price {
-    int change = arc4random() % ([[price decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] intValue] * 5);
+    int change = arc4random() % ([[price decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]] intValue] * 3);
     NSDecimalNumber *changeDecimal = [NSDecimalNumber decimalNumberWithDecimal:[@(change / 100.0) decimalValue]];
-    if (arc4random() % 2 == 0) {
+    if (arc4random() % 5 == 0) {
         changeDecimal = [changeDecimal decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"-1"]];
+    }
+
+    if ([changeDecimal compare:price] == NSOrderedDescending) {
+        changeDecimal = [changeDecimal decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"10"]];
     }
     return changeDecimal;
 }
@@ -58,11 +62,9 @@
 }
 
 - (NSDecimalNumber *)randomPrice {
-    NSDecimalNumber *base = [NSDecimalNumber decimalNumberWithString:@"10"];
-    int adjustment = arc4random() % 1000;
-    int positiveOrNegative = arc4random() % 2 == 0 ? -1 : 1;
-    NSNumber *numberAdjustment = @(adjustment * positiveOrNegative);
-    return [base decimalNumberByAdding:[NSDecimalNumber decimalNumberWithDecimal:[numberAdjustment decimalValue]]];
+    NSNumber *pennies = @(arc4random() % 40000 + 1);
+    return [[NSDecimalNumber decimalNumberWithDecimal:[pennies decimalValue]]
+            decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]];
 }
 
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center {
