@@ -7,6 +7,7 @@
 @class MKMapView;
 @protocol MKClusterRenderer;
 @protocol SpotSelectionDelegate;
+@class Spot;
 
 @interface MKClusterManager : NSObject <MKMapViewDelegate> {
 }
@@ -26,4 +27,5 @@
 
 - (void)cluster;
 
+- (void)selectSpot:(Spot *)spot;
 @end

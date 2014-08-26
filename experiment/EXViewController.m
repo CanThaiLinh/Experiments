@@ -19,6 +19,7 @@ const int MAX_ZOOM_LEVEL = 21;
 - (void)viewDidLoad {
     self.clipView.scrollView = self.scrollView;
     self.clipView.heightConstraint = self.shadeHeightConstraint;
+    self.scrollView.spotDelegate = self;
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -59,6 +60,10 @@ const int MAX_ZOOM_LEVEL = 21;
 
 - (void)didSelectSpot:(Spot *)spot {
     [self.scrollView selectSpot:spot];
+}
+
+- (void)didSwipeToSpot:(Spot *)spot {
+    [self.clusterManager selectSpot: spot];
 }
 
 @end

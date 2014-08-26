@@ -78,6 +78,15 @@
     [self.mapView addAnnotation:marker];
 }
 
+- (id <MKAnnotation>)markerForSpot:(Spot *)spot {
+    for( MyMarker *marker in self.markerCache ){
+        if( marker.spot == spot ){
+            return marker;
+        }
+    }
+    return nil;
+}
+
 - (void)removeMarker:(NSObject <MKAnnotation> *)annotation {
     [self.mapView removeAnnotation:annotation];
     [self.markerCache removeObject:annotation];

@@ -3,6 +3,7 @@
 #import <MapKit/MKAnnotation.h>
 
 @class MyMarker;
+@class Spot;
 
 @protocol MKClusterRenderer <NSObject>
 
@@ -12,4 +13,5 @@
 
 - (void)addMarker:(MyMarker *)marker atPosition:(CLLocationCoordinate2D)position;
 
+- (id <MKAnnotation>)markerForSpot:(Spot *)spot;
 @end

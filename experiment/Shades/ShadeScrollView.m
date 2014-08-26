@@ -2,6 +2,7 @@
 #import "ShadeTableViewController.h"
 #import "ShadeView.h"
 #import "Spot.h"
+#import "EXViewController.h"
 
 @implementation ShadeScrollView
 
@@ -161,7 +162,7 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
         subViewIndex++;
     }
 
-    self.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, rowHeight);
+    self.contentSize = CGSizeMake([self getScreenWidth] * (self.cardViews.count - 1), rowHeight);
 }
 
 - (CGFloat)rowOffsetForHeight:(float)height {
@@ -183,12 +184,16 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
     int position = [self positionForSpot:spot];
     CGRect rect = CGRectMake(self.frame.size.width * position, 0, self.frame.size.width, self.frame.size.height);
     [self scrollRectToVisible:rect animated:YES];
+}
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    ShadeTableViewController *controller = self.viewControllers[(NSUInteger) [self currentPage]];
+    [self.spotDelegate didSwipeToSpot:controller.spot];
 }
 
 - (int)positionForSpot:(Spot *)spot {
     for (int i = 0; i < [self.viewControllers count]; i++) {
-        ShadeTableViewController *controller = (self.viewControllers)[i];
+        ShadeTableViewController *controller = (self.viewControllers)[(NSUInteger) i];
         if (controller.spot == spot) {
             return i;
         }

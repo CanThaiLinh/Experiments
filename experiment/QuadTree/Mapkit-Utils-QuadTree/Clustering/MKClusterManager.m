@@ -69,7 +69,7 @@
         [self unselectAll];
         marker.isSelected = YES;
         [self redrawMarker:marker];
-        [[self delegate] didSelectSpot: marker.spot];
+        [[self delegate] didSelectSpot:marker.spot];
     }
 }
 
@@ -117,6 +117,10 @@
     view.annotation = annotation;
     [view draw];
     return view;
+}
+
+- (void)selectSpot:(Spot *)spot {
+    [self mapView:self.mapView didSelectAnnotationView:[self.mapView viewForAnnotation:[self.renderer markerForSpot:spot]]];
 }
 
 @end

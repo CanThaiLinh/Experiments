@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
+#import <MapKit/MapKit.h>
 #import "SpotSelectionDelegate.h"
 
 @class ShadeView;
-@class GClusterManager;
 @class ShadeScrollView;
 @class MKClusterManager;
 
