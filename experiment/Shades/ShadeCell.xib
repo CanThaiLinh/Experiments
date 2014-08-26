@@ -45,7 +45,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$0.21 (-0.25%)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhL-tO-yaJ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$0.21 (-0.25%)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MhL-tO-yaJ">
                         <rect key="frame" x="190" y="32" width="102" height="19"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="102" id="hYj-A7-NQ8"/>
@@ -85,7 +85,7 @@
             <connections>
                 <outlet property="change" destination="MhL-tO-yaJ" id="6vo-gx-P4l"/>
                 <outlet property="fullAssociatedName" destination="Y0S-l2-xwn" id="Q1J-Hk-JCt"/>
-                <outlet property="longNamle" destination="uKq-xH-Hyr" id="ejJ-Z8-1rn"/>
+                <outlet property="longName" destination="uKq-xH-Hyr" id="ejJ-Z8-1rn"/>
                 <outlet property="price" destination="q1w-dG-qBl" id="jdv-wG-w4N"/>
                 <outlet property="shortName" destination="wUA-5p-oNg" id="r85-l0-CAL"/>
             </connections>

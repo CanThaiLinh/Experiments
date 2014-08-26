@@ -25,6 +25,7 @@
 		545904185BE7DEC0F407C7E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5459028C98D7989DCD15FE3E /* Main.storyboard */; };
 		5459041D667D9B8941E44A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5459098D06B74EB703C28FC9 /* InfoPlist.strings */; };
 		5459043CDE76191BE0B112DA /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E808D94E1B897382864 /* Colors.m */; };
+		5459044AEACD255C18361AA2 /* ShadeCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 545909F4DF58DF57992830B0 /* ShadeCellTests.m */; };
 		545904F27C52D2FD882C85FD /* ShadeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 545907C84E04530D6CF9F986 /* ShadeCell.m */; };
 		5459056A4B8E872C35B62510 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590A1DE08055782A0CEB5E /* Foundation.framework */; };
 		545905F48D8991418805110B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
@@ -94,6 +95,7 @@
 		5459096F04E8EF316D8C8B9B /* StockCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StockCard.storyboard; sourceTree = "<group>"; };
 		5459098B6080F4488BABF3B1 /* ShadeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeScrollView.h; sourceTree = "<group>"; };
 		545909BCC601D05BAAA0D9AD /* SpotDataColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotDataColors.h; sourceTree = "<group>"; };
+		545909F4DF58DF57992830B0 /* ShadeCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeCellTests.m; sourceTree = "<group>"; };
 		54590A1DE08055782A0CEB5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54590A5F4E601C8E3254C778 /* experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54590A7FEE36E3E1737A00FA /* experimentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "experimentTests-Info.plist"; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			path = Annotations;
 			sourceTree = "<group>";
 		};
+		545905E9C4A494C7262DCB21 /* Shades */ = {
+			isa = PBXGroup;
+			children = (
+				545909F4DF58DF57992830B0 /* ShadeCellTests.m */,
+			);
+			path = Shades;
+			sourceTree = "<group>";
+		};
 		545905ED257CEB1C58F08C08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +329,7 @@
 				545907147ED854E92644EA88 /* Supporting Files */,
 				54590D9E2826CA1887044250 /* TextDrawerTests.m */,
 				54590372C788A0F219CD5229 /* Data */,
+				545905E9C4A494C7262DCB21 /* Shades */,
 			);
 			path = experimentTests;
 			sourceTree = "<group>";
@@ -520,6 +531,7 @@
 				54590EFB5178FEF4B3A8E991 /* TextDrawerTests.m in Sources */,
 				54590F4F536A0063BB8FF0E3 /* SpotDataTests.m in Sources */,
 				5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */,
+				5459044AEACD255C18361AA2 /* ShadeCellTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

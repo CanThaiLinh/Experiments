@@ -21,7 +21,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ShadeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(ShadeCell.class)];
-    SpotData *data = self.spot.data[[indexPath row]];
+    [cell setSpotData:self.spot.data[[indexPath row]]];
     return cell;
 }
 

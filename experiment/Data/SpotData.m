@@ -17,12 +17,13 @@
 
 - (NSDecimalNumber *)percentChange {
     NSDecimalNumberHandler *scale = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain
-                                                           scale:3
-                                                raiseOnExactness:NO
-                                                 raiseOnOverflow:NO
-                                                raiseOnUnderflow:NO
-                                             raiseOnDivideByZero:NO];
-    NSDecimalNumber *percentChange = [self.change decimalNumberByDividingBy:[self.price decimalNumberBySubtracting:self.change] withBehavior:scale];
+                                                                                           scale:3
+                                                                                raiseOnExactness:NO
+                                                                                 raiseOnOverflow:NO
+                                                                                raiseOnUnderflow:NO
+                                                                             raiseOnDivideByZero:NO];
+    NSDecimalNumber *percentChange = [[self.change decimalNumberByDividingBy:[self.price decimalNumberBySubtracting:self.change]]
+            decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"] withBehavior:scale];
     return percentChange;
 }
 
