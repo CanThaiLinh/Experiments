@@ -20,4 +20,5 @@
 @property(nonatomic, strong) MKClusterManager *clusterManager;
 
 @property(nonatomic, strong) NSMutableArray *viewControllers;
+@property(nonatomic) BOOL hasAddedFirstPoints;
 @end

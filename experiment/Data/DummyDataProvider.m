@@ -70,12 +70,12 @@
 - (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center count:(int)count {
     NSMutableArray *coordinates = [@[] mutableCopy];
     for (int primaryLocation = 0; primaryLocation < count; primaryLocation++) {
-        CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0002];
+        CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.00015];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
 
         if (primaryLocation < 4) {
             for (int clusterLocation = 0; clusterLocation < 3; clusterLocation++) {
-                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00005];
+                CLLocationCoordinate2D clusterPoint = [self randomCoordinateNear:primaryPoint withPrecision:0.00006];
                 [coordinates addObject:[NSValue value:&clusterPoint withObjCType:@encode(CLLocationCoordinate2D)]];
             }
         }

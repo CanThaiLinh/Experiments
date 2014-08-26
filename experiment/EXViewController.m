@@ -60,8 +60,14 @@ const int MAX_ZOOM_LEVEL = 21;
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if (!self.hasFoundInitialLocation) {
+        return;
+    }
+
+    int count = self.hasAddedFirstPoints ? 1 : 6;
+    self.hasAddedFirstPoints = YES;
+
     DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:mapView.centerCoordinate];
-    int count = self.hasFoundInitialLocation ? 1 : 6;
     [provider retrieveData:^(NSArray *data) {
         for (Spot *spot in data) {
             [self.clusterManager addItem:spot];
