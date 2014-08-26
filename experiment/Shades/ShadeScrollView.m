@@ -162,7 +162,7 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
         subViewIndex++;
     }
 
-    self.contentSize = CGSizeMake([self getScreenWidth] * (self.cardViews.count - 1), rowHeight);
+    self.contentSize = CGSizeMake((CGFloat) ([self getScreenWidth] * self.cardViews.count - 0.0625 * self.cardViews.count * [self getScreenWidth]), rowHeight);
 }
 
 - (CGFloat)rowOffsetForHeight:(float)height {
