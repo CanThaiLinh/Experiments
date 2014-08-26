@@ -13,10 +13,10 @@
     return self;
 }
 
-- (void)retrieveData:(void (^)(NSArray *))callback {
+- (void)retrieveData:(void (^)(NSArray *))callback count:(int)count {
     if (self.data == nil) {
         self.data = (NSMutableArray *) [@[] mutableCopy];
-        NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin];
+        NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin count:count];
         for (int i = 0; i < [dummyCoordinates count]; i++) {
             CLLocationCoordinate2D value;
             [dummyCoordinates[i] getValue:&value];
@@ -67,9 +67,9 @@
             decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]];
 }
 
-- (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center {
+- (NSArray *)dummyCoordinatesFor:(CLLocationCoordinate2D)center count:(int)count {
     NSMutableArray *coordinates = [@[] mutableCopy];
-    for (int primaryLocation = 0; primaryLocation < 6; primaryLocation++) {
+    for (int primaryLocation = 0; primaryLocation < count; primaryLocation++) {
         CLLocationCoordinate2D primaryPoint = [self randomCoordinateNear:center withPrecision:0.0002];
         [coordinates addObject:[NSValue value:&primaryPoint withObjCType:@encode(CLLocationCoordinate2D)]];
 

@@ -24,6 +24,9 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
         UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardPanned:)];
         [recognizer setDelegate:self];
         [self addGestureRecognizer:recognizer];
+
+        self.cardViews = [@[] mutableCopy];
+        self.viewControllers = [@[] mutableCopy];
     }
 
     return self;
@@ -132,9 +135,6 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
 }
 
 - (void)buildCards:(NSArray *)data {
-    self.cardViews = [@[] mutableCopy];
-    self.viewControllers = [@[] mutableCopy];
-
     for (int i = 0; i < [data count]; i++) {
         Spot *spot = data[(NSUInteger) i];
         ShadeTableViewController *individualController = [[ShadeTableViewController alloc] initWithSpot:spot];
@@ -145,6 +145,7 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
 
     ShadeView *shadeView = (ShadeView *) self.superview;
     shadeView.heightConstraint.constant = (CGFloat) ([self cardRowHeight] * EXPOSED_SHADE_MULTIPLIER);
+    [shadeView layoutIfNeeded];
 
     [self adjustCardSizes];
 }

@@ -8,5 +8,6 @@
 
 - (instancetype)initWithOrigin:(CLLocationCoordinate2D)origin;
 
-- (void)retrieveData:(void (^)(NSArray *))callback;
+- (void)retrieveData:(void (^)(NSArray *))callback count:(int)count;
+
 @end

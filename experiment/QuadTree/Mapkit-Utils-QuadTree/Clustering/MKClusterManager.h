@@ -19,7 +19,9 @@
 
 @property(nonatomic) BOOL initialLocationFound;
 
-@property(nonatomic, strong) NSObject<SpotSelectionDelegate> *delegate;
+@property(nonatomic, strong) NSObject <SpotSelectionDelegate> *delegate;
+
+@property(nonatomic, strong) NSObject <MKMapViewDelegate> *mapViewDelegate;
 
 - (instancetype)initWithMapView:(MKMapView *)mapView algorithm:(id <GClusterAlgorithm>)algorithm renderer:(id <MKClusterRenderer>)renderer;
 

@@ -33,6 +33,7 @@ const int MAX_ZOOM_LEVEL = 21;
                                                           algorithm:[[NonHierarchicalDistanceBasedAlgorithm alloc] initWithMaxDistanceAtZoom:7000]
                                                            renderer:[[MyClusterRenderer alloc] initWithMapView:self.mapView]];
     self.clusterManager.delegate = self;
+    self.clusterManager.mapViewDelegate = self;
 
     [self.mapView setDelegate:self.clusterManager];
 
@@ -47,14 +48,6 @@ const int MAX_ZOOM_LEVEL = 21;
         self.hasFoundInitialLocation = YES;
         [self.mapView setCenterCoordinate:newLocation.coordinate zoomLevel:MAX_ZOOM_LEVEL animated:NO];
         self.clusterManager.initialLocationFound = YES;
-        DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:newLocation.coordinate];
-        [provider retrieveData:^(NSArray *data) {
-            for (Spot *spot in data) {
-                [self.clusterManager addItem:spot];
-            }
-            [[self clusterManager] cluster];
-            [self.scrollView buildCards:data];
-        }];
     }
 }
 
@@ -63,7 +56,19 @@ const int MAX_ZOOM_LEVEL = 21;
 }
 
 - (void)didSwipeToSpot:(Spot *)spot {
-    [self.clusterManager selectSpot: spot];
+    [self.clusterManager selectSpot:spot];
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:mapView.centerCoordinate];
+    int count = self.hasFoundInitialLocation ? 1 : 6;
+    [provider retrieveData:^(NSArray *data) {
+        for (Spot *spot in data) {
+            [self.clusterManager addItem:spot];
+        }
+        [[self clusterManager] cluster];
+        [self.scrollView buildCards:data];
+    }                count:count];
 }
 
 @end

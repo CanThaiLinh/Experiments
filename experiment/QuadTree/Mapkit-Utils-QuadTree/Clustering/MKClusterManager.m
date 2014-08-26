@@ -45,10 +45,11 @@
     if ([mapView zoomLevel] < 15 && self.initialLocationFound) {
         [mapView setCenterCoordinate:mapView.centerCoordinate zoomLevel:15 animated:YES];
     }
-
     [self.clusterTimer invalidate];
     self.clusterTimer = nil;
     [self regionChanged];
+
+    [self.mapViewDelegate mapView:mapView regionDidChangeAnimated:animated];
 }
 
 - (void)regionChanged {

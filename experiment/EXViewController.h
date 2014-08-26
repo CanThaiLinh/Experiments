@@ -7,7 +7,7 @@
 @class ShadeScrollView;
 @class MKClusterManager;
 
-@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate, SpotSelectionDelegate> {
+@interface EXViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, CLLocationManagerDelegate, SpotSelectionDelegate, MKMapViewDelegate> {
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadeHeightConstraint;
 @property(weak, nonatomic) IBOutlet ShadeView *clipView;
