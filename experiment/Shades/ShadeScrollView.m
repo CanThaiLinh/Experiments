@@ -9,6 +9,8 @@ typedef enum {
     UP, DOWN
 } direction;
 
+const double EXPOSED_SHADE_MULTIPLIER = 1.3;
+
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
@@ -95,7 +97,7 @@ typedef enum {
     int page = [self currentPage];
     UITableView *card = self.cardViews[page];
     ShadeView *shadeView = (ShadeView *) self.superview;
-    int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight]);
+    int heightToMove = (int) ([self cardRowHeight] * [card numberOfRowsInSection:0] - [self cardRowHeight] - [self rowOffsetForHeight:[self cardRowHeight]]);
     int maxHeight = (int) (self.superview.superview.frame.size.height - [self cardRowHeight] - 25);
     int boundHeightToMove = MIN(maxHeight, heightToMove);
 
@@ -141,7 +143,7 @@ typedef enum {
     }
 
     ShadeView *shadeView = (ShadeView *) self.superview;
-    shadeView.heightConstraint.constant = [self cardRowHeight];
+    shadeView.heightConstraint.constant = (CGFloat) ([self cardRowHeight] * EXPOSED_SHADE_MULTIPLIER);
 
     [self adjustCardSizes];
 }
@@ -155,11 +157,15 @@ typedef enum {
     for (UITableView *view in self.cardViews) {
         int rows = [[view dataSource] tableView:view numberOfRowsInSection:0];
         view.frame = CGRectMake(scrollViewWidth * subViewIndex + spaceWidth,
-                0, cardWidth, rowHeight * rows);
+                (CGFloat) (rows == 1 ? [self rowOffsetForHeight:rowHeight] : 0), cardWidth, rowHeight * rows);
         subViewIndex++;
     }
 
     self.contentSize = CGSizeMake([self getScreenWidth] * self.cardViews.count, rowHeight);
+}
+
+- (CGFloat)rowOffsetForHeight:(float)height {
+    return (CGFloat) (height / (1 / (EXPOSED_SHADE_MULTIPLIER - 1)));
 }
 
 - (CGFloat)getScreenWidth {
