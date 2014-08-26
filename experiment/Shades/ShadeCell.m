@@ -1,5 +1,7 @@
 #import "ShadeCell.h"
 #import "SpotData.h"
+#import "Colors.h"
+#import "SpotDataColors.h"
 
 @implementation ShadeCell
 
@@ -22,21 +24,27 @@
     [self.fullAssociatedName setText:self.spotData.name];
     [self.price setText:[NSString stringWithFormat:@"$%@", [[self formatter] stringFromNumber:self.spotData.price]]];
     [self.change setText:[self changeText]];
+
+    [self.shortName setBackgroundColor:[SpotDataColors colorFor:self.spotData]];
+    [self.change setTextColor:[SpotDataColors colorFor:self.spotData]];
 }
 
 - (NSString *)changeText {
-    BOOL isChangeNegative = [self.spotData.change compare:[NSDecimalNumber zero]] == NSOrderedAscending;
-    NSString *symbol = isChangeNegative ? @"-" : @"+";
-    NSDecimalNumber *absoluteChange = isChangeNegative ?
+    NSString *symbol = [self isChangeNegative] ? @"-" : @"+";
+    NSDecimalNumber *absoluteChange = [self isChangeNegative] ?
             [self.spotData.change decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"-1"]]
             : self.spotData.change;
     NSString *changeString = [NSString stringWithFormat:@"%@$%@", symbol, [[self formatter] stringFromNumber:absoluteChange]];
 
-    NSDecimalNumber *absolutePercentChange = isChangeNegative ?
+    NSDecimalNumber *absolutePercentChange = [self isChangeNegative] ?
             [self.spotData.percentChange decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"-1"]]
             : self.spotData.percentChange;
     NSString *percentChangeString = [NSString stringWithFormat:@"(%@%@%%)", symbol, [[self formatter] stringFromNumber:absolutePercentChange]];
     return [NSString stringWithFormat:@"%@ %@", changeString, percentChangeString];
+}
+
+- (BOOL)isChangeNegative {
+    return [self.spotData.change compare:[NSDecimalNumber zero]] == NSOrderedAscending;
 }
 
 @end

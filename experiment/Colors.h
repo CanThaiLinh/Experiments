@@ -2,4 +2,7 @@
 
 + (UIColor *)randomColor;
 
++ (UIColor *)negativeColor;
+
++ (UIColor *)greenColor;
 @end
