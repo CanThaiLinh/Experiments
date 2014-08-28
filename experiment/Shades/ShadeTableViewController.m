@@ -2,6 +2,7 @@
 #import "Spot.h"
 #import "SpotData.h"
 #import "ShadeCell.h"
+#import "ScrollableTableView.h"
 
 @implementation ShadeTableViewController
 
@@ -13,6 +14,14 @@
     }
 
     return self;
+}
+
+- (void)loadView {
+    ScrollableTableView *tv = [[ScrollableTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tv.dataSource = self;
+    tv.delegate = self;
+    self.view = tv;
+    self.tableView = tv;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -24,7 +24,8 @@
             spot.location = value;
             spot.priority = arc4random() % 50;
 
-            BOOL hasStack = arc4random() % 4 == 0;
+//            BOOL hasStack = arc4random() % 4 == 0;
+            BOOL hasStack = YES;
             int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
             for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
                 int stackPriority = arc4random() % 50;

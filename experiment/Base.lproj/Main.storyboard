@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvg-8O-Dtg" customClass="ShadeView">
-                                <rect key="frame" x="0.0" y="425" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGj-Ud-UeV" customClass="ShadeScrollView">
-                                        <rect key="frame" x="10" y="0.0" width="300" height="55"/>
+                                        <rect key="frame" x="10" y="0.0" width="300" height="480"/>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -31,20 +31,20 @@
                                     <constraint firstAttribute="height" secondItem="BGj-Ud-UeV" secondAttribute="height" id="DOa-V8-PKT"/>
                                     <constraint firstItem="BGj-Ud-UeV" firstAttribute="leading" secondItem="Hvg-8O-Dtg" secondAttribute="leading" constant="10" id="Pcg-AD-xRE"/>
                                     <constraint firstAttribute="centerY" secondItem="BGj-Ud-UeV" secondAttribute="centerY" id="RaG-3C-uvN"/>
-                                    <constraint firstAttribute="height" constant="55" id="f0m-TK-RX7"/>
                                     <constraint firstAttribute="centerX" secondItem="BGj-Ud-UeV" secondAttribute="centerX" id="vh0-0Q-2w7"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Hvg-8O-Dtg" secondAttribute="bottom" id="0pI-Xn-LP0"/>
                             <constraint firstAttribute="centerX" secondItem="81H-MJ-hY0" secondAttribute="centerX" id="595-xP-oii"/>
                             <constraint firstAttribute="centerX" secondItem="Hvg-8O-Dtg" secondAttribute="centerX" id="9ba-pC-3iI"/>
-                            <constraint firstItem="Hvg-8O-Dtg" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="HMR-Ux-TaL"/>
+                            <constraint firstAttribute="height" secondItem="Hvg-8O-Dtg" secondAttribute="height" id="Qge-Xq-GP4"/>
+                            <constraint firstAttribute="centerY" secondItem="Hvg-8O-Dtg" secondAttribute="centerY" id="f8F-5D-bpM"/>
                             <constraint firstAttribute="centerY" secondItem="81H-MJ-hY0" secondAttribute="centerY" id="hgx-nA-Bzo"/>
                             <constraint firstItem="81H-MJ-hY0" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="jaw-ri-avN"/>
                             <constraint firstItem="81H-MJ-hY0" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="lPo-LQ-JZE"/>
+                            <constraint firstAttribute="width" secondItem="Hvg-8O-Dtg" secondAttribute="width" id="nPN-gH-JMG"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -53,7 +53,6 @@
                         <outlet property="clipView" destination="Hvg-8O-Dtg" id="RgB-2k-wu0"/>
                         <outlet property="mapView" destination="81H-MJ-hY0" id="Q9N-l7-WcX"/>
                         <outlet property="scrollView" destination="BGj-Ud-UeV" id="pdl-LT-7i0"/>
-                        <outlet property="shadeHeightConstraint" destination="f0m-TK-RX7" id="QzF-bd-NDf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

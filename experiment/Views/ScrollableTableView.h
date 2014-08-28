@@ -1,0 +1,3 @@
+@interface ScrollableTableView : UITableView
+
+@end
