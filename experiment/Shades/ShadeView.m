@@ -3,9 +3,9 @@
 
 @implementation ShadeView
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    return [self.scrollView pointInside:point withEvent:event];
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *hitView = [super hitTest:point withEvent:event];
+    return hitView == self ? nil : hitView;
 }
-
 
 @end

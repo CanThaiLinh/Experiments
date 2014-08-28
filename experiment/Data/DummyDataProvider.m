@@ -17,15 +17,14 @@
     if (self.data == nil) {
         self.data = (NSMutableArray *) [@[] mutableCopy];
         NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin count:count];
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < [dummyCoordinates count]; i++) {
             CLLocationCoordinate2D value;
             [dummyCoordinates[i] getValue:&value];
             Spot *spot = [Spot new];
             spot.location = value;
             spot.priority = arc4random() % 50;
 
-//            BOOL hasStack = arc4random() % 4 == 0;
-            BOOL hasStack = YES;
+            BOOL hasStack = arc4random() % 4 == 0;
             int stackedAtThisPosition = hasStack ? arc4random() % 15 + 1 : 0;
             for (int stackedLocation = 0; stackedLocation <= stackedAtThisPosition; stackedLocation++) {
                 int stackPriority = arc4random() % 50;

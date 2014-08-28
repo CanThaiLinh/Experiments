@@ -2,6 +2,8 @@
 #import "ShadeTableViewController.h"
 #import "Spot.h"
 #import "EXViewController.h"
+#import "ScrollableTableView.h"
+#import "SpotData.h"
 
 @implementation ShadeScrollView
 
@@ -22,14 +24,9 @@
     return self;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    for (UIView *view in self.cardViews) {
-        CGPoint pointInSubview = [view convertPoint:point fromView:self];
-        if ([view pointInside:pointInSubview withEvent:event]) {
-            return YES;
-        }
-    }
-    return NO;
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *hitView = [super hitTest:point withEvent:event];
+    return hitView == self ? nil : hitView;
 }
 
 - (int)currentPage {
