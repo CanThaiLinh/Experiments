@@ -5,12 +5,6 @@
 
 @implementation ShadeScrollView
 
-typedef enum {
-    UP, DOWN
-} direction;
-
-const double EXPOSED_SHADE_MULTIPLIER = 1.3;
-
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
@@ -28,6 +22,16 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
     return self;
 }
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    for (UIView *view in self.cardViews) {
+        CGPoint pointInSubview = [view convertPoint:point fromView:self];
+        if ([view pointInside:pointInSubview withEvent:event]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (int)currentPage {
     int page = (int) (self.contentOffset.x / self.frame.size.width);
     return page;
@@ -35,7 +39,7 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
 
 - (CGFloat)cardRowHeight {
     UITableView *exampleView = (self.cardViews)[0];
-    return [[exampleView delegate] tableView:exampleView heightForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    return exampleView ? [[exampleView delegate] tableView:exampleView heightForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]] : 44;
 }
 
 - (void)buildCards:(NSArray *)data {
@@ -72,10 +76,6 @@ const double EXPOSED_SHADE_MULTIPLIER = 1.3;
     }
 
     self.contentSize = CGSizeMake((CGFloat) ([self getScreenWidth] * self.cardViews.count - 0.0625 * self.cardViews.count * [self getScreenWidth]), rowHeight);
-}
-
-- (CGFloat)rowOffsetForHeight:(float)height {
-    return (CGFloat) (height / (1 / (EXPOSED_SHADE_MULTIPLIER - 1)));
 }
 
 - (CGFloat)getScreenWidth {

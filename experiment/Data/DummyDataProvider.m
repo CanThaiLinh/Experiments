@@ -17,7 +17,7 @@
     if (self.data == nil) {
         self.data = (NSMutableArray *) [@[] mutableCopy];
         NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin count:count];
-        for (int i = 0; i < [dummyCoordinates count]; i++) {
+        for (int i = 0; i < 1; i++) {
             CLLocationCoordinate2D value;
             [dummyCoordinates[i] getValue:&value];
             Spot *spot = [Spot new];
