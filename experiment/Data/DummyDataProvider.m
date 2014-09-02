@@ -1,6 +1,7 @@
 #import "DummyDataProvider.h"
 #import "Spot.h"
 #import "SpotData.h"
+#import "DistanceComparator.h"
 
 @implementation DummyDataProvider
 
@@ -39,6 +40,7 @@
 
             [self.data addObject:spot];
         }
+        [self.data sortUsingComparator:[[[DistanceComparator alloc] initWithCenter:self.origin] generate]];
     }
 
     callback(self.data);

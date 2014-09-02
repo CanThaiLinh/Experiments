@@ -14,7 +14,9 @@
 		5459012A7790F7EDEEE2D2F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590097F72564CF5883C78E /* XCTest.framework */; };
 		545901C3CCD3634A7C973B5A /* BubbleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 545903189C0E24E797D45785 /* BubbleAnnotation.m */; };
 		545901E553AF96C2926F2AD9 /* ShadeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */; };
+		54590227EA21EA7E4ACE110E /* DistanceComparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FB5E4AE3255480AE532 /* DistanceComparatorTests.m */; };
 		5459024FB3C686E017EF4749 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590F976439DB3831C43B0A /* EXViewController.m */; };
+		545902E79E15A7C851DFA18F /* DistanceComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590ED8BADE134530E204B3 /* DistanceComparator.m */; };
 		545903201999C84210EA2EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545909191FCAEC33C7EF9109 /* UIKit.framework */; };
 		54590346BA45647FD5325154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590EE42E452BC50DE38D08 /* main.m */; };
 		5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590C0D3253E759512F8D1B /* SpotTests.m */; };
@@ -120,15 +122,18 @@
 		54590E2CF10691CA9C3EF8CF /* StackedBubbleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackedBubbleAnnotation.m; sourceTree = "<group>"; };
 		54590E4BF81DB4A945674E40 /* ShadeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeCell.h; sourceTree = "<group>"; };
 		54590E5094F73100D6F8A88B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		54590E59AD0AC5FC6E93E914 /* DistanceComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceComparator.h; sourceTree = "<group>"; };
 		54590E768C7958768EFA6E27 /* DummyDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyDataProvider.m; sourceTree = "<group>"; };
 		54590E7ADB3FBD8647A70D34 /* ShadeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeScrollView.m; sourceTree = "<group>"; };
 		54590E808D94E1B897382864 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		54590ED8BADE134530E204B3 /* DistanceComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceComparator.m; sourceTree = "<group>"; };
 		54590EDB9ED935FDB962BA31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		54590EE42E452BC50DE38D08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54590F722DEB94E84E01F5AD /* MyMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMarker.m; sourceTree = "<group>"; };
 		54590F76EC55A6F741B69A04 /* MKClusterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKClusterManager.h; sourceTree = "<group>"; };
 		54590F976439DB3831C43B0A /* EXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXViewController.m; sourceTree = "<group>"; };
 		54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
+		54590FB5E4AE3255480AE532 /* DistanceComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceComparatorTests.m; sourceTree = "<group>"; };
 		54590FBDECCF115A24D7CA8F /* MyMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMarker.h; sourceTree = "<group>"; };
 		54590FC3FD0856276A0D180B /* DotAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotAnnotationView.m; sourceTree = "<group>"; };
 		54590FC8442128012E4F0AED /* ScrollableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollableTableView.h; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 				5459083138C8B2F622819149 /* SpotDataTests.h */,
 				54590C0D3253E759512F8D1B /* SpotTests.m */,
 				54590D15680FA8B9C0120605 /* SpotTests.h */,
+				54590FB5E4AE3255480AE532 /* DistanceComparatorTests.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -324,6 +330,8 @@
 				54590C4A0C8686E4A7D30E1F /* SpotData.h */,
 				54590E768C7958768EFA6E27 /* DummyDataProvider.m */,
 				545906BA5B91BAD78345CFC1 /* DummyDataProvider.h */,
+				54590ED8BADE134530E204B3 /* DistanceComparator.m */,
+				54590E59AD0AC5FC6E93E914 /* DistanceComparator.h */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -537,6 +545,7 @@
 				54590F4F536A0063BB8FF0E3 /* SpotDataTests.m in Sources */,
 				5459038FE2CDFC710A7A65B0 /* SpotTests.m in Sources */,
 				5459044AEACD255C18361AA2 /* ShadeCellTests.m in Sources */,
+				54590227EA21EA7E4ACE110E /* DistanceComparatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +573,7 @@
 				545904F27C52D2FD882C85FD /* ShadeCell.m in Sources */,
 				54590A5580B4A92C81A47FBB /* ScrollableTableView.m in Sources */,
 				545908D1F2DC7BC68ED163C1 /* ShadeView.m in Sources */,
+				545902E79E15A7C851DFA18F /* DistanceComparator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
