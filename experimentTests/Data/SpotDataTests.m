@@ -14,7 +14,7 @@
                                                                     price:[NSDecimalNumber decimalNumberWithString:@"2"]
                                                                    change:[NSDecimalNumber decimalNumberWithString:@"0.05"]
                                                                  priority:0] percentChange];
-    XCTAssertEqualObjects(percentChange, [NSDecimalNumber decimalNumberWithString:@"2.6"]);
+    XCTAssertEqualObjects(percentChange, [NSDecimalNumber decimalNumberWithString:@"2.564"]);
 }
 
 @end
