@@ -14,10 +14,10 @@
     return self;
 }
 
-- (void)retrieveData:(void (^)(NSArray *))callback count:(int)count {
+- (void)retrieveData:(void (^)(NSArray *))callback failure:(void (^)(void))failure {
     if (self.data == nil) {
         self.data = (NSMutableArray *) [@[] mutableCopy];
-        NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin count:count];
+        NSArray *dummyCoordinates = [self dummyCoordinatesFor:self.origin count:6];
         for (int i = 0; i < [dummyCoordinates count]; i++) {
             CLLocationCoordinate2D value;
             [dummyCoordinates[i] getValue:&value];

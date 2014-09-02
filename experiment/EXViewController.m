@@ -63,9 +63,6 @@ const int MAX_ZOOM_LEVEL = 21;
         return;
     }
 
-    int count = self.hasAddedFirstPoints ? 1 : 6;
-    self.hasAddedFirstPoints = YES;
-
     DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:mapView.centerCoordinate];
     [provider retrieveData:^(NSArray *data) {
         for (Spot *spot in data) {
@@ -73,7 +70,9 @@ const int MAX_ZOOM_LEVEL = 21;
         }
         [[self clusterManager] cluster];
         [self.scrollView buildCards:data];
-    }                count:count];
+    }              failure:^{
+
+    }];
 }
 
 @end
