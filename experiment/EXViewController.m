@@ -12,8 +12,10 @@
 #import "DummyDataProvider.h"
 #import "Spot.h"
 
-@implementation EXViewController
+@implementation EXViewController {
+}
 
+const int ERROR_VIEW_TAG = 1;
 const int MAX_ZOOM_LEVEL = 21;
 
 - (void)viewDidLoad {
@@ -63,16 +65,79 @@ const int MAX_ZOOM_LEVEL = 21;
         return;
     }
 
-    DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:mapView.centerCoordinate];
+    [self getData];
+}
+
+- (void)getData {
+    DummyDataProvider *provider = [[DummyDataProvider alloc] initWithOrigin:self.mapView.centerCoordinate];
     [provider retrieveData:^(NSArray *data) {
+        [self removeErrorView];
         for (Spot *spot in data) {
             [self.clusterManager addItem:spot];
         }
         [[self clusterManager] cluster];
         [self.scrollView buildCards:data];
     }              failure:^{
-
+        [self handleErrorResponse];
     }];
+}
+
+- (void)removeErrorView {
+    UIView *errorView = [self.view viewWithTag:ERROR_VIEW_TAG];
+    [errorView removeFromSuperview];
+}
+
+- (void)handleErrorResponse {
+    if (![self.view viewWithTag:ERROR_VIEW_TAG]) {
+        [self addErrorView];
+        [self performSelector:@selector(getData) withObject:nil afterDelay:3.0];
+    }
+}
+
+- (void)addErrorView {
+    UIView *errorView = [[NSBundle mainBundle] loadNibNamed:@"ErrorView" owner:self options:nil][0];
+    errorView.translatesAutoresizingMaskIntoConstraints = NO;
+    errorView.tag = ERROR_VIEW_TAG;
+    [self.view addSubview:errorView];
+    [self.view addConstraint:
+            [NSLayoutConstraint constraintWithItem:errorView
+                                         attribute:NSLayoutAttributeCenterX
+                                         relatedBy:NSLayoutRelationEqual
+                                            toItem:self.view
+                                         attribute:NSLayoutAttributeCenterX
+                                        multiplier:1
+                                          constant:0]];
+    [self.view addConstraint:
+            [NSLayoutConstraint constraintWithItem:errorView
+                                         attribute:NSLayoutAttributeCenterY
+                                         relatedBy:NSLayoutRelationEqual
+                                            toItem:self.view
+                                         attribute:NSLayoutAttributeCenterY
+                                        multiplier:1
+                                          constant:0]];
+    [self.view addConstraint:
+            [NSLayoutConstraint constraintWithItem:errorView
+                                         attribute:NSLayoutAttributeWidth
+                                         relatedBy:NSLayoutRelationEqual
+                                            toItem:self.view
+                                         attribute:NSLayoutAttributeWidth
+                                        multiplier:1
+                                          constant:0]];
+    [self.view addConstraint:
+            [NSLayoutConstraint constraintWithItem:errorView
+                                         attribute:NSLayoutAttributeHeight
+                                         relatedBy:NSLayoutRelationEqual
+                                            toItem:self.view
+                                         attribute:NSLayoutAttributeHeight
+                                        multiplier:1
+                                          constant:0]];
+}
+
+//Debug, show error
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.subtype == UIEventSubtypeMotionShake) {
+        [self handleErrorResponse];
+    }
 }
 
 @end
