@@ -8,7 +8,6 @@
         self.backgroundColor = [UIColor clearColor];
         self.showsVerticalScrollIndicator = NO;
         self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [self.tableFooterView setBackgroundColor:[UIColor whiteColor]];
     }
 
     return self;
