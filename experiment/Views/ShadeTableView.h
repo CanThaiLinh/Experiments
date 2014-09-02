@@ -1,0 +1,3 @@
+@interface ShadeTableView : UITableView
+
+@end

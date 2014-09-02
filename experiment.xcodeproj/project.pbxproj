@@ -45,7 +45,7 @@
 		5459095B2B5306333A6E7429 /* SpotData.m in Sources */ = {isa = PBXBuildFile; fileRef = 545900B956FB7DD7327307E9 /* SpotData.m */; };
 		545909E16507E2723E8B5328 /* MyClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459000E2F780EAAE59F3E07 /* MyClusterRenderer.m */; };
 		54590A46A033D630F59BD8BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54590E5094F73100D6F8A88B /* CoreLocation.framework */; };
-		54590A5580B4A92C81A47FBB /* ScrollableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459093020D0F6BC998DBF9B /* ScrollableTableView.m */; };
+		54590A5580B4A92C81A47FBB /* ShadeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459093020D0F6BC998DBF9B /* ShadeTableView.m */; };
 		54590D5D9D7F86C77EA8FF29 /* Spot.m in Sources */ = {isa = PBXBuildFile; fileRef = 545901A5F45F4F7B8B810931 /* Spot.m */; };
 		54590DB78DCC052754E87F85 /* DotAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54590FC3FD0856276A0D180B /* DotAnnotationView.m */; };
 		54590DCED5398D6947E1DF12 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5459071B4FD316263D0DB902 /* ErrorView.xib */; };
@@ -97,7 +97,7 @@
 		545908EF8682170A6EC8685A /* MyClusterRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClusterRenderer.h; sourceTree = "<group>"; };
 		545909191FCAEC33C7EF9109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5459092383AD4A7ED74D3A75 /* experiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "experiment-Prefix.pch"; sourceTree = "<group>"; };
-		5459093020D0F6BC998DBF9B /* ScrollableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollableTableView.m; sourceTree = "<group>"; };
+		5459093020D0F6BC998DBF9B /* ShadeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeTableView.m; sourceTree = "<group>"; };
 		5459096F04E8EF316D8C8B9B /* StockCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StockCard.storyboard; sourceTree = "<group>"; };
 		5459098B6080F4488BABF3B1 /* ShadeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeScrollView.h; sourceTree = "<group>"; };
 		545909BCC601D05BAAA0D9AD /* SpotDataColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotDataColors.h; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		54590FA1D75D6C3F3DFA3EA6 /* EXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXAppDelegate.m; sourceTree = "<group>"; };
 		54590FB5E4AE3255480AE532 /* DistanceComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceComparatorTests.m; sourceTree = "<group>"; };
 		54590FC3FD0856276A0D180B /* DotAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotAnnotationView.m; sourceTree = "<group>"; };
-		54590FC8442128012E4F0AED /* ScrollableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollableTableView.h; sourceTree = "<group>"; };
+		54590FC8442128012E4F0AED /* ShadeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeTableView.h; sourceTree = "<group>"; };
 		A9EC307A56B4487697FC76FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC463A7B4DC4397A46C0DB9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,8 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				5459052D9BC08CAB64E1EB4C /* Annotations */,
-				5459093020D0F6BC998DBF9B /* ScrollableTableView.m */,
-				54590FC8442128012E4F0AED /* ScrollableTableView.h */,
+				5459093020D0F6BC998DBF9B /* ShadeTableView.m */,
+				54590FC8442128012E4F0AED /* ShadeTableView.h */,
 				54590E74D5575534A04CF75E /* TextDrawer.m */,
 				54590F78516F040F3EA3966F /* TextDrawer.h */,
 				5459071B4FD316263D0DB902 /* ErrorView.xib */,
@@ -573,7 +573,7 @@
 				5459078127E4D4C998D06392 /* SpotDataColors.m in Sources */,
 				54590DDAD42C7965910ACAEF /* DummyDataProvider.m in Sources */,
 				545904F27C52D2FD882C85FD /* ShadeCell.m in Sources */,
-				54590A5580B4A92C81A47FBB /* ScrollableTableView.m in Sources */,
+				54590A5580B4A92C81A47FBB /* ShadeTableView.m in Sources */,
 				545908D1F2DC7BC68ED163C1 /* ShadeView.m in Sources */,
 				545902E79E15A7C851DFA18F /* DistanceComparator.m in Sources */,
 				545903D820C8B65138F4F7CA /* MyMarker.m in Sources */,

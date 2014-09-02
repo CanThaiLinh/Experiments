@@ -2,7 +2,7 @@
 #import "Spot.h"
 #import "SpotData.h"
 #import "ShadeCell.h"
-#import "ScrollableTableView.h"
+#import "ShadeTableView.h"
 
 @implementation ShadeTableViewController
 
@@ -17,7 +17,7 @@
 }
 
 - (void)loadView {
-    ScrollableTableView *tv = [[ScrollableTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    ShadeTableView *tv = [[ShadeTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tv.dataSource = self;
     tv.delegate = self;
     self.view = tv;
