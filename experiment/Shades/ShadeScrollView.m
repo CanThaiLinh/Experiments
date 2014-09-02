@@ -2,8 +2,6 @@
 #import "ShadeTableViewController.h"
 #import "Spot.h"
 #import "EXViewController.h"
-#import "ScrollableTableView.h"
-#import "SpotData.h"
 
 @implementation ShadeScrollView
 
@@ -59,14 +57,14 @@
     int subViewIndex = 0;
     for (UITableView *view in self.cardViews) {
         view.frame = (CGRect) {
-                .origin.x = scrollViewWidth * subViewIndex,
+                .origin.x = scrollViewWidth * subViewIndex + spaceWidth,
                 .origin.y = 0,
                 .size.width = cardWidth,
                 .size.height = self.frame.size.height
         };
         BOOL stacked = [view numberOfRowsInSection:0] > 1;
         CGFloat offsetPosition = self.frame.size.height - rowHeight;
-        CGFloat offset = (CGFloat) (stacked ? offsetPosition - rowHeight/4 : offsetPosition);
+        CGFloat offset = (CGFloat) (stacked ? offsetPosition - rowHeight / 4 : offsetPosition);
         view.contentInset = (UIEdgeInsets) {
                 .top = offset
         };
