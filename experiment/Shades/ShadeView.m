@@ -1,5 +1,4 @@
 #import "ShadeView.h"
-#import "ShadeScrollView.h"
 
 @implementation ShadeView
 

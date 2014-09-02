@@ -64,7 +64,9 @@
                 .size.width = cardWidth,
                 .size.height = self.frame.size.height
         };
-        CGFloat offset = self.frame.size.height - rowHeight;
+        BOOL stacked = [view numberOfRowsInSection:0] > 1;
+        CGFloat offsetPosition = self.frame.size.height - rowHeight;
+        CGFloat offset = (CGFloat) (stacked ? offsetPosition - rowHeight/4 : offsetPosition);
         view.contentInset = (UIEdgeInsets) {
                 .top = offset
         };
