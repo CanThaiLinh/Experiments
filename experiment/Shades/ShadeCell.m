@@ -1,6 +1,5 @@
 #import "ShadeCell.h"
 #import "SpotData.h"
-#import "Colors.h"
 #import "SpotDataColors.h"
 
 @implementation ShadeCell
