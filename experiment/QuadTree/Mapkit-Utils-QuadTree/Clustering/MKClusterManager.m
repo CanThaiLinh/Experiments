@@ -124,4 +124,8 @@
     [self mapView:self.mapView didSelectAnnotationView:[self.mapView viewForAnnotation:[self.renderer markerForSpot:spot]]];
 }
 
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    [self selectSpot:self.spotToSelectOnLoad];
+}
+
 @end

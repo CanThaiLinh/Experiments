@@ -23,6 +23,8 @@
 
 @property(nonatomic, strong) NSObject <MKMapViewDelegate> *mapViewDelegate;
 
+@property(nonatomic, strong) Spot *spotToSelectOnLoad;
+
 - (instancetype)initWithMapView:(MKMapView *)mapView algorithm:(id <GClusterAlgorithm>)algorithm renderer:(id <MKClusterRenderer>)renderer;
 
 - (void)addItem:(id <GClusterItem>)item;
@@ -30,4 +32,5 @@
 - (void)cluster;
 
 - (void)selectSpot:(Spot *)spot;
+
 @end

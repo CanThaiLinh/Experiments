@@ -75,7 +75,8 @@ const int MAX_ZOOM_LEVEL = 21;
         for (Spot *spot in data) {
             [self.clusterManager addItem:spot];
         }
-        [[self clusterManager] cluster];
+        self.clusterManager.spotToSelectOnLoad = data[0];
+        [self.clusterManager cluster];
         [self.scrollView buildCards:data];
     }              failure:^{
         [self handleErrorResponse];
