@@ -35,9 +35,10 @@
                                     <constraint firstAttribute="centerX" secondItem="BGj-Ud-UeV" secondAttribute="centerX" id="vh0-0Q-2w7"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8W-LE-1YR">
-                                <rect key="frame" x="8" y="8" width="73" height="30"/>
-                                <state key="normal" title="Locate Me">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8W-LE-1YR">
+                                <rect key="frame" x="8" y="8" width="115" height="24"/>
+                                <state key="normal" title=" Locate Me" image="193-location-arrow.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -72,6 +73,9 @@
             <point key="canvasLocation" x="-28" y="40"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="193-location-arrow.png" width="24" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
