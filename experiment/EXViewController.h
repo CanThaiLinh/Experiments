@@ -16,4 +16,5 @@
 @property(strong, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) BOOL hasFoundInitialLocation;
 @property(nonatomic, strong) MKClusterManager *clusterManager;
+@property(nonatomic) BOOL hasSelectedFirstSpot;
 @end

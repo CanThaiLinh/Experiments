@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -34,17 +35,28 @@
                                     <constraint firstAttribute="centerX" secondItem="BGj-Ud-UeV" secondAttribute="centerX" id="vh0-0Q-2w7"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8W-LE-1YR">
+                                <rect key="frame" x="8" y="8" width="73" height="30"/>
+                                <state key="normal" title="Locate Me">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="locateMeButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vI1-oe-g6d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="81H-MJ-hY0" secondAttribute="centerX" id="595-xP-oii"/>
                             <constraint firstAttribute="centerX" secondItem="Hvg-8O-Dtg" secondAttribute="centerX" id="9ba-pC-3iI"/>
                             <constraint firstAttribute="height" secondItem="Hvg-8O-Dtg" secondAttribute="height" id="Qge-Xq-GP4"/>
+                            <constraint firstItem="l8W-LE-1YR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-8" id="Tel-Qm-dnq"/>
                             <constraint firstAttribute="centerY" secondItem="Hvg-8O-Dtg" secondAttribute="centerY" id="f8F-5D-bpM"/>
                             <constraint firstAttribute="centerY" secondItem="81H-MJ-hY0" secondAttribute="centerY" id="hgx-nA-Bzo"/>
                             <constraint firstItem="81H-MJ-hY0" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="jaw-ri-avN"/>
                             <constraint firstItem="81H-MJ-hY0" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="lPo-LQ-JZE"/>
                             <constraint firstAttribute="width" secondItem="Hvg-8O-Dtg" secondAttribute="width" id="nPN-gH-JMG"/>
+                            <constraint firstItem="l8W-LE-1YR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-12" id="sHs-MZ-3hn"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

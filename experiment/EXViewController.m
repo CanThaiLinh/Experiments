@@ -75,7 +75,11 @@ const int MAX_ZOOM_LEVEL = 21;
         for (Spot *spot in data) {
             [self.clusterManager addItem:spot];
         }
-        self.clusterManager.spotToSelectOnLoad = data[0];
+        if(!self.hasSelectedFirstSpot){
+            self.hasSelectedFirstSpot = YES;
+            self.clusterManager.spotToSelectOnLoad = data[0];
+        }
+
         [self.clusterManager cluster];
         [self.scrollView buildCards:data];
     }              failure:^{
@@ -132,6 +136,9 @@ const int MAX_ZOOM_LEVEL = 21;
                                          attribute:NSLayoutAttributeHeight
                                         multiplier:1
                                           constant:0]];
+}
+- (IBAction)locateMeButtonTapped:(id)sender {
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate animated:YES];
 }
 
 //Debug, show error
